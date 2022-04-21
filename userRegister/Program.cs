@@ -1,6 +1,6 @@
 namespace userRegister
 {
-    class Programm
+    class Program
     {
         static void Main(string[] args)
         {

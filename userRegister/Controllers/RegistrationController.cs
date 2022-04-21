@@ -11,7 +11,7 @@ namespace userRegister.Controllers
         public IEnumerable<string> Get()
         {
             var val = new string[] { "value1", "value2" };
-            Response.Headers.Add("Access-Control-Allow-Origin", "20");
+            Response.Headers.Add("Access-Control-Allow-Origin: *", "20");
             return val;
         }
 
