@@ -42,12 +42,10 @@ namespace userRegister.Controllers
             //Adding user to DB or error
             if (UserCheck(collection, user.Login))
             {
-                collection.InsertOne(us);
-                Console.WriteLine("Ok");
+//                collection.InsertOne(us);
                 return Ok();
             } else
             {
-                Console.WriteLine("Error");
                 return Conflict(user.Login);
             }            
         }
