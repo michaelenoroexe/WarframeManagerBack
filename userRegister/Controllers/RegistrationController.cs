@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Specialized;
 using Newtonsoft.Json;
+using MongoDB.Driver;
+using MongoDB.Bson;
 //JSON
 using System.Web;
 
@@ -16,39 +18,38 @@ namespace userRegister.Controllers
     [ApiController]
     public class RegistrationController : ControllerBase
     {
-        // GET: api/<RegistrationController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {            
-            return new string[] { "value1", "value2" };
-        }
+        static MongoClient client = new MongoClient("mongodb+srv://warframe_manager_user:H9guvYhcVtWk5z25@warframemanagercluster.jvusw.mongodb.net/WarframeManager?retryWrites=true&w=majority");
+        static IMongoDatabase db = client.GetDatabase("WarframeManager");
 
-        // GET api/<RegistrationController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        //Checking database for existing usename
+        static bool UserCheck(IMongoCollection<BsonDocument> col, string us)
         {
-            return "value";
+            BsonDocument userlogin = new Dictionary<string, string>() { { "Login", us } }.ToBsonDocument();
+            //userlogin.AddRange(new Dictionary<string, string>({ "Login", us }));            
+            List<BsonDocument> ans = col.Find(userlogin).Limit(1).ToList();
+            if (ans.Count == 0) return true;
+            if (ans.Count == 1) return false;
+            if (ans.Count > 1 | ans.Count < 0) throw new IndexOutOfRangeException();
+            return false;
         }
 
         // POST api/<RegistrationController>
         [HttpPost]
-        public string Post([FromBody] User user)
+        public ActionResult Post([FromBody] User user)
         {
-//            string[] js = JsonConvert.DeserializeObject<JsonReader>(us);
-//            string[] user = JsonReader(us);
-            return user.Login;
-        }
-
-        // PUT api/<RegistrationController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<RegistrationController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var us = user.ToBsonDocument();
+            var collection = db.GetCollection<BsonDocument>("Users");
+            //Adding user to DB or error
+            if (UserCheck(collection, user.Login))
+            {
+                collection.InsertOne(us);
+                Console.WriteLine("Ok");
+                return Ok();
+            } else
+            {
+                Console.WriteLine("Error");
+                return Conflict(user.Login);
+            }            
         }
     }
 }
