@@ -7,6 +7,7 @@ using MongoDB.Bson;
 using System.Web;
 using API.Models;
 using API.Repositories;
+using API.Controllers;
 
 namespace API.Controllers
 {
@@ -15,8 +16,7 @@ namespace API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        static MongoClient client = new MongoClient("mongodb+srv://warframe_manager_user:H9guvYhcVtWk5z25@warframemanagercluster.jvusw.mongodb.net/WarframeManager?retryWrites=true&w=majority");
-        static IMongoDatabase db = client.GetDatabase("WarframeManager");
+        static IMongoDatabase db = DBClient.db;
 
 
         //Checking database for existing usename
