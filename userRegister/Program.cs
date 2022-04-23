@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace userRegister
+namespace API
 {
 
 
@@ -10,7 +10,7 @@ namespace userRegister
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(); // добавляем сервисы CORS
+            services.AddCors(); // Adding CORS Secvices
         }
 
         static void Main(string[] args)
@@ -29,7 +29,7 @@ namespace userRegister
 
             app.UseRouting();
 
-            // подключаем CORS
+            // Allowing CORS
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();
