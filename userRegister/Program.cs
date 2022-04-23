@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Driver;
+using API.Repositories;
+using API.Models;
 
 namespace API
 {
@@ -8,6 +11,7 @@ namespace API
 
     class Program
     {
+        static IMongoDatabase db = DBClient.db;
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(); // Adding CORS Secvices
@@ -15,7 +19,7 @@ namespace API
 
         static void Main(string[] args)
         {
-
+            Console.WriteLine(db);
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
