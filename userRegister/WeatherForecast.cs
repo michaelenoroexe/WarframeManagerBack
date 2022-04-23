@@ -1,4 +1,4 @@
-namespace userRegister
+namespace API
 {
     public class WeatherForecast
     {

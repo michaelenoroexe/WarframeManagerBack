@@ -5,21 +5,19 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 //JSON
 using System.Web;
+using API.Models;
+using API.Repositories;
 
-namespace userRegister.Controllers
+namespace API.Controllers
 {
-    public class User
-    {
-        public string Login { get; set; }
-        public string Password { get; set; }
-    }
 
-    [Route("api/[controller]")]
+//    [Route("api/registration")]
     [ApiController]
-    public class RegistrationController : ControllerBase
+    public class UserController : ControllerBase
     {
         static MongoClient client = new MongoClient("mongodb+srv://warframe_manager_user:H9guvYhcVtWk5z25@warframemanagercluster.jvusw.mongodb.net/WarframeManager?retryWrites=true&w=majority");
         static IMongoDatabase db = client.GetDatabase("WarframeManager");
+
 
         //Checking database for existing usename
         static bool UserCheck(IMongoCollection<BsonDocument> col, string us)
@@ -34,8 +32,8 @@ namespace userRegister.Controllers
         }
 
         // POST api/<RegistrationController>
-        [HttpPost]
-        public ActionResult Post([FromBody] User user)
+        [HttpPost("api/registration")]
+        public async Task<ActionResult> Post([FromBody] User user)
         {
             var us = user.ToBsonDocument();
             var collection = db.GetCollection<BsonDocument>("Users");
