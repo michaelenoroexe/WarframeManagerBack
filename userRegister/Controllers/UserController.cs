@@ -32,7 +32,8 @@ namespace API.Controllers
             //Adding user to DB or error
             if (_userRepository.UserCheck(user.Login))
             {
-//                collection.InsertOne(us);
+                
+                //await _userRepository._userCollection.InsertOneAsync(user);
                 return Ok();
             }
 
