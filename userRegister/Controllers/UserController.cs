@@ -7,6 +7,7 @@ using MongoDB.Bson;
 using System.Web;
 using API.Models;
 using API.Repositories;
+using API.Controllers;
 
 namespace API.Controllers
 {
@@ -15,20 +16,11 @@ namespace API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        static MongoClient client = new MongoClient("mongodb+srv://warframe_manager_user:H9guvYhcVtWk5z25@warframemanagercluster.jvusw.mongodb.net/WarframeManager?retryWrites=true&w=majority");
-        static IMongoDatabase db = client.GetDatabase("WarframeManager");
+        static UserRepository _userRepository;
 
-
-        //Checking database for existing usename
-        static bool UserCheck(IMongoCollection<BsonDocument> col, string us)
+        public UserController ()
         {
-            BsonDocument userlogin = new Dictionary<string, string>() { { "Login", us } }.ToBsonDocument();
-            //userlogin.AddRange(new Dictionary<string, string>({ "Login", us }));            
-            List<BsonDocument> ans = col.Find(userlogin).Limit(1).ToList();
-            if (ans.Count == 0) return true;
-            if (ans.Count == 1) return false;
-            if (ans.Count > 1 | ans.Count < 0) throw new IndexOutOfRangeException();
-            return false;
+            _userRepository = new UserRepository();
         }
 
         // POST api/<RegistrationController>
@@ -36,9 +28,8 @@ namespace API.Controllers
         public async Task<ActionResult> Post([FromBody] User user)
         {
             var us = user.ToBsonDocument();
-            var collection = db.GetCollection<BsonDocument>("Users");
             //Adding user to DB or error
-            if (UserCheck(collection, user.Login))
+            if (_userRepository.UserCheck(user.Login))
             {
 //                collection.InsertOne(us);
                 return Ok();
