@@ -27,16 +27,16 @@ namespace API.Controllers
         [HttpPost("api/registration")]
         public async Task<ActionResult> Post([FromBody] User user)
         {
-            var us = user.ToBsonDocument();
+            if (!await _userRepository.DataValidationAsync(user.Login)) return BadRequest("Invalid Login");
+            if (!await _userRepository.DataValidationAsync(user.Password)) return BadRequest("Invalid Password");
             //Adding user to DB or error
             if (_userRepository.UserCheck(user.Login))
             {
 //                collection.InsertOne(us);
                 return Ok();
-            } else
-            {
-                return Conflict(user.Login);
-            }            
+            }
+
+            return Conflict(user.Login);           
         }
     }
 }

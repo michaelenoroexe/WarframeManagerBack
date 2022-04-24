@@ -16,7 +16,10 @@ namespace API.Repositories
 
         public async Task<bool> DataValidationAsync(string data)
         {
-
+            string validsymb = @"1234567890qwertyuiopasdfghjklzxcvbnm!#$%&()*+,-./;<=>?@[\]^_{|}~";
+            string datalover = data.ToLower();
+            if (datalover.Except(validsymb).Count() > 0) return false;
+            if (datalover.Length < 4 || datalover.Length >32) return false;
             return true;
         }
 
