@@ -14,6 +14,12 @@ namespace API.Repositories
             _userCollection = DBClient.db.GetCollection<User>("Users");
         }
 
+        public async Task<bool> DataValidationAsync(string data)
+        {
+
+            return true;
+        }
+
         //Checking database for existing usename
         public bool UserCheck(string us)
         {
