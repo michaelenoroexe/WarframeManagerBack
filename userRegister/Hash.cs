@@ -17,13 +17,17 @@ namespace API
             new RNGCryptoServiceProvider().GetNonZeroBytes(salt = new byte[SaltSize]);
 
             // derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
-            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            byte[] hashed = GetBytes(KeyDerivation.Pbkdf2(
                 password: password,
                 salt: salt,
                 prf: KeyDerivationPrf.HMACSHA256,
                 iterationCount: iterationCount,
                 numBytesRequested: HashSize));
-            return hashed;
+            var hashBytes = new byte[SaltSize + HashSize];
+            Array.Copy(salt, 0, hashBytes, 0, SaltSize);
+            Array.Copy(hashed, 0, hashBytes, SaltSize, HashSize);
+
+            return Convert.ToBase64String(hashBytes);
         }
 
         public static bool Verify(string password, string hashedPassword)
@@ -33,7 +37,7 @@ namespace API
             var salt = new byte[SaltSize];
 
             Array.Copy(hashBytes, 0, salt, 0, SaltSize);
-            string toCheckHashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            byte[] toCheckHashed = GetBytes(KeyDerivation.Pbkdf2(
                 password: password,
                 salt: salt,
                 prf: KeyDerivationPrf.HMACSHA256,
