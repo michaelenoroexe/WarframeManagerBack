@@ -26,7 +26,7 @@ namespace API
             var hashBytes = new byte[SaltSize + HashSize];
             Array.Copy(salt, 0, hashBytes, 0, SaltSize);
             Array.Copy(hashed, 0, hashBytes, SaltSize, HashSize);
-            
+
             return Convert.ToBase64String(hashBytes);
         }
 
@@ -37,7 +37,7 @@ namespace API
             var salt = new bytes[SaltSize];
 
             Array.Copy(hashBytes, 0, salt, 0, SaltSize);
-            string toCheckHashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            byte[] toCheckHashed = GetBytes(KeyDerivation.Pbkdf2(
                 password: password,
                 salt: salt,
                 prf: KeyDerivationPrf.HMACSHA256,
