@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace API
 {
-    public static class Program
+    public static class Hash
     {
         private const int SaltSize = 16;
         private const int iterationCount = 100000;
@@ -30,7 +30,7 @@ namespace API
         {
             var hashBytes = Convert.FromBase64String(hashedPassword);
 
-            var salt = new bytes[SaltSize];
+            var salt = new byte[SaltSize];
 
             Array.Copy(hashBytes, 0, salt, 0, SaltSize);
             string toCheckHashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
@@ -38,8 +38,10 @@ namespace API
                 salt: salt,
                 prf: KeyDerivationPrf.HMACSHA256,
                 iterationCount: iterationCount,
-                numBytesRequested = HashSize));
-            return hashBytes == toCheckHashed;
+                numBytesRequested: HashSize));
+
+            string hashBytesString = string.Join("",hashBytes.Select((val)=>val.ToString()).ToArray());
+            return hashBytesString == toCheckHashed;
         }
     }
 }
