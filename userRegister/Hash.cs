@@ -17,7 +17,7 @@ namespace API
             new RNGCryptoServiceProvider().GetNonZeroBytes(salt = new byte[SaltSize]);
 
             // derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
-            byte[] hashed = GetBytes(KeyDerivation.Pbkdf2(
+            byte[] hashed =  (KeyDerivation.Pbkdf2(
                 password: password,
                 salt: salt,
                 prf: KeyDerivationPrf.HMACSHA256,
