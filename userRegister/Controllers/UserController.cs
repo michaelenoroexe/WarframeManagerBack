@@ -8,7 +8,7 @@ using System.Web;
 using API.Models;
 using API.Repositories;
 using API.Controllers;
-
+using API;
 namespace API.Controllers
 {
 
@@ -32,7 +32,7 @@ namespace API.Controllers
             //Adding user to DB or error
             if (_userRepository.UserCheck(user.Login))
             {
-                
+                user.Password = Hash.HashString(user.Password);
                 //await _userRepository._userCollection.InsertOneAsync(user);
                 return Ok();
             }
