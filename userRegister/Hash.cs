@@ -12,7 +12,7 @@ namespace API
         public static string HashString(string password)
         {
             byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[SaltSize]);
+            new RandomNumberGenerator().GetBytes(salt = new byte[SaltSize]);
 
             var pbkdf2 = new Rfc2898DeriveBytes(password, salt, Iterations);
             var hash = pbkdf2.GetBytes(HashSize);
