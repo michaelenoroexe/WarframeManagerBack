@@ -33,7 +33,7 @@ namespace API.Controllers
             if (_userRepository.UserCheck(user.Login))
             {
                 user.Password = Hash.HashString(user.Password);
-                //await _userRepository._userCollection.InsertOneAsync(user);
+                await _userRepository._userCollection.InsertOneAsync(user);
                 return Ok();
             }
 
