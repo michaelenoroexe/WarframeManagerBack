@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Specialized;
-using Newtonsoft.Json;
 using MongoDB.Driver;
 using MongoDB.Bson;
 //JSON
@@ -27,33 +26,49 @@ namespace API.Controllers
         [HttpPost("api/registration")]
         public async Task<ActionResult> UserRegister([FromBody] User user)
         {
-            if (!await _userRepository.DataValidationAsync(user.Login)) return BadRequest("Invalid Login");
-            if (!await _userRepository.DataValidationAsync(user.Password)) return BadRequest("Invalid Password");
-            //Adding user to DB or error
-            if (_userRepository.UserCheck(user.Login))
+            try
             {
-                user.Password = Hash.HashString(user.Password);
-                //await _userRepository._userCollection.InsertOneAsync(user);
-                return Ok();
+                //Checking user input on data validation
+                if (!_userRepository.DataValidation(user.Login)) throw new Exception("Invalid Login");
+                if (!_userRepository.DataValidation(user.Password)) throw new Exception("Invalid Password");
+                //Adding user to DB or error
+                var ans = await _userRepository.AddUserAsync(user);
+                
+                if (ans.Success) return Ok(ans);
+                throw new Exception(ans.ErrorMessage);
             }
-
-            return Conflict(user.Login);           
+            catch (Exception ex)
+            {
+                if (ex.Message == "Invalid Login" 
+                    || ex.Message == "Invalid Password") return BadRequest(ex.Message);
+                if (ex.Message == "A user with the given login already exists.")
+                    return Conflict(ex.Message);
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("api/signin")]
         public async Task<ActionResult> UserSignIn([FromBody] User user)
         {
-            if (!await _userRepository.DataValidationAsync(user.Login)) return BadRequest("Invalid Login");
-            if (!await _userRepository.DataValidationAsync(user.Password)) return BadRequest("Invalid Password");
-            //Adding user to DB or error
-            if (_userRepository.UserCheck(user.Login))
+            try
             {
-                user.Password = Hash.HashString(user.Password);
-                //await _userRepository._userCollection.InsertOneAsync(user);
-                return Ok();
-            }
+                //Checking user input on data validation
+                if (!_userRepository.DataValidation(user.Login)) throw new Exception("Invalid Login");
+                if (!_userRepository.DataValidation(user.Password)) throw new Exception("Invalid Password");
+                //Adding user to DB or error
+                var ans = await _userRepository.AddUserAsync(user);
 
-            return Conflict(user.Login);
+                if (ans.Success) return Ok(ans);
+                throw new Exception(ans.ErrorMessage);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "Invalid Login"
+                    || ex.Message == "Invalid Password") return BadRequest(ex.Message);
+                if (ex.Message == "A user with the given login already exists.")
+                    return Conflict(ex.Message);
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
