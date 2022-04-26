@@ -21,8 +21,6 @@ namespace API
         static void Main(string[] args)
         {
             Console.WriteLine(db);
-            string hashedString = Hash.HashString("DimaLGPF");
-            bool test = Hash.Verify("DimaLGPF", hashedString);
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.

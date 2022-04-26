@@ -25,7 +25,7 @@ namespace API.Controllers
 
         // POST api/<RegistrationController>
         [HttpPost("api/registration")]
-        public async Task<ActionResult> Post([FromBody] User user)
+        public async Task<ActionResult> UserRegister([FromBody] User user)
         {
             if (!await _userRepository.DataValidationAsync(user.Login)) return BadRequest("Invalid Login");
             if (!await _userRepository.DataValidationAsync(user.Password)) return BadRequest("Invalid Password");
@@ -38,6 +38,22 @@ namespace API.Controllers
             }
 
             return Conflict(user.Login);           
+        }
+
+        [HttpPost("api/signin")]
+        public async Task<ActionResult> UserSignIn([FromBody] User user)
+        {
+            if (!await _userRepository.DataValidationAsync(user.Login)) return BadRequest("Invalid Login");
+            if (!await _userRepository.DataValidationAsync(user.Password)) return BadRequest("Invalid Password");
+            //Adding user to DB or error
+            if (_userRepository.UserCheck(user.Login))
+            {
+                user.Password = Hash.HashString(user.Password);
+                //await _userRepository._userCollection.InsertOneAsync(user);
+                return Ok();
+            }
+
+            return Conflict(user.Login);
         }
     }
 }
