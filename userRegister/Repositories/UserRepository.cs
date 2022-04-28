@@ -41,6 +41,7 @@ namespace API.Repositories
                 user = new User();
                 user.Login = us.Login;
                 user.Password = Hash.HashString(us.Password);
+                await _userCollection.WithWriteConcern(new WriteConcern(1)).InsertOneAsync(user);
                 return new UserResponse(user);
                 throw new Exception("Unknown Error");
             }
