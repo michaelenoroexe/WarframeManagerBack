@@ -11,7 +11,7 @@ using API;
 namespace API.Controllers
 {
 
-//    [Route("api/registration")]
+    [Route("")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -56,7 +56,7 @@ namespace API.Controllers
                 if (!_userRepository.DataValidation(user.Login)) throw new Exception("Invalid Login");
                 if (!_userRepository.DataValidation(user.Password)) throw new Exception("Invalid Password");
                 //Adding user to DB or error
-                var ans = await _userRepository.AddUserAsync(user);
+                var ans = await _userRepository.LoginUserAsync(user);
 
                 if (ans.Success) return Ok(ans);
                 throw new Exception(ans.ErrorMessage);

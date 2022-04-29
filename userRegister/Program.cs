@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,38 +13,15 @@ namespace API
 
     class Program
     {
-        static IMongoDatabase db = DBClient.db;
-        public void ConfigureServices(IServiceCollection services)
+        public static void Main(string[] args)
         {
-            services.AddCors(); // Adding CORS Secvices
+            CreateWebHostBuilder(args).Build().Run();
         }
 
-        static void Main(string[] args)
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
-            Console.WriteLine(db);
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            app.UseDeveloperExceptionPage();
-
-            app.UseRouting();
-
-            // Allowing CORS
-            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
-            app.UseHttpsRedirection();
-            
-            app.UseAuthorization();
-
-            app.MapControllers();
-
-            app.Run();
+            return WebHost.CreateDefaultBuilder(args).UseStartup<Startup>();
         }
+
     }
 }

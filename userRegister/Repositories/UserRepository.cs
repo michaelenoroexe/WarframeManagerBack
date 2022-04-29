@@ -1,5 +1,6 @@
 ﻿using API.Models;
 using API.Models.Responses;
+using Microsoft.Extensions.Options;
 using API.Repositories;
 using MongoDB.Driver;
 using MongoDB.Bson;
@@ -8,20 +9,29 @@ namespace API.Repositories
 {
     public class UserRepository
     {
+        private readonly IOptions<JwtAuthentication> _jwtAuthentication;
         public readonly IMongoCollection<User> _userCollection;
         public UserRepository()
         {
             _userCollection = DBClient.db.GetCollection<User>("Users");
+//_jwtAuthentication = jwtAuthentication ?? throw new ArgumentNullException(nameof(jwtAuthentication));
         }
         // Function that confirm validation of user input data.
         public bool DataValidation(string data)
         {
-            string validsymb = @"1234567890qwertyuiopasdfghjklzxcvbnm!#$%&()*+,-./;<=>?@[\]^_{|}~";
-            string datalower = data.ToLower();
-            if (!char.IsLetter(datalower[0])) return false;
-            if (datalower.Except(validsymb).Count() > 0) return false;
-            if (datalower.Length < 4 || datalower.Length >32) return false;
-            return true;
+            try
+            {
+                string validsymb = @"1234567890qwertyuiopasdfghjklzxcvbnm!#$%&()*+,-./;<=>?@[\]^_{|}~";
+                string datalower = data.ToLower();
+                if (!char.IsLetter(datalower[0])) return false;
+                if (datalower.Except(validsymb).Count() > 0) return false;
+                if (datalower.Length < 4 || datalower.Length > 32) return false;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         // Finding single user, when 0 = null, if users more than one = exeption.
@@ -60,6 +70,7 @@ namespace API.Repositories
             {
                 User? user = await FindUserAsync(us.Login);
                 if (user == null || !Hash.Verify(us.Password, user.Password)) throw new Exception("Wrong Login or Password!");
+
                 return new UserResponse(user);
                 throw new Exception("Unknown Error");
             }

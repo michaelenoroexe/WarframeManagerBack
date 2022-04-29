@@ -31,7 +31,7 @@ namespace APITests
 
             // Invalid data check
             string[] wdata = { @"hi", @"Привет", @"User incorrect"                           
-                               ,@"1ih", @"/is\", @"/@happy@/"
+                               ,@"1ih", @"/is\", @"/@happy@/", @""
                                ,@"hihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihi" };
             foreach (string data in wdata)
             Assert.IsTrue(!checkData(data), data);
