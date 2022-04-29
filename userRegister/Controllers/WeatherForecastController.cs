@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
@@ -28,6 +29,14 @@ namespace API.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [HttpGet("test")]
+        public string TestGet()
+        {
+
+            return "Hi";
         }
     }
 }
