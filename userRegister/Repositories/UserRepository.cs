@@ -9,7 +9,6 @@ namespace API.Repositories
 {
     public class UserRepository
     {
-        private readonly IOptions<JwtAuthentication> _jwtAuthentication;
         public readonly IMongoCollection<User> _userCollection;
         public UserRepository()
         {
@@ -71,7 +70,7 @@ namespace API.Repositories
                 User? user = await FindUserAsync(us.Login);
                 if (user == null || !Hash.Verify(us.Password, user.Password)) throw new Exception("Wrong Login or Password!");
 
-                return new UserResponse(user);
+                return new UserResponse(true, JwtAuthentication.GenerateToken(user));
                 throw new Exception("Unknown Error");
             }
             catch (Exception ex)

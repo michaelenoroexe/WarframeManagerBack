@@ -33,14 +33,31 @@ namespace API
 
             //JwtAuth
             //services.AddSingleton<IPostConfigureOptions<JwtBearerOptions>, ConfigureJwtBearerOptions>();
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.RequireHttpsMetadata = true;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        // укзывает, будет ли валидироваться издатель при валидации токена
+                        ValidateActor = true,
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = JwtAuthentication.ValidIssuer,
+                        ValidAudience = JwtAuthentication.ValidAudience,
+                        IssuerSigningKey = JwtAuthentication.SymmetricSecurityKey,
+                        NameClaimType = ClaimTypes.NameIdentifier
+                    };
+                });
         }
 
         public void Configure(IApplicationBuilder app)
         {
             Console.WriteLine(db);
             // Configure the HTTP request pipeline.
-            app.UseDeveloperExceptionPage();       
+            app.UseDeveloperExceptionPage();
             app.UseRouting();
 
             // Allowing CORS
