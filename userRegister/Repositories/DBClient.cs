@@ -8,8 +8,16 @@ namespace API.Repositories
         public static IMongoDatabase db { get; set; }
 
         static DBClient()
-        {
-            MongoClient = new MongoClient("mongodb+srv://warframe_manager_user:H9guvYhcVtWk5z25@warframemanagercluster.jvusw.mongodb.net/WarframeManager?retryWrites=true&w=majority");
+        {                
+            string? MongoURL = Environment.GetEnvironmentVariable("MongoClientUrl");
+            if (MongoURL == null ){
+                MongoURL = "mongodb+srv://warframe_manager_user:H9guvYhcVtWk5z25@warframemanagercluster.jvusw.mongodb.net/WarframeManager?retryWrites=true&w=majority";
+            }else{
+                // string MongoUser = Environment.GetEnvironmentVariable("MONGO_USER");
+                // string MongoPass = Environment.GetEnvironmentVariable("MONGO_PASS");
+                MongoURL = Environment.GetEnvironmentVariable("MongoClientUrl");
+            }
+            MongoClient = new MongoClient(MongoURL);
             db = MongoClient.GetDatabase("WarframeManager");
         }
     }
