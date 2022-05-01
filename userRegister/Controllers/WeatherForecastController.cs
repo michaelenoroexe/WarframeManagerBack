@@ -1,4 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.IdentityModel.Tokens.Jwt;
+using API;
+using API.Models;
 
 namespace API.Controllers
 {
@@ -28,6 +32,13 @@ namespace API.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [HttpGet("test")]
+        public async Task<User> TestGet()
+        {
+            return await JwtAuthentication.GetUserFromTokenAsync(Request);
         }
     }
 }

@@ -19,21 +19,22 @@ namespace APITests
         }
         // Test that method work normaly with valid data.
         [Test]
-        public async Task DataValidationAsyncTest()
+        public void DataValidationAsyncTest()
         {
-            var checkData = _userRepository.DataValidationAsync;
+            var checkData = _userRepository.DataValidation;
             // Valid data check
-            string[] cdata = { @"dima", @"misha", @"vladimir", @"/@happy@/",
-                               @"!#$%&()*+,-./;<=>?@[\]^_{|}~", };
+            string[] cdata = { @"dima", @"misha", @"vladimir"
+                               ,"a<script>alert(1)</script>"
+                               ,@"q!#$%&()*+,-./;<=>?@[\]^_{|}~", };
             foreach (string data in cdata)
-            Assert.IsTrue(await checkData(data), data);
+            Assert.IsTrue(checkData(data), data);
 
             // Invalid data check
-            string[] wdata = { @"hi", @"Привет", @"User incorrect" 
+            string[] wdata = { @"hi", @"Привет", @"User incorrect"                           
+                               ,@"1ih", @"/is\", @"/@happy@/", @""
                                ,@"hihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihi" };
             foreach (string data in wdata)
-            Assert.IsTrue(!await checkData(data), data);   
-
+            Assert.IsTrue(!checkData(data), data);
         }
 
     }
