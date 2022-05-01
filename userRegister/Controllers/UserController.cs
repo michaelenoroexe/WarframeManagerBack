@@ -11,7 +11,7 @@ using API;
 namespace API.Controllers
 {
 
-    [Route("")]
+    [Route("api")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -23,7 +23,7 @@ namespace API.Controllers
         }
 
         // POST api/<RegistrationController>
-        [HttpPost("api/registration")]
+        [HttpPost("registration")]
         public async Task<ActionResult> UserRegister([FromBody] User user)
         {
             try
@@ -47,7 +47,7 @@ namespace API.Controllers
             }
         }
 
-        [HttpPost("api/signin")]
+        [HttpPost("signin")]
         public async Task<ActionResult> UserSignIn([FromBody] User user)
         {
             try
