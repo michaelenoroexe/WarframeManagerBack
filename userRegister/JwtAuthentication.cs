@@ -2,6 +2,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using API.Models;
+using API.Repositories;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -29,6 +30,31 @@ namespace API
                 signingCredentials: SigningCredentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        private static string GetUserLoginFromToken(HttpRequest request)
+        {
+            var bearer =
+                request.Headers.ToArray().First(h => h.Key == "Authorization")
+                    .Value.First().Substring(7);
+
+            var jwtHandler = new JwtSecurityTokenHandler();
+            var readableToken = jwtHandler.CanReadToken(bearer);
+            if (readableToken != true) return "Error: No bearer in the header";
+
+            var token = jwtHandler.ReadJwtToken(bearer);
+            var claims = token.Claims;
+
+            var userLoginClaim = claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.UniqueName);
+
+            return userLoginClaim == null ? "Error: Token does not contain an Login claim." : userLoginClaim.Value;
+        }
+
+        public static async Task<User> GetUserFromTokenAsync(HttpRequest request)
+        {
+            var _userRepository = new UserRepository();
+            var login = GetUserLoginFromToken(request);
+            return await _userRepository.FindUserAsync(login);
         }
     }
 }
