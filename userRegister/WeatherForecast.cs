@@ -1,5 +1,6 @@
 namespace API
 {
+    // Temporary class for testing purposes 
     public class WeatherForecast
     {
         public DateTime Date { get; set; }

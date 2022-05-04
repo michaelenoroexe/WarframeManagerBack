@@ -20,12 +20,8 @@ namespace API
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
-            Console.WriteLine(db);
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-
+            // Using startup to configure application parameters
+            return WebHost.CreateDefaultBuilder(args).UseStartup<Startup>();
+        }
     }
 }

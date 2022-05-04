@@ -10,7 +10,7 @@ using API.Controllers;
 using API;
 namespace API.Controllers
 {
-
+    // Control users requests about accounts 
     [Route("api")]
     [ApiController]
     public class UserController : ControllerBase
@@ -22,7 +22,7 @@ namespace API.Controllers
             _userRepository = new UserRepository();
         }
 
-        // POST api/<RegistrationController>
+        // Controller that process user registration requests
         [HttpPost("registration")]
         public async Task<ActionResult> UserRegister([FromBody] User user)
         {
@@ -39,6 +39,7 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
+                // Return error to clien if something goes wrong
                 if (ex.Message == "Invalid Login" 
                     || ex.Message == "Invalid Password") return BadRequest(ex.Message);
                 if (ex.Message == "A user with the given login already exists.")
@@ -46,7 +47,7 @@ namespace API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        // Controller that process user login in requests
         [HttpPost("signin")]
         public async Task<ActionResult> UserSignIn([FromBody] User user)
         {
@@ -55,7 +56,7 @@ namespace API.Controllers
                 //Checking user input on data validation
                 if (!_userRepository.DataValidation(user.Login)) throw new Exception("Invalid Login");
                 if (!_userRepository.DataValidation(user.Password)) throw new Exception("Invalid Password");
-                //Adding user to DB or error
+                //Adding creating JST tocken and send it back to user
                 var ans = await _userRepository.LoginUserAsync(user);
 
                 if (ans.Success) return Ok(ans);
@@ -63,6 +64,7 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
+                // Return error to clien if something goes wrong
                 if (ex.Message == "Invalid Login"
                     || ex.Message == "Invalid Password") return BadRequest(ex.Message);
                 if (ex.Message == "A user with the given login already exists.")

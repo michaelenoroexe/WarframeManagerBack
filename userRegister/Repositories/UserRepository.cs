@@ -13,7 +13,6 @@ namespace API.Repositories
         public UserRepository()
         {
             _userCollection = DBClient.db.GetCollection<User>("Users");
-//_jwtAuthentication = jwtAuthentication ?? throw new ArgumentNullException(nameof(jwtAuthentication));
         }
         // Function that confirm validation of user input data.
         public bool DataValidation(string data)

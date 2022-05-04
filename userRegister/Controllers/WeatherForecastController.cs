@@ -6,6 +6,7 @@ using API.Models;
 
 namespace API.Controllers
 {
+    // Temporary controller for testing purposes 
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
