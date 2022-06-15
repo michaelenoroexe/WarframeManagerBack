@@ -12,7 +12,7 @@
     "userRegister": {
       "commandName": "Project",
       "launchBrowser": false,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api/weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

@@ -8,13 +8,13 @@ namespace API.Controllers
 {
     // Temporary controller for testing purposes 
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -39,7 +39,8 @@ namespace API.Controllers
         [HttpGet("test")]
         public async Task<User> TestGet()
         {
-            return await JwtAuthentication.GetUserFromTokenAsync(Request);
+            _logger.LogInformation("User try to log in");
+            return await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);            
         }
     }
 }

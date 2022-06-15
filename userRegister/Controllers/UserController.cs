@@ -16,10 +16,12 @@ namespace API.Controllers
     public class UserController : ControllerBase
     {
         static UserRepository _userRepository;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController ()
+        public UserController(ILogger<UserController> logger)
         {
             _userRepository = new UserRepository();
+            _logger = logger;
         }
 
         // Controller that process user registration requests

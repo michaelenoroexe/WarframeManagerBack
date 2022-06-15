@@ -11,7 +11,8 @@ using Microsoft.Extensions.Hosting;
 using MongoDB.Driver;
 using Newtonsoft.Json;
 using API.Repositories;
-
+using API.Logger;
+using System.Text.Json;
 
 namespace API
 {
@@ -27,8 +28,8 @@ namespace API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore().AddAuthorization();
-
+            services.AddMvcCore().AddAuthorization();              
+            services.AddLogging(conf => conf.AddLog(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")));
             services.AddCors(); // Adding CORS Secvices
 
             //JwtAuth
@@ -53,11 +54,18 @@ namespace API
                 });
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             Console.WriteLine(db);
             // Configure the HTTP request pipeline.
-            app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseHsts();
+            }
             app.UseRouting();
 
             // Allowing CORS
@@ -65,8 +73,9 @@ namespace API
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

@@ -50,11 +50,12 @@ namespace API
             return userLoginClaim == null ? "Error: Token does not contain an Login claim." : userLoginClaim.Value;
         }
 
-        public static async Task<User> GetUserFromTokenAsync(HttpRequest request)
+        public static async Task<User> GetUserFromTokenAsync(string userName)
         {
             var _userRepository = new UserRepository();
-            var login = GetUserLoginFromToken(request);
-            return await _userRepository.FindUserAsync(login);
+            //var login = GetUserLoginFromToken(request);
+            var _login = userName;
+            return await _userRepository.FindUserAsync(_login);
         }
     }
 }
