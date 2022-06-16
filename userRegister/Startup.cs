@@ -40,7 +40,7 @@ namespace API
                     options.RequireHttpsMetadata = true;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        // укзывает, будет ли валидироваться издатель при валидации токена
+                        // Show pieces of validation tocken
                         ValidateActor = true,
                         ValidateIssuer = true,
                         ValidateAudience = true,

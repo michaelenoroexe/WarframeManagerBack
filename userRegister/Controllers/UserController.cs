@@ -68,9 +68,8 @@ namespace API.Controllers
             {
                 // Return error to clien if something goes wrong
                 if (ex.Message == "Invalid Login"
-                    || ex.Message == "Invalid Password") return BadRequest(ex.Message);
-                if (ex.Message == "A user with the given login already exists.")
-                    return Conflict(ex.Message);
+                    || ex.Message == "Invalid Password"
+                    || ex.Message == "Wrong Login or Password!") return BadRequest(ex.Message);
                 return StatusCode(500, "Server error");
             }
         }
