@@ -2,10 +2,11 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
+using API.Models.Interfaces;
 
 namespace API.Models
 {
-    public class Resource
+    public class Resource : IResource
     {
         [BsonElement("_id")]
         [JsonProperty("_id")]
