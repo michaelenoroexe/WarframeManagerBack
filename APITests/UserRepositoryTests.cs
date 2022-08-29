@@ -15,7 +15,7 @@ namespace APITests
         [SetUp]
         public void Setup()
         {
-            _userRepository = new UserRepository();
+            _userRepository = new UserRepository(true);
         }
         // Test that method work normaly with valid data.
         [Test]
