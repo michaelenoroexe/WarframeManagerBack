@@ -10,9 +10,12 @@ namespace API.Repositories
     public class UserRepository
     {
         public readonly IMongoCollection<User> _userCollection;
-        public UserRepository()
+        public UserRepository(bool test = false)
         {
-            _userCollection = DBClient.db.GetCollection<User>("Users");                      
+            if (!test)
+            {
+                _userCollection = DBClient.db.GetCollection<User>("Users");
+            }                                
         }
         // Function that confirm validation of user input data.
         public bool DataValidation(string data)

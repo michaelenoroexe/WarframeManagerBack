@@ -14,15 +14,15 @@ namespace API.Models
         public ObjectId Id { get; set; }
         [BsonElement("name")]
         public string Name { get; set; }
-        [BsonElement("location")]
-        public string? Location { get; set; }
+        [BsonElement("locations")]
+        public string[]? Location { get; set; }
         [BsonElement("type")]
-        public string Type { get; set; }
-        [BsonElement("mastery")]
-        public bool? Mastery { get; set; }
+        public string[] Type { get; set; }
+        [BsonElement("masterable")]
+        public bool Mastery { get; set; }
         
         public Resource() { }
-        public Resource(ObjectId id, string name, string type, string location="", bool mastery = false)
+        public Resource(ObjectId id, string name, string[] type, string[] location = null, bool mastery = false)
         {
             Id = id;
             Name = name;

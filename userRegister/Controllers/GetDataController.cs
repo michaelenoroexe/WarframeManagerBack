@@ -8,12 +8,20 @@ namespace API.Controllers
     [ApiController]
     public class GetDataController : ControllerBase
     {
-        // GET: api/<GetDataController>
-        [HttpGet]
-        public async Task<ActionResult> Get()
+        // GET: api/GetData/ResourcesList
+        [HttpGet("ResourcesList")]
+        public async Task<ActionResult> GetResourcesList()
         {
+            //Return full list of resources
             var ar = new GetDataRepository();
             return Ok(await ar.GetResourcesListAsync());
+        }
+
+        [HttpGet("ComponentsList")]
+        public async Task<ActionResult> GetComponentsList()
+        {
+            var ar = new GetDataRepository();
+            return Ok(await ar.GetComponentsListAsync());
         }
 
         // GET api/<GetDataController>/5

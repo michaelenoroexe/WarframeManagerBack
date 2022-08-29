@@ -10,6 +10,7 @@ using MongoDB.Driver;
 using NUnit.Framework;
 using System.Linq.Expressions;
 using MongoDB.Bson;
+using NSubstitute;
 
 namespace APITests
 {
@@ -23,7 +24,7 @@ namespace APITests
             var res = await getDataRepository.GetResourcesListAsync();
             int resNum = res.Count;
 
-            Assert.AreEqual(4, resNum);
+            Assert.AreEqual(2, resNum);
         }
     }
     // Fake DataRepository class that break dependancies
@@ -32,17 +33,17 @@ namespace APITests
         public FakeGetDataRepo(bool test = false) : base(test)
         {
         }
-        public override Task<IAsyncCursor<T>> ReturnFindDataAsyncTask<T>(IMongoCollection<T>? collection)
-        {
-            return null;
-        }
+        //public override Task<IAsyncCursor<T>> ReturnFindDataAsyncTask<T>(IMongoCollection<T>? collection)
+        //{
+        //    return null;
+        //}
 
-        public override Task<List<R>> ReturnToListTaskFromAsyncFindTask<T, R>(T task)
-        {
-            return Task.FromResult(new List<R>() {
-                new R() { Id = ObjectId.GenerateNewId(), Name = "Salvage", Type = "Resource" },
-                new R() { Id = ObjectId.GenerateNewId(), Name = "Galium", Type = "Resource" },
-            });
-        }
+        //public override Task<List<R>> ReturnToListTaskFromAsyncFindTask<T, R>(T task)
+        //{
+        //    return Task.FromResult(new List<R>() {
+        //        new R() { Id = ObjectId.GenerateNewId(), Name = "Salvage", Type = new string[]{"Resource"} },
+        //        new R() { Id = ObjectId.GenerateNewId(), Name = "Galium", Type = new string[]{"Resource"} },
+        //    });
+        //}
     }
 }
