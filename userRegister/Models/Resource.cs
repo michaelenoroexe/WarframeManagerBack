@@ -20,7 +20,11 @@ namespace API.Models
         public string[] Type { get; set; }
         [BsonElement("masterable")]
         public bool Mastery { get; set; }
-        
+        [BsonIgnore]
+        public string strId { get { return Id.ToString(); } }
+        [BsonIgnore]
+        public int Owned { get; set; } = 0;
+
         public Resource() { }
         public Resource(ObjectId id, string name, string[] type, string[] location = null, bool mastery = false)
         {

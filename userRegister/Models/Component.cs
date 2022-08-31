@@ -21,6 +21,5 @@ namespace API.Models
             NeededResources = neededRes;
         }
         
-
     }
 }
