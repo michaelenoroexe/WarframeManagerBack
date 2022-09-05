@@ -568,3 +568,463 @@ Date: 31.08.2022 0:28:59:  State: Saving '6267fea599251c426804d69f' changes to D
 Date: 31.08.2022 0:29:59:  State: Saving '6267fea599251c426804d69f' changes to DB
 Date: 31.08.2022 21:54:32:  State: Saving '6267fea599251c426804d69f' changes to DB
 Date: 31.08.2022 22:03:57:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 31.08.2022 22:52:04:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Invalid element: '_id'.)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetPlanetListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 44
+   at API.Controllers.GetDataController.GetPlanets() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 51
+   at lambda_method5(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+Date: 31.08.2022 22:53:18:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Invalid element: '_id'.)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetPlanetListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 44
+   at API.Controllers.GetDataController.GetPlanets() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 51
+   at lambda_method5(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+Date: 01.09.2022 23:08:09:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 02.09.2022 23:21:43:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 02.09.2022 23:29:05:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 02.09.2022 23:30:27:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 02.09.2022 23:31:51:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 04.09.2022 1:56:43:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 04.09.2022 18:18:48:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 04.09.2022 21:50:04:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 05.09.2022 1:00:07:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unsupported filter: IsResource({document}).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 26
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:01:31:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unsupported filter: IsResource({document}).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 26
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:02:06:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unsupported filter: IsResource({document}).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 26
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:02:46:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unsupported filter: IsResource({document}).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 26
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:07:47:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unsupported filter: IsResource({document}).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 26
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:12:38:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unable to determine the serialization information for db => IsResource(db).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 27
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:21:26:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unable to determine the serialization information for db => IsResource(db.Credits, db.Type).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 27
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:22:42:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unsupported filter: IsResource({document}{credits}, {document}{type}).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 27
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:23:43:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unable to determine the serialization information for db => IsResource(db.Credits, db.Type).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 27
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:37:39:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unable to determine the serialization information for db => (Not((db.Credits > 0)) AndAlso db.Type.Contains(Resource.ResType)).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 27
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:38:48:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unable to determine the serialization information for db => (Not((db.Credits > 0)) AndAlso db.Type.Contains("62d8682daeef469267d807ff")).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 27
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:39:33:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unable to determine the serialization information for db => (Not((db.Credits > 0)) AndAlso db.Type.Contains("62d8682daeef469267d807ff")).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 27
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:46:52:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unable to determine the serialization information for db => db.Type.Contains(Resource.ResType).)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 28
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 1:48:32:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: One or more errors occurred. (Unable to determine the serialization information for db => db.Type.Contains("62d8682daeef469267d807ff").)
+Stack Trace   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at API.Repositories.GetDataRepository.GetResourcesListAsync() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 28
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 26
+   at lambda_method9(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 2:04:38:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 05.09.2022 2:09:56:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 05.09.2022 2:36:13:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Sequence contains no matching element
+Stack Trace   at System.Linq.ThrowHelper.ThrowNoMatchException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 56
+   at lambda_method42(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7b:4' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7c:34' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7d:2' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7a:3' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa76:3' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa75:2' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa79:25' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa78:37' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa74:46' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa80:36' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa84:33' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa89:1' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa90:4' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9c:34' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa2:6546' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faaa:3' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534589070664c88e5faaf:654' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:200000' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa72:1' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa73:3' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa77:4' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7e:3' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7f:4' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa81:2' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa82:1' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa83:2' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa85:45' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa86:53' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa87:3' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa8b:4' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa8d:1' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa8f:3' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa91:2' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa92:3' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa93:4' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa96:4' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa97:2' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa98:3' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa99:4' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9a:5' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9b:35' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9d:4' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9e:4' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9f:5' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa0:5' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa1:34' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa3:34' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa4:4' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa5:5' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa6:55' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa9:44' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faab:434' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faac:35' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534649070664c88e5fb57:0' in collection UserResources
+Date: 05.09.2022 3:40:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534649070664c88e5fb58:0' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7b:4' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7c:34' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7d:2' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7a:3' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa76:3' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa75:2' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa79:25' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa78:37' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa74:46' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa80:36' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa84:33' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa89:1' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa90:4' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9c:34' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa2:6546' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faaa:3' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534589070664c88e5faaf:654' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:200000' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa72:1' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa73:3' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa77:4' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7e:3' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7f:4' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa81:2' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa82:1' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa83:2' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa85:45' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa86:53' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa87:3' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa8b:4' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa8d:1' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa8f:3' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa91:2' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa92:3' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa93:4' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa96:4' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa97:2' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa98:3' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa99:4' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9a:5' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9b:35' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9d:4' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9e:4' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9f:5' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa0:5' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa1:34' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa3:34' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa4:4' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa5:5' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa6:55' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa9:44' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faab:434' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faac:35' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534649070664c88e5fb57:0' in collection UserResources
+Date: 05.09.2022 3:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534649070664c88e5fb58:0' in collection UserResources
+Date: 05.09.2022 3:42:25:  State: Saving '6267fea599251c426804d69f' changes to DB

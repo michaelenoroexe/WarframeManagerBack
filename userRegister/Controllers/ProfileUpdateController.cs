@@ -34,7 +34,10 @@ namespace API.Controllers
         {
             User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
             if (user == null) return Unauthorized();
-            if (await repository.UpdateUserResourcesAsync(user, new KeyValuePair<string, int>(res.Resource, res.Number))) return Accepted();
+            if (res.Type == "resource")
+                if (await repository.UpdateUserResourcesAsync(user, new KeyValuePair<string, int>(res.Resource, res.Number))) return Accepted();
+            if (res.Type == "item")
+                if (await repository.UpdateUserItemsAsync(user, new KeyValuePair<string, int>(res.Resource, res.Number))) return Accepted();
             return BadRequest();
         }
 
@@ -54,6 +57,7 @@ namespace API.Controllers
         {
             public string Resource { get; set; }
             public int Number { get; set; }
+            public string Type { get; set; }
         }
     }
 }

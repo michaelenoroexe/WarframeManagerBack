@@ -17,6 +17,17 @@ namespace API.Models
                 _items = value;
             } 
         }
+        private Dictionary<string, int> _resources = new Dictionary<string, int>();
+        // Set new Last access when items is changed
+        new public Dictionary<string, int> Resources
+        {
+            get { return _resources; }
+            set
+            {
+                LastAcces = DateTime.Now;
+                _resources = value;
+            }
+        }
         // Variables to make class auto time exposeble
         public DateTime LastAcces { get; set; }
 
@@ -29,12 +40,11 @@ namespace API.Models
         private readonly ILogger _logger = new LoggerProvider(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")).CreateLogger("");
 
         // Constructor with db Collection to sav e changes
-        public UserResourcesChanges(IMongoCollection<UserResources> dbCollection, ObjectId userId, KeyValuePair<string, int> items)
+        public UserResourcesChanges(IMongoCollection<UserResources> dbCollection, ObjectId userId)
         {
             _dbCollection = dbCollection;
             User = userId;
             LastAcces = DateTime.Now;
-            Items[items.Key] = items.Value;
             SaveToDB();
         }
 
@@ -63,16 +73,55 @@ namespace API.Models
             UserResources userRess = await userRessMass.SingleOrDefaultAsync();
             if (userRess == null)
             {
-                userRess = new UserResources() { Id = ObjectId.GenerateNewId(), User = User, Items = Items };
+                userRess = new UserResources() { Id = ObjectId.GenerateNewId(), User = User, Items = Items, Resources = Resources };
                 await _dbCollection.InsertOneAsync(userRess);
                 return;
             }
-            foreach (KeyValuePair<string, int> ch in Items)
+            if (Resources.Count > 0 && Items.Count > 0)
             {
-                userRess.Items[ch.Key] = ch.Value;
+                FillList(Resources, "resource",ref userRess);
+                FillList(Items, "item", ref userRess);
+                await _dbCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
+                                                               Builders<UserResources>.Update.Set(x => x.Items, userRess.Items).Set(x => x.Resources, userRess.Resources));
+                return;
             }
-            await _dbCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
-                                               Builders<UserResources>.Update.Set(x => x.Items, userRess.Items));
+            if (Items.Count > 0)
+            {
+                FillList(Items, "item", ref userRess);
+                await _dbCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
+                                                               Builders<UserResources>.Update.Set(x => x.Items, userRess.Items));
+                return;
+            }
+            if (Resources.Count > 0)
+            {
+                FillList(Resources, "resource", ref userRess);
+                await _dbCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
+                                                               Builders<UserResources>.Update.Set(x => x.Resources, userRess.Resources));
+                return;
+            }
+
+        }
+
+        private void FillList(Dictionary<string, int> change, string type, ref UserResources target)
+        {
+            if (type == "item")
+            {
+                if (target.Items == null) target.Items = new Dictionary<string, int>();
+                foreach (KeyValuePair<string, int> ch in change)
+                {
+                    target.Items[ch.Key] = ch.Value;
+                }
+                return;
+            }
+            if (type == "resource")
+            {
+                if (target.Resources == null) target.Resources = new Dictionary<string, int>();
+                foreach (KeyValuePair<string, int> ch in change)
+                {
+                    target.Resources[ch.Key] = ch.Value;
+                }
+                return;
+            }
         }
 
         public void Dispose()

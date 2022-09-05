@@ -10,8 +10,11 @@ namespace API.Models
         public ObjectId Id { get; set; }
         [BsonElement("user")]
         public ObjectId User { get; set; }
+        [BsonElement("resources")]
+        //[BsonExtraElements]
+        public Dictionary<string, int> Resources { get; set; }
         [BsonElement("items")]
         //[BsonExtraElements]
-        public Dictionary<string, int> Items { get; set; } 
+        public Dictionary<string, int> Items { get; set; }
     }
 }
