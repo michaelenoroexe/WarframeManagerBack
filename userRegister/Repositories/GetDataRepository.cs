@@ -12,6 +12,7 @@ namespace API.Repositories
         private IMongoCollection<Item> _itemCollection;
         public readonly IMongoCollection<UserResources> _usersItemsCollection;
         public readonly IMongoCollection<Planet> _planets;
+        public readonly IMongoCollection<Restype> _types;
         private readonly ILogger _logger = new LoggerProvider(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")).CreateLogger("");
 
         public GetDataRepository(bool test = false)
@@ -21,13 +22,14 @@ namespace API.Repositories
                 _itemCollection = DBClient.db.GetCollection<Item>("Components");
                 _usersItemsCollection = DBClient.db.GetCollection<UserResources>("UsersResources");
                 _planets = DBClient.db.GetCollection<Planet>("Planets");
-            }                          
+                _types = DBClient.db.GetCollection<Restype>("Types");
+            }
         }
 
         public async Task<List<Item>> GetResourcesListAsync()
         {
             // Find data in DB
-            return _itemCollection.FindAsync<Item>(FilterDefinition<Item>.Empty).Result.ToListAsync().Result.Where(db => Resource.IsResource(db)).ToList();      
+            return _itemCollection.FindAsync<Item>(FilterDefinition<Item>.Empty).Result.ToListAsync().Result.Where(db => Resource.IsResource(db)).ToList();
         }
 
         public async Task<List<Item>> GetItemsListAsync()
@@ -50,7 +52,7 @@ namespace API.Repositories
 
         public async Task<Dictionary<string, string>> GetPlanetListAsync()
         {
-             var res = new Dictionary<string, string>();
+            var res = new Dictionary<string, string>();
             _planets.FindAsync(FilterDefinition<Planet>.Empty).Result.ToListAsync().Result.ForEach(x => res.Add(x.Id.ToString(), x.Name));
             return res;
         }
@@ -79,6 +81,11 @@ namespace API.Repositories
                     }
                 }
             return new GetDataResponses(20, items);
+        }
+
+        public async Task<List<Restype>> GetTypesListAsync()
+        {       
+            return await _types.FindAsync(FilterDefinition<Restype>.Empty).Result.ToListAsync();
         }
     }
 }

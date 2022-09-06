@@ -47,11 +47,18 @@ namespace API.Controllers
             return BadRequest(res.Data);
         }
 
-        [HttpGet("ComponentsList")]
+        [HttpGet("ItemsList")]
         public async Task<ActionResult> GetItemsList()
         {
             // Return full list of components
             return Ok(await repository.GetItemsListAsync());
+        }
+
+        [HttpGet("TypesList")]
+        public async Task<ActionResult> GetTypesList()
+        {
+            // Return full list of components
+            return Ok(await repository.GetTypesListAsync());
         }
 
         [HttpGet("Planets")]
