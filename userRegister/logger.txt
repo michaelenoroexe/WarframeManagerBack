@@ -1031,3 +1031,255 @@ Date: 05.09.2022 3:42:25:  State: Saving '6267fea599251c426804d69f' changes to D
 Date: 05.09.2022 17:52:16:  State: Saving '6267fea599251c426804d69f' changes to DB
 Date: 05.09.2022 18:11:01:  State: Saving '6267fea599251c426804d69f' changes to DB
 Date: 05.09.2022 21:46:39:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 07.09.2022 3:35:06:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 07.09.2022 3:45:29:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 07.09.2022 3:47:56:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 07.09.2022 3:50:04:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 07.09.2022 3:51:17:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 08.09.2022 19:42:48:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 08.09.2022 22:46:06:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 08.09.2022 22:46:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 08.09.2022 23:05:57:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:10:25:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:29:55:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:39:24:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:39:59:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:40:06:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:40:43:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:41:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:42:48:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:43:23:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:45:04:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:45:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:46:58:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:47:39:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:52:17:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:55:13:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:55:19:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:55:30:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:59:18:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 1:59:56:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 2:18:42:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 2:24:13:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 2:26:48:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 2:28:14:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 2:32:29:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 2:32:41:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 2:36:51:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 2:38:28:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 2:38:50:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 16:46:22:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 16:53:30:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 17:04:47:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 17:05:33:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 17:07:08:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 17:11:30:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 18:16:22:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 18:16:23:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 18:16:35:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 18:16:42:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 18:18:26:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 18:18:41:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:00:00:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:22:58:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:27:32:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:30:21:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:40:02:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:40:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:40:43:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:40:51:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:41:19:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:47:21:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:47:48:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:48:07:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:49:04:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:55:33:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:55:44:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:56:05:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 19:56:21:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:09:22:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:14:19:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:16:08:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:17:10:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:17:22:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:17:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:18:03:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:19:33:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:20:13:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:21:30:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:22:04:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:25:04:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:25:05:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:25:24:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:25:34:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:26:10:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 20:28:58:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 22:28:56:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 22:29:17:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 22:30:16:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 22:38:34:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:12:43:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:18:28:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:41:15:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:42:57:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:43:29:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:46:23:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:51:51:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:53:32:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:53:49:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:54:10:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:57:13:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 09.09.2022 23:57:26:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 0:02:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 0:03:17:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 0:05:17:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 0:05:23:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 0:06:31:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 0:06:33:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 0:09:34:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 0:32:20:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 0:32:21:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 0:32:24:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 1:03:18:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 1:15:29:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 1:17:40:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 1:51:58:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 1:53:07:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 1:54:04:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 1:56:28:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 1:56:46:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 1:58:35:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:09:16:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:11:25:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:11:32:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:13:07:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:13:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:14:03:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:16:09:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:17:59:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:20:44:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:21:22:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:21:50:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:22:20:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:22:58:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:23:13:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:23:35:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:26:03:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:27:21:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:28:18:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:32:56:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:33:01:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:34:53:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:35:55:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:36:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:37:33:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:38:16:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:52:43:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:52:58:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:53:14:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:55:22:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 2:55:46:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 3:00:29:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 3:02:30:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 3:05:37:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 3:06:02:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 3:07:01:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 3:07:20:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 3:07:57:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 3:09:04:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 3:09:20:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa71:1000' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa72:24654' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa73:2334' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa74:3232' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7f:3' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7e:5' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa82:2' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa8d:56' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9c:65' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa0:4' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534589070664c88e5faae:2' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345a9070664c88e5facb:5' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345b9070664c88e5fadb:6' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534639070664c88e5fb4f:45' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534669070664c88e5fb79:346' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7b:1000' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa7c:235' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534549070664c88e5fa80:343' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa89:5454' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa8f:6565' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9d:566' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534569070664c88e5fa9e:5667' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa5:4546' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faab:4543' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534599070664c88e5fac3:65654' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534599070664c88e5fac4:5433' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534599070664c88e5fac5:5454' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534599070664c88e5fac8:5454' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534599070664c88e5fac7:54545' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534599070664c88e5fac6:65666' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534599070664c88e5fac2:5435' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534589070664c88e5fab1:333' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534589070664c88e5fab2:2' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345b9070664c88e5fad7:54' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345b9070664c88e5fad8:323' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345b9070664c88e5fadc:5454' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345c9070664c88e5faea:655' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345c9070664c88e5faf2:4346' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345d9070664c88e5fafc:3454' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345e9070664c88e5fb03:34' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345d9070664c88e5fafd:432' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa77:2' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa78:4' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa84:5' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa75:0' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345f9070664c88e5fb17:32' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345f9070664c88e5fb1b:43' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345f9070664c88e5fb18:43' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '6305345f9070664c88e5fb1c:43' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534609070664c88e5fb22:32' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534609070664c88e5fb24:43' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534609070664c88e5fb2a:32' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534609070664c88e5fb28:43' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534619070664c88e5fb30:23' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534619070664c88e5fb32:54' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534619070664c88e5fb34:43' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa2:0' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534579070664c88e5faa6:0' in collection UserResources
+Date: 10.09.2022 19:07:54:  State: User id:6267fea599251c426804d69f has incorrect item '630534589070664c88e5fabb:0' in collection UserResources
+Date: 10.09.2022 19:14:48:  State: User id:6267fea599251c426804d69f has incorrect item '630534529070664c88e5fa69:2' in collection UserResources
+Date: 10.09.2022 19:15:38:  State: User id:6267fea599251c426804d69f has incorrect item '630534529070664c88e5fa69:2' in collection UserResources
+Date: 10.09.2022 19:18:40:  State: User id:6267fea599251c426804d69f has incorrect item '630534529070664c88e5fa69:2' in collection UserResources
+Date: 10.09.2022 19:27:42:  State: User id:6267fea599251c426804d69f has incorrect item '630534529070664c88e5fa69:2' in collection UserResources
+Date: 10.09.2022 19:27:47:  State: User id:6267fea599251c426804d69f has incorrect item '630534529070664c88e5fa69:2' in collection UserResources
+Date: 10.09.2022 19:31:35:  State: User id:6267fea599251c426804d69f has incorrect item '630534529070664c88e5fa69:2' in collection UserResources
+Date: 10.09.2022 19:32:29:  State: User id:6267fea599251c426804d69f has incorrect item '630534529070664c88e5fa69:2' in collection UserResources
+Date: 10.09.2022 19:59:42:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 10.09.2022 20:14:05:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 11.09.2022 0:17:21:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: An exception occurred while receiving a message from the server.
+Stack Trace   at MongoDB.Driver.Core.Operations.RetryableReadOperationExecutor.ExecuteAsync[TResult](IRetryableReadOperation`1 operation, RetryableReadContext context, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.ReadCommandOperation`1.ExecuteAsync(RetryableReadContext context, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.FindOperation`1.ExecuteAsync(RetryableReadContext context, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.FindOperation`1.ExecuteAsync(IReadBinding binding, CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.ExecuteReadOperationAsync[TResult](IReadBinding binding, IReadOperation`1 operation, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.ExecuteReadOperationAsync[TResult](IClientSessionHandle session, IReadOperation`1 operation, ReadPreference readPreference, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSessionAsync[TResult](Func`2 funcAsync, CancellationToken cancellationToken)
+   at MongoDB.Driver.IAsyncCursorSourceExtensions.SingleOrDefaultAsync[TDocument](IAsyncCursorSource`1 source, CancellationToken cancellationToken)
+   at API.Repositories.UserRepository.FindUserAsync(String us) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\UserRepository.cs:line 41
+   at API.JwtAuthentication.GetUserFromTokenAsync(String userName) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\JwtAuthentication.cs:line 58
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 44
+   at lambda_method15(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)

@@ -25,7 +25,7 @@ namespace API.Models
         [BsonIgnore]
         public int Owned { get; set; } = 0;
         [BsonIgnore]
-        private static readonly string ResType = "62d8682daeef469267d807ff";
+        private static readonly string[] Ex = { "62d8682daeef469267d8084f", "62d8682daeef469267d80850", "62d8682daeef469267d80851", "62d8682daeef469267d8080b" };
 
         public Resource() { }
         public Resource(ObjectId id, string name, string[] type, string[] location = null, bool mastery = false)
@@ -39,13 +39,13 @@ namespace API.Models
 
         public static bool IsResource(string[] Type)
         {
-            if (Type.Contains(ResType)) return true;
-            return false;
+            if (Type.Intersect(Ex).Count() > 0) return false;
+            return true;
         }
         public static bool IsResource(Item item)
         {
-            if (item.Credits > 0) return false;
-            if (!item.Type.Contains(ResType)) return false;
+            if (item.NeededResources != null) return false;
+            if (item.Type.Intersect(Ex).Count() > 0) return false;
             return true;
         }
     }
