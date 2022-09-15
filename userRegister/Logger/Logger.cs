@@ -1,6 +1,6 @@
 ﻿namespace API.Logger
 {
-    public class Logger:ILogger, IDisposable
+    public sealed class Logger:ILogger, IDisposable
     {
         private readonly string _file;
         static object _lock = new object();

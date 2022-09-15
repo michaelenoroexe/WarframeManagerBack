@@ -6,7 +6,7 @@ namespace API.Repositories
     public static class DBClient
     {
         private static MongoClient MongoClient { get; }
-        public static IMongoDatabase db { get; set; }
+        public static IMongoDatabase Db { get; }
 
         static DBClient()
         {    
@@ -20,7 +20,7 @@ namespace API.Repositories
                 MongoURL = Environment.GetEnvironmentVariable("MongoClientUrl");
             }
             MongoClient = new MongoClient(MongoURL);
-            db = MongoClient.GetDatabase("WarframeManager");
+            Db = MongoClient.GetDatabase("WarframeManager");
         }
     }
 }

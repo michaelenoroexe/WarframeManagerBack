@@ -14,7 +14,7 @@ namespace API.Repositories
         {
             if (!test)
             {
-                _userCollection = DBClient.db.GetCollection<User>("Users");
+                _userCollection = DBClient.Db.GetCollection<User>("Users");
             }                                
         }
         // Function that confirm validation of user input data.

@@ -1283,3 +1283,16 @@ Stack Trace   at MongoDB.Driver.Core.Operations.RetryableReadOperationExecutor.E
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 13.09.2022 23:30:13:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 13.09.2022 23:47:44:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 13.09.2022 23:59:53:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 14.09.2022 0:04:46:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 14.09.2022 0:06:46:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 14.09.2022 0:13:06:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa27:55555' in collection UserResources
+Date: 14.09.2022 0:13:06:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa28:333333' in collection UserResources
+Date: 14.09.2022 0:13:06:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa29:22222' in collection UserResources
+Date: 14.09.2022 0:13:06:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa2a:11111' in collection UserResources
+Date: 14.09.2022 0:15:11:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 14.09.2022 0:18:27:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 14.09.2022 0:29:45:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 14.09.2022 0:32:30:  State: Saving '6267fea599251c426804d69f' changes to DB

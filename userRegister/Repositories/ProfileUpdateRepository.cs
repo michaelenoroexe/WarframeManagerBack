@@ -10,7 +10,7 @@ namespace API.Repositories
 
         public ProfileUpdateRepository()
         {
-            _usersItemsCollection = DBClient.db.GetCollection<UserResources>("UsersResources");
+            _usersItemsCollection = DBClient.Db.GetCollection<UserResources>("UsersResources");
         }
 
         public List<UserResources> GetAllUsersResources()

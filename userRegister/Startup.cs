@@ -19,7 +19,7 @@ namespace API
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        static IMongoDatabase db = DBClient.db;
+        static IMongoDatabase db = DBClient.Db;
 
         public Startup(IConfiguration configuration)
         {

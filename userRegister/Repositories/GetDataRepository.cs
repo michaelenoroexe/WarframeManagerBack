@@ -9,7 +9,7 @@ namespace API.Repositories
 {
     public class GetDataRepository
     {
-        private IMongoCollection<Item> _itemCollection;
+        private readonly IMongoCollection<Item> _itemCollection;
         public readonly IMongoCollection<UserResources> _usersItemsCollection;
         public readonly IMongoCollection<Planet> _planets;
         public readonly IMongoCollection<Restype> _types;
@@ -19,10 +19,10 @@ namespace API.Repositories
         {
             if (!test)
             {
-                _itemCollection = DBClient.db.GetCollection<Item>("Components");
-                _usersItemsCollection = DBClient.db.GetCollection<UserResources>("UsersResources");
-                _planets = DBClient.db.GetCollection<Planet>("Planets");
-                _types = DBClient.db.GetCollection<Restype>("Types");
+                _itemCollection = DBClient.Db.GetCollection<Item>("Components");
+                _usersItemsCollection = DBClient.Db.GetCollection<UserResources>("UsersResources");
+                _planets = DBClient.Db.GetCollection<Planet>("Planets");
+                _types = DBClient.Db.GetCollection<Restype>("Types");
             }
         }
 
