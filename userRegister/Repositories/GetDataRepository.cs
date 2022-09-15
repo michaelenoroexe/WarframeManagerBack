@@ -7,12 +7,12 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 namespace API.Repositories
 {
-    public class GetDataRepository
+    public sealed class GetDataRepository
     {
         private readonly IMongoCollection<Item> _itemCollection;
-        public readonly IMongoCollection<UserResources> _usersItemsCollection;
-        public readonly IMongoCollection<Planet> _planets;
-        public readonly IMongoCollection<Restype> _types;
+        private readonly IMongoCollection<UserResources> _usersItemsCollection;
+        private readonly IMongoCollection<Planet> _planets;
+        private readonly IMongoCollection<Restype> _types;
         private readonly ILogger _logger = new LoggerProvider(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")).CreateLogger("");
 
         public GetDataRepository(bool test = false)

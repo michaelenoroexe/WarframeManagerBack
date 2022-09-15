@@ -4,9 +4,9 @@ using MongoDB.Driver;
 
 namespace API.Repositories
 {
-    public class ProfileUpdateRepository
+    public sealed class ProfileUpdateRepository
     {
-        public readonly IMongoCollection<UserResources> _usersItemsCollection;
+        private readonly IMongoCollection<UserResources> _usersItemsCollection;
 
         public ProfileUpdateRepository()
         {

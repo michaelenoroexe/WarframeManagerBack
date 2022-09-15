@@ -4,12 +4,14 @@ using Microsoft.Extensions.Options;
 using API.Repositories;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using API.Logger;
 
 namespace API.Repositories
 {
-    public class UserRepository
+    public sealed class UserRepository
     {
-        public readonly IMongoCollection<User> _userCollection;
+        private readonly IMongoCollection<User> _userCollection;
+        private readonly ILogger _logger = new LoggerProvider(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")).CreateLogger("");
         public UserRepository(bool test = false)
         {
             if (!test)
@@ -36,11 +38,19 @@ namespace API.Repositories
         }
 
         // Finding single user, when 0 = null, if users more than one = exeption.
-        public async Task<User> FindUserAsync(string us)
+        public async Task<User?> FindUserAsync(string us)
         {
-            return await _userCollection
-                .Find(new BsonDocument("Login", us))
-                .SingleOrDefaultAsync();
+            try
+            {
+                return await _userCollection
+                    .Find(new BsonDocument("Login", us))
+                    .SingleOrDefaultAsync();
+            }
+            catch (MongoException ex)
+            {
+                _logger.LogCritical(ex.Message);
+                return null;
+            }
         }
         // Async function that valid and add user into database.
         public async Task<UserResponse> AddUserAsync(User us)
