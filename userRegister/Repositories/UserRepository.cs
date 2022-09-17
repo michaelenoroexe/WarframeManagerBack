@@ -59,9 +59,7 @@ namespace API.Repositories
             {
                 User? user = await FindUserAsync(us.Login);
                 if (user != null) throw new Exception("Already in database");
-                user = new User();
-                user.Login = us.Login;
-                user.Password = Hash.HashString(us.Password);
+                user = new User() { Login = us.Login, Password = Hash.HashString(us.Password)};
                 await _userCollection.WithWriteConcern(new WriteConcern(1)).InsertOneAsync(user);
                 return new UserResponse(user);
                 throw new Exception("Unknown Error");

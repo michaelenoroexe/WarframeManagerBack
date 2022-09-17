@@ -58,7 +58,7 @@ namespace API.Repositories
         }
 
         // Decide what user get items all resources
-        public async Task<GetDataResponses> GetUserItAsync(Func<Task<List<Item>>> allIt, Func<ObjectId, Task<Dictionary<string, int>>> userIt, User user)
+        public async Task<GetDataResponses> GetUserItAsync(Func<Task<List<Item>>> allIt, Func<ObjectId, Task<Dictionary<string, int>>> userIt, User user, Dictionary<string, int>? bufres = null)
         {
             if (user == null) return new GetDataResponses(401);
             //Return full list of resources
@@ -67,9 +67,9 @@ namespace API.Repositories
 
             var userRess = await userIt(user.Id);
             items = await allRessTask;
-            List<Item> it = new List<Item>();
+            //List<Item> it = new List<Item>();
             Item? i;
-            if (userRess != null)
+            if (userRess is not null)
                 foreach (KeyValuePair<string, int> res in userRess)
                 {
                     i = items.FirstOrDefault(re => re.strId == res.Key);
@@ -77,9 +77,21 @@ namespace API.Repositories
                     else
                     {
                         i.Owned = res.Value;
-                        it.Append(i);
+                        //it.Append(i);
                     }
                 }
+            if (bufres is not null)
+                foreach (KeyValuePair<string, int> res in bufres)
+                {
+                    i = items.FirstOrDefault(re => re.strId == res.Key);
+                    if (i == null) _logger.LogError($"User id:{user.Id} has incorrect item '{res.Key}:{res.Value}' in changes UserResources");
+                    else
+                    {
+                        i.Owned = res.Value;
+                        //it.Append(i);
+                    }
+                }
+                
             return new GetDataResponses(20, items);
         }
 

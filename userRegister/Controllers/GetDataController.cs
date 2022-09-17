@@ -25,7 +25,8 @@ namespace API.Controllers
         public async Task<ActionResult> GetUserResourcesList()
         {
             var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
-            GetDataResponses res = await repository.GetUserItAsync(repository.GetResourcesListAsync, repository.GetUsersResourcesAsync, user);
+            var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
+            GetDataResponses res = await repository.GetUserItAsync(repository.GetResourcesListAsync, repository.GetUsersResourcesAsync, user, changes?.Resources);
             if (res.Code == 20) return Ok(res.Data);
             return BadRequest(res.Data);
         }
@@ -42,7 +43,8 @@ namespace API.Controllers
         public async Task<ActionResult> GetUserItemsList()
         {
             var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
-            GetDataResponses res = await repository.GetUserItAsync(repository.GetItemsListAsync, repository.GetUsersItemsAsync, user);
+            var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
+            GetDataResponses res = await repository.GetUserItAsync(repository.GetItemsListAsync, repository.GetUsersItemsAsync, user, changes?.Items);
             if (res.Code == 20) return Ok(res.Data);
             return BadRequest(res.Data);
         }
