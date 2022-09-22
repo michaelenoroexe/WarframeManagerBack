@@ -75,6 +75,16 @@ namespace API.Controllers
         {
             return "value";
         }
-       
+        [HttpGet("UserCredits")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<ActionResult> GetUserCredits()
+        {
+            var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+            Task<int> res = repository.GetUserCredits(user);
+            var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
+            if (changes?.Credits != null && changes.Credits != 0) return Ok(changes.Credits);
+            
+             return Ok(await res);
+        }
     }
 }

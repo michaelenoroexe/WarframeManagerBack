@@ -59,5 +59,25 @@ namespace API.Repositories
                 return false;
             }
         }
+        public bool UpdateCredits(User user, int num)
+        {
+            try
+            {
+                var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
+                if (changes == null)
+                {
+                    changes = new UserResourcesChanges(_usersItemsCollection, user.Id);
+
+                    UserResourcesChangesBuffer._totalBuffer.Add(changes);
+
+                }
+                changes.Credits = num;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

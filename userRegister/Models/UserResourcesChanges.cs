@@ -28,6 +28,7 @@ namespace API.Models
                 _resources = value;
             }
         }
+        public int Credits { get; set; } = 0; 
         // Variables to make class auto time exposeble
         public DateTime LastAcces { get; set; }
 
@@ -73,10 +74,13 @@ namespace API.Models
             UserResources userRess = await userRessMass.SingleOrDefaultAsync();
             if (userRess == null)
             {
-                userRess = new UserResources() { Id = ObjectId.GenerateNewId(), User = User, Items = Items, Resources = Resources };
+                userRess = new UserResources() { Id = ObjectId.GenerateNewId(), User = User, Items = Items, Resources = Resources, Credits = Credits };
                 await _dbCollection.InsertOneAsync(userRess);
                 return;
             }
+            if (Credits >= 0 && Credits != userRess?.Credits) 
+                await _dbCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
+                                                               Builders<UserResources>.Update.Set(x => x.Credits, Credits));
             if (Resources.Count > 0 && Items.Count > 0)
             {
                 FillList(Resources, "resource",ref userRess);

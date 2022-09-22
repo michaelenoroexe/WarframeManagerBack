@@ -99,5 +99,23 @@ namespace API.Repositories
         {       
             return await _types.FindAsync(FilterDefinition<Restype>.Empty).Result.ToListAsync();
         }
+
+        public async Task<int> GetUserCredits(User user)
+        {
+            try
+            {
+                var ress = await _usersItemsCollection.FindAsync(Builders<UserResources>.Filter.Eq(db => db.User, user.Id));
+                if (ress == null) 
+                {
+                    return 0;
+
+                }
+                return ress.FirstOrDefault().Credits;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
     }
 }
