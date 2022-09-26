@@ -107,12 +107,13 @@ namespace API.Repositories
             try
             {
                 var ress = await _usersItemsCollection.FindAsync(Builders<UserResources>.Filter.Eq(db => db.User, user.Id));
-                if (ress == null) 
+                UserResources res = await ress.SingleOrDefaultAsync();
+                if (res == null) 
                 {
                     return 0;
 
                 }
-                return ress.FirstOrDefault().Credits;
+                return res.Credits;
             }
             catch (Exception ex)
             {
@@ -125,12 +126,13 @@ namespace API.Repositories
             try
             {
                 var ress = await _usersInfoCollection.FindAsync(Builders<UserInfo>.Filter.Eq(db => db.Login, user.Login));
-                if (ress == null)
+                UserInfo res = await ress.SingleOrDefaultAsync();
+                if (res == null)
                 {
                     return new UserInfo(user, 0, 0);
 
                 }
-                return ress.FirstOrDefault();
+                return res;
             }
             catch (Exception ex)
             {

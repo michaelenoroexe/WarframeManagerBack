@@ -81,7 +81,9 @@ namespace API.Models
                 else
                 {
                     await _usInfCollection.UpdateOneAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, userInf.Id),
-                                                                                   Builders<UserInfo>.Update.Set(x => x, ProfInfo));
+                                                                                   Builders<UserInfo>.Update.Set(x => x.Login, ProfInfo.Login)
+                                                                                                            .Set(x => x.Rank, ProfInfo.Rank)
+                                                                                                            .Set(x => x.Image, ProfInfo.Image));
                 }
             }
             

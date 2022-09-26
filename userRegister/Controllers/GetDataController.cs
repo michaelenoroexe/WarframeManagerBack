@@ -89,9 +89,9 @@ namespace API.Controllers
             var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
             Task<UserInfo> res = repository.GetUserInfo(user);
             var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-            if (changes?.ProfInfo is not null) return Ok(changes.ProfInfo);
-
-            return Ok(await res);
+            if (changes?.ProfInfo is not null) return Ok(changes.ProfInfo.WithoutId());
+            var re = await res;
+            return Ok(re.WithoutId());
         }
     }
 }

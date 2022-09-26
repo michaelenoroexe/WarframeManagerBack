@@ -7,13 +7,13 @@ namespace API.Models
     {
         [BsonElement("_id")]
         [BsonId]
-        public ObjectId? Id { get; set; }
+        public ObjectId Id { get; set; }
         [BsonElement("login")]
-        public string? Login { get; init; }
+        public string Login { get; set; }
         [BsonElement("rank")]
-        public int Rank { get; init; }
+        public int Rank { get; set; }
         [BsonElement("img")]
-        public int Image { get; init; }
+        public int Image { get; set; }
 
         public UserInfo(User us, int rank, int image)
         {
@@ -22,5 +22,19 @@ namespace API.Models
             Rank = rank;
             Image = image;
         }
+        public UserInfo()
+        {
+
+        }
+        public UserInfo(string login, int rank, int image)
+        {
+            Login = login;
+            Rank = rank;
+            Image = image;
+        }
+        //public UserInfo WithoutId()
+        //{
+        //    return new UserInfo(this.Login, this.Rank, this.Image);
+        //}
     }
 }
