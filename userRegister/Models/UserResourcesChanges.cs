@@ -7,43 +7,42 @@ namespace API.Models
 {
     public class UserResourcesChanges : UserResources, IDisposable
     {
-        private Dictionary<string, int> _items = new Dictionary<string, int>();
-        // Set new Last access when items is changed
-        new public Dictionary<string, int> Items { 
-            get { return _items; } 
-            set 
-            {
-                LastAcces = DateTime.Now;
-                _items = value;
-            } 
-        }
-        private Dictionary<string, int> _resources = new Dictionary<string, int>();
-        // Set new Last access when items is changed
-        new public Dictionary<string, int> Resources
+        private void CSetter<T>(ref T field, T val)
         {
-            get { return _resources; }
-            set
-            {
-                LastAcces = DateTime.Now;
-                _resources = value;
-            }
+            LastAcces = DateTime.Now;
+            field = val;
         }
-        public int Credits { get; set; } = 0; 
+
+        // All changes in user item list, in buffer
+        private Dictionary<string, int> _items = new Dictionary<string, int>();        
+        new public Dictionary<string, int> Items { get { return _items; } set { CSetter(ref _items, value); } }
+        // All changes in user resource list, in buffer
+        private Dictionary<string, int> _resources = new Dictionary<string, int>();
+        new public Dictionary<string, int> Resources{ get {return _resources;} set {CSetter(ref _resources, value); } }
+        // Changes in user credits
+        private int _credits = 0;
+        new public int Credits { get { return _credits; } set { CSetter(ref _credits, value); } }
+        // Changes in user profile info
+        private UserInfo? _profInfo = null;
+        public UserInfo? ProfInfo { get { return _profInfo; } set { CSetter(ref _profInfo, value); } }
         // Variables to make class auto time exposeble
         public DateTime LastAcces { get; set; }
 
         public Task DelayBeforeSavingToDB { get; set; }
 
         private int delayBeforeSave = (int)TimeSpan.FromMinutes(1).TotalMilliseconds;
-
-        private IMongoCollection<UserResources> _dbCollection;
+        // User resources collection
+        private IMongoCollection<UserResources> _usResCollection;
+        // User page info collection
+        private IMongoCollection<UserInfo> _usInfCollection;
 
         private readonly ILogger _logger = new LoggerProvider(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")).CreateLogger("");
 
         // Constructor with db Collection to sav e changes
-        public UserResourcesChanges(IMongoCollection<UserResources> dbCollection, ObjectId userId)
+        public UserResourcesChanges(in IMongoCollection<UserResources> usResCollection, in IMongoCollection<UserInfo> usInfCollection, ObjectId userId)
         {
-            _dbCollection = dbCollection;
+            _usResCollection = usResCollection;
+            _usInfCollection = usInfCollection;
             User = userId;
             LastAcces = DateTime.Now;
             SaveToDB();
@@ -70,36 +69,54 @@ namespace API.Models
 
         private async void FindAndSaveAsync()
         {
-            var userRessMass = await _dbCollection.FindAsync(Builders<UserResources>.Filter.Eq(x => x.User, User));
+            if (ProfInfo is not null)
+            {
+                var userInfMass = await _usInfCollection.FindAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, User));
+                UserInfo userInf = await userInfMass.SingleOrDefaultAsync();
+                if (userInf is null)
+                {
+                    userInf = ProfInfo;
+                    await _usInfCollection.InsertOneAsync(userInf);                   
+                }
+                else
+                {
+                    await _usInfCollection.UpdateOneAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, userInf.Id),
+                                                                                   Builders<UserInfo>.Update.Set(x => x, ProfInfo));
+                }
+            }
+            
+            var userRessMass = await _usResCollection.FindAsync(Builders<UserResources>.Filter.Eq(x => x.User, User));
             UserResources userRess = await userRessMass.SingleOrDefaultAsync();
-            if (userRess == null)
+            // Generate new record if user still not in UserResources collection
+            if (userRess is null)
             {
                 userRess = new UserResources() { Id = ObjectId.GenerateNewId(), User = User, Items = Items, Resources = Resources, Credits = Credits };
-                await _dbCollection.InsertOneAsync(userRess);
+                await _usResCollection.InsertOneAsync(userRess);
                 return;
             }
+            //Save user credits change
             if (Credits >= 0 && Credits != userRess?.Credits) 
-                await _dbCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
+                await _usResCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
                                                                Builders<UserResources>.Update.Set(x => x.Credits, Credits));
             if (Resources.Count > 0 && Items.Count > 0)
             {
                 FillList(Resources, "resource",ref userRess);
                 FillList(Items, "item", ref userRess);
-                await _dbCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
+                await _usResCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
                                                                Builders<UserResources>.Update.Set(x => x.Items, userRess.Items).Set(x => x.Resources, userRess.Resources));
                 return;
             }
             if (Items.Count > 0)
             {
                 FillList(Items, "item", ref userRess);
-                await _dbCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
+                await _usResCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
                                                                Builders<UserResources>.Update.Set(x => x.Items, userRess.Items));
                 return;
             }
             if (Resources.Count > 0)
             {
                 FillList(Resources, "resource", ref userRess);
-                await _dbCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
+                await _usResCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(x => x.Id, userRess.Id),
                                                                Builders<UserResources>.Update.Set(x => x.Resources, userRess.Resources));
                 return;
             }
@@ -127,6 +144,7 @@ namespace API.Models
                 return;
             }
         }
+
 
         public void Dispose()
         {

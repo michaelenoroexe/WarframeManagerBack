@@ -19,7 +19,7 @@ namespace API.Controllers
         {
             _logger = logger;
         }
-        // GET: api/GetData/ResourcesList
+        // GET: api/GetData/UserResourcesList
         [HttpGet("UserResourcesList")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> GetUserResourcesList()
@@ -68,13 +68,7 @@ namespace API.Controllers
         {
             return Ok(await repository.GetPlanetListAsync());
         }
-
-        // GET api/<GetDataController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+      
         [HttpGet("UserCredits")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> GetUserCredits()
@@ -82,9 +76,22 @@ namespace API.Controllers
             var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
             Task<int> res = repository.GetUserCredits(user);
             var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-            if (changes?.Credits != null && changes.Credits != 0) return Ok(changes.Credits);
+            if (changes?.Credits is not null && changes.Credits != 0) return Ok(changes.Credits);
             
              return Ok(await res);
+        }
+
+        // GET: api/GetData/UserInfo
+        [HttpGet("UserInfo")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<ActionResult> GetUserInfo()
+        {
+            var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+            Task<UserInfo> res = repository.GetUserInfo(user);
+            var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
+            if (changes?.ProfInfo is not null) return Ok(changes.ProfInfo);
+
+            return Ok(await res);
         }
     }
 }

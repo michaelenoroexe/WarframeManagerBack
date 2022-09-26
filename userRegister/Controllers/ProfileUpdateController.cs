@@ -43,7 +43,22 @@ namespace API.Controllers
                 return BadRequest();
             }  
         }
-
+        // POST api/ProfUp/userInfo
+        [HttpPost("userInfo")]
+        public async Task<ActionResult> ProfCh([FromBody] UserInfo ch)
+        {
+            try
+            {
+                User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+                if (user == null) return Unauthorized();
+                if (repository.UpdateProfInfo(user, ch) == false) return BadRequest();
+                return Accepted();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
 
         public class Change
         {

@@ -11,6 +11,7 @@ namespace API.Repositories
     {
         private readonly IMongoCollection<Item> _itemCollection;
         private readonly IMongoCollection<UserResources> _usersItemsCollection;
+        private readonly IMongoCollection<UserInfo> _usersInfoCollection;
         private readonly IMongoCollection<Planet> _planets;
         private readonly IMongoCollection<Restype> _types;
         private readonly ILogger _logger = new LoggerProvider(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")).CreateLogger("");
@@ -21,6 +22,7 @@ namespace API.Repositories
             {
                 _itemCollection = DBClient.Db.GetCollection<Item>("Components");
                 _usersItemsCollection = DBClient.Db.GetCollection<UserResources>("UsersResources");
+                _usersInfoCollection = DBClient.Db.GetCollection<UserInfo>("UsersInfo");
                 _planets = DBClient.Db.GetCollection<Planet>("Planets");
                 _types = DBClient.Db.GetCollection<Restype>("Types");
             }
@@ -115,6 +117,24 @@ namespace API.Repositories
             catch (Exception ex)
             {
                 return 0;
+            }
+        }
+
+        public async Task<UserInfo> GetUserInfo(User user)
+        {
+            try
+            {
+                var ress = await _usersInfoCollection.FindAsync(Builders<UserInfo>.Filter.Eq(db => db.Login, user.Login));
+                if (ress == null)
+                {
+                    return new UserInfo(user, 0, 0);
+
+                }
+                return ress.FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                return new UserInfo(user, 0, 0);
             }
         }
     }

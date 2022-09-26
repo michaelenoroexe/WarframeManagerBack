@@ -1337,3 +1337,26 @@ Date: 21.09.2022 20:38:31:  State: Saving '6267fea599251c426804d69f' changes to 
 Date: 21.09.2022 20:41:47:  State: Saving '6267fea599251c426804d69f' changes to DB
 Date: 22.09.2022 20:42:06:  State: Saving '6267fea599251c426804d69f' changes to DB
 Date: 22.09.2022 20:50:31:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 26.09.2022 2:07:03:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: The request matched multiple endpoints. Matches: 
+
+API.Controllers.GetDataController.GetUserCredits (API)
+API.Controllers.GetDataController.GetUserInfo (API)
+Stack Trace   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 26.09.2022 2:08:13:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 26.09.2022 2:09:16:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 26.09.2022 2:11:06:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 26.09.2022 2:13:12:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: The request matched multiple endpoints. Matches: 
+
+API.Controllers.GetDataController.GetUserCredits (API)
+API.Controllers.GetDataController.GetUserInfo (API)
+Stack Trace   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 26.09.2022 3:28:04:  State: Saving '6267fea599251c426804d69f' changes to DB
