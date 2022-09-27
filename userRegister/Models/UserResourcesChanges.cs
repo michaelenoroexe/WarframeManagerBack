@@ -20,7 +20,7 @@ namespace API.Models
         private Dictionary<string, int> _resources = new Dictionary<string, int>();
         new public Dictionary<string, int> Resources{ get {return _resources;} set {CSetter(ref _resources, value); } }
         // Changes in user credits
-        private int _credits = 0;
+        private int _credits = -1;
         new public int Credits { get { return _credits; } set { CSetter(ref _credits, value); } }
         // Changes in user profile info
         private UserInfo? _profInfo = null;

@@ -91,6 +91,39 @@ namespace API.Repositories
                 return new UserResponse(false, ex.Message);
             }
         }
-
+        // Async function that valid and sign user in.
+        public async Task<UserResponse> ChangeUserPasswordAsync(User us, string newPassword)
+        {
+            try
+            {
+                await _userCollection.UpdateOneAsync(Builders<User>.Filter.Eq(x => x.Id, us.Id),
+                                               Builders<User>.Update.Set(db => db.Password, Hash.HashString(newPassword)));
+                return new UserResponse(true, "Accepted");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return new UserResponse(false, ex.Message);
+            }
+        }
+        // Async function that delete user from db.
+        public async Task<UserResponse> DeleteUserAsync(User us)
+        {
+            try
+            {
+                var usDel = _userCollection.FindOneAndDeleteAsync(Builders<User>.Filter.Eq(x => x.Id, us.Id));
+                var usInfDel = DBClient.Db.GetCollection<UserInfo>("UsersInfo").FindOneAndDeleteAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, us.Id));
+                var usResDel = DBClient.Db.GetCollection<UserResources>("UsersResources").FindOneAndDeleteAsync(Builders<UserResources>.Filter.Eq(x => x.Id, us.Id));
+                await usDel;
+                await usInfDel;
+                await usResDel;
+                return new UserResponse(true, "Accepted");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return new UserResponse(false, ex.Message);
+            }
+        }
     }
 }

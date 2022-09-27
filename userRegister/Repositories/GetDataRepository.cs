@@ -108,7 +108,7 @@ namespace API.Repositories
             {
                 var ress = await _usersItemsCollection.FindAsync(Builders<UserResources>.Filter.Eq(db => db.User, user.Id));
                 UserResources res = await ress.SingleOrDefaultAsync();
-                if (res == null) 
+                if (res == null || res?.Credits <= 0) 
                 {
                     return 0;
 
