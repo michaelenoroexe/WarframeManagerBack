@@ -92,7 +92,7 @@ namespace API.Models
             // Generate new record if user still not in UserResources collection
             if (userRess is null)
             {
-                userRess = new UserResources() { Id = ObjectId.GenerateNewId(), User = User, Items = Items, Resources = Resources, Credits = Credits };
+                userRess = new UserResources() { Id = ObjectId.GenerateNewId(), User = User, Items = Items, Resources = Resources, Credits = 0 };
                 await _usResCollection.InsertOneAsync(userRess);
                 return;
             }

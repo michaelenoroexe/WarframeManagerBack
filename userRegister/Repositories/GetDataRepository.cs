@@ -43,13 +43,13 @@ namespace API.Repositories
         public async Task<Dictionary<string, int>> GetUsersResourcesAsync(ObjectId userId)
         {
             var ress = await _usersItemsCollection.FindAsync(Builders<UserResources>.Filter.Eq(db => db.User, userId));
-            return ress.SingleOrDefault().Resources;
+            return ress.SingleOrDefault()?.Resources;
         }
 
         public async Task<Dictionary<string, int>> GetUsersItemsAsync(ObjectId userId)
         {
             var ress = await _usersItemsCollection.FindAsync(Builders<UserResources>.Filter.Eq(db => db.User, userId));
-            return ress.SingleOrDefault().Items;
+            return ress.SingleOrDefault()?.Items;
         }
 
         public async Task<Dictionary<string, string>> GetPlanetListAsync()
