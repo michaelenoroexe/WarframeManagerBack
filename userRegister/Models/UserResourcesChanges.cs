@@ -28,7 +28,9 @@ namespace API.Models
         // Variables to make class auto time exposeble
         public DateTime LastAcces { get; set; }
 
-        public Task DelayBeforeSavingToDB { get; set; }
+        private Task DelayBeforeSavingToDB { get; set; }
+        // Token to cancel save task
+        private CancellationTokenSource tokenSource = new();
 
         private int delayBeforeSave = (int)TimeSpan.FromMinutes(1).TotalMilliseconds;
         // User resources collection
@@ -50,20 +52,20 @@ namespace API.Models
 
         public async void SaveToDB()
         {
+            var tok = tokenSource.Token;
             // Generate task that will save and dispose object after some time with no connect
             DelayBeforeSavingToDB = Task.Run(async () => {
-                while ((int)(DateTime.Now - LastAcces).TotalMilliseconds < delayBeforeSave)
+                while ((int)(DateTime.Now - LastAcces).TotalMilliseconds < delayBeforeSave && !tok.IsCancellationRequested)
                 {
                     await Task.Delay(delayBeforeSave - (int)(DateTime.Now - LastAcces).TotalMilliseconds);
                 }
-                save();
-            });
+                if (!tok.IsCancellationRequested) save();
+            }, tok);
         }
         public void save()
         {
             _logger.LogInformation($"Saving '{User}' changes to DB");
             FindAndSaveAsync();
-            UserResourcesChangesBuffer._totalBuffer.Remove(this);
             this.Dispose();
         }
 
@@ -150,6 +152,8 @@ namespace API.Models
 
         public void Dispose()
         {
+            tokenSource.Cancel();
+            UserResourcesChangesBuffer._totalBuffer.Remove(this);
         }
     }
 }
