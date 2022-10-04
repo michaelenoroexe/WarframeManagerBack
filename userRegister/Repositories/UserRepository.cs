@@ -114,7 +114,7 @@ namespace API.Repositories
                 var usDel = _userCollection.FindOneAndDeleteAsync(Builders<User>.Filter.Eq(x => x.Id, us.Id));
                 var usInfDel = DBClient.Db.GetCollection<UserInfo>("UsersInfo").FindOneAndDeleteAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, us.Id));
                 var usResDel = DBClient.Db.GetCollection<UserResources>("UsersResources").FindOneAndDeleteAsync(Builders<UserResources>.Filter.Eq(x => x.User, us.Id));
-                UserResourcesChangesBuffer._totalBuffer.Find(x => x.User == us.Id)?.Dispose();
+                UserResourcesChangesBuffer._totalBuffer.Nodes().FirstOrDefault(x => x.ValueRef.User == us.Id)?.ValueRef.Dispose();
                 await usDel;
                 await usInfDel;
                 await usResDel;

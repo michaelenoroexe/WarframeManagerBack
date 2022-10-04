@@ -30,7 +30,7 @@ namespace API.Repositories
                 {
                     changes = new UserResourcesChanges(in _usersItemsCollection, in _usersInfCollection, user.Id);
                     changes.Resources[res.Key] = res.Value;
-                    UserResourcesChangesBuffer._totalBuffer.Add(changes);
+                    UserResourcesChangesBuffer._totalBuffer.AddLast(changes);
                     return true;
                 }
                 changes.Resources[res.Key] = res.Value;
@@ -51,7 +51,7 @@ namespace API.Repositories
                 {
                     changes = new UserResourcesChanges(in _usersItemsCollection, in _usersInfCollection, user.Id);
                     changes.Items[item.Key] = item.Value;
-                    UserResourcesChangesBuffer._totalBuffer.Add(changes);
+                    UserResourcesChangesBuffer._totalBuffer.AddLast(changes);
                     return true;
                 }
                 changes.Items[item.Key] = item.Value;
@@ -72,7 +72,7 @@ namespace API.Repositories
                 {
                     changes = new UserResourcesChanges(in _usersItemsCollection, in _usersInfCollection, user.Id);
 
-                    UserResourcesChangesBuffer._totalBuffer.Add(changes);
+                    UserResourcesChangesBuffer._totalBuffer.AddLast(changes);
 
                 }
                 changes.Credits = num;
@@ -93,7 +93,7 @@ namespace API.Repositories
                 {
                     changes = new UserResourcesChanges(in _usersItemsCollection, in _usersInfCollection, user.Id);
 
-                    UserResourcesChangesBuffer._totalBuffer.Add(changes);
+                    UserResourcesChangesBuffer._totalBuffer.AddLast(changes);
 
                 }
                 changes.ProfInfo = new UserInfo(user, inf.Rank, inf.Image);

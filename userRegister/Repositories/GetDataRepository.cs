@@ -106,6 +106,7 @@ namespace API.Repositories
         {
             try
             {
+                if (user == null) return 0;
                 var ress = await _usersItemsCollection.FindAsync(Builders<UserResources>.Filter.Eq(db => db.User, user.Id));
                 UserResources res = await ress.SingleOrDefaultAsync();
                 if (res == null || res?.Credits <= 0) 
@@ -125,6 +126,7 @@ namespace API.Repositories
         {
             try
             {
+                if (user == null) return new UserInfo(user, 0, 0);
                 var ress = await _usersInfoCollection.FindAsync(Builders<UserInfo>.Filter.Eq(db => db.Login, user.Login));
                 UserInfo res = await ress.SingleOrDefaultAsync();
                 if (res == null)

@@ -7,7 +7,7 @@ namespace API.Models
     {
         [BsonElement("_id")]
         [BsonId]
-        public ObjectId Id { get; set; }
+        public ObjectId? Id { get; set; }
         [BsonElement("login")]
         public string Login { get; set; }
         [BsonElement("rank")]
@@ -17,8 +17,8 @@ namespace API.Models
 
         public UserInfo(User us, int rank, int image)
         {
-            Id = us.Id;
-            Login = us.Login;
+            Id = us?.Id;
+            Login = us?.Login;
             Rank = rank;
             Image = image;
         }

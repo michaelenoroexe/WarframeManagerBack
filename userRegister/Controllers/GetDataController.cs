@@ -25,6 +25,7 @@ namespace API.Controllers
         public async Task<ActionResult> GetUserResourcesList()
         {
             var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+            if (user == null) return NotFound("User not found");
             var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
             GetDataResponses res = await repository.GetUserItAsync(repository.GetResourcesListAsync, repository.GetUsersResourcesAsync, user, changes?.Resources);
             if (res.Code == 20) return Ok(res.Data);
@@ -43,6 +44,7 @@ namespace API.Controllers
         public async Task<ActionResult> GetUserItemsList()
         {
             var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+            if (user == null) return NotFound("User not found");
             var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
             GetDataResponses res = await repository.GetUserItAsync(repository.GetItemsListAsync, repository.GetUsersItemsAsync, user, changes?.Items);
             if (res.Code == 20) return Ok(res.Data);
@@ -74,6 +76,7 @@ namespace API.Controllers
         public async Task<ActionResult> GetUserCredits()
         {
             var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+            if (user == null) return NotFound("User not found");
             Task<int> res = repository.GetUserCredits(user);
             var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
             if (changes?.Credits is not null && changes.Credits != 0) return Ok(changes.Credits);
@@ -87,6 +90,7 @@ namespace API.Controllers
         public async Task<ActionResult> GetUserInfo()
         {
             var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+            if (user == null) return NotFound("User not found");
             Task<UserInfo> res = repository.GetUserInfo(user);
             var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
             if (changes?.ProfInfo is not null) return Ok(changes.ProfInfo.WithoutId());
