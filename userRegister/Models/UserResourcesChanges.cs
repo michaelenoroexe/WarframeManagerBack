@@ -32,7 +32,7 @@ namespace API.Models
         // Token to cancel save task
         private CancellationTokenSource tokenSource = new();
 
-        private int delayBeforeSave = (int)TimeSpan.FromMinutes(1).TotalMilliseconds;
+        private int delayBeforeSave = (int)TimeSpan.FromMinutes(10).TotalMilliseconds;
         // User resources collection
         private IMongoCollection<UserResources> _usResCollection;
         // User page info collection
