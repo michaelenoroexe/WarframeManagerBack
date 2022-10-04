@@ -4,12 +4,14 @@ using Microsoft.Extensions.Options;
 using API.Repositories;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using API.Logger;
 
 namespace API.Repositories
 {
-    public class UserRepository
+    public sealed class UserRepository
     {
-        public readonly IMongoCollection<User> _userCollection;
+        private readonly IMongoCollection<User> _userCollection;
+        private readonly ILogger _logger = new LoggerProvider(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")).CreateLogger("");
         public UserRepository(bool test = false)
         {
             if (!test)
@@ -36,11 +38,19 @@ namespace API.Repositories
         }
 
         // Finding single user, when 0 = null, if users more than one = exeption.
-        public async Task<User> FindUserAsync(string us)
+        public async Task<User?> FindUserAsync(string us)
         {
-            return await _userCollection
-                .Find(new BsonDocument("Login", us))
-                .SingleOrDefaultAsync();
+            try
+            {
+                return await _userCollection
+                    .Find(new BsonDocument("Login", us))
+                    .SingleOrDefaultAsync();
+            }
+            catch (MongoException ex)
+            {
+                _logger.LogCritical(ex.Message);
+                return null;
+            }
         }
         // Async function that valid and add user into database.
         public async Task<UserResponse> AddUserAsync(User us)
@@ -49,9 +59,7 @@ namespace API.Repositories
             {
                 User? user = await FindUserAsync(us.Login);
                 if (user != null) throw new Exception("Already in database");
-                user = new User();
-                user.Login = us.Login;
-                user.Password = Hash.HashString(us.Password);
+                user = new User() { Login = us.Login, Password = Hash.HashString(us.Password)};
                 await _userCollection.WithWriteConcern(new WriteConcern(1)).InsertOneAsync(user);
                 return new UserResponse(user);
                 throw new Exception("Unknown Error");
@@ -83,6 +91,40 @@ namespace API.Repositories
                 return new UserResponse(false, ex.Message);
             }
         }
-
+        // Async function that valid and sign user in.
+        public async Task<UserResponse> ChangeUserPasswordAsync(User us, string newPassword)
+        {
+            try
+            {
+                await _userCollection.UpdateOneAsync(Builders<User>.Filter.Eq(x => x.Id, us.Id),
+                                               Builders<User>.Update.Set(db => db.Password, Hash.HashString(newPassword)));
+                return new UserResponse(true, "Accepted");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return new UserResponse(false, ex.Message);
+            }
+        }
+        // Async function that delete user from db.
+        public async Task<UserResponse> DeleteUserAsync(User us)
+        {
+            try
+            {
+                var usDel = _userCollection.FindOneAndDeleteAsync(Builders<User>.Filter.Eq(x => x.Id, us.Id));
+                var usInfDel = DBClient.Db.GetCollection<UserInfo>("UsersInfo").FindOneAndDeleteAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, us.Id));
+                var usResDel = DBClient.Db.GetCollection<UserResources>("UsersResources").FindOneAndDeleteAsync(Builders<UserResources>.Filter.Eq(x => x.User, us.Id));
+                UserResourcesChangesBuffer._totalBuffer.Nodes().FirstOrDefault(x => x.ValueRef.User == us.Id)?.ValueRef.Dispose();
+                await usDel;
+                await usInfDel;
+                await usResDel;
+                return new UserResponse(true, "Accepted");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return new UserResponse(false, ex.Message);
+            }
+        }
     }
 }

@@ -4,6 +4,6 @@ namespace API.Repositories
 {
     public static class UserResourcesChangesBuffer
     {
-        public static List<UserResourcesChanges> _totalBuffer = new();
+        public static LinkedList<UserResourcesChanges> _totalBuffer = new();
     }
 }

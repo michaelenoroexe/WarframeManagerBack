@@ -8,6 +8,8 @@ using API.Models;
 using API.Repositories;
 using API.Controllers;
 using API;
+using Microsoft.AspNetCore.Authorization;
+
 namespace API.Controllers
 {
     // Control users requests about accounts 
@@ -35,14 +37,14 @@ namespace API.Controllers
                 if (!_userRepository.DataValidation(user.Password)) throw new Exception("Invalid Password");
                 //Adding user to DB or error
                 var ans = await _userRepository.AddUserAsync(user);
-                
+
                 if (ans.Success) return Ok(ans);
                 throw new Exception(ans.ErrorMessage);
             }
             catch (Exception ex)
             {
                 // Return error to clien if something goes wrong
-                if (ex.Message == "Invalid Login" 
+                if (ex.Message == "Invalid Login"
                     || ex.Message == "Invalid Password") return BadRequest(ex.Message);
                 if (ex.Message == "A user with the given login already exists.")
                     return Conflict(ex.Message);
@@ -72,6 +74,67 @@ namespace API.Controllers
                     || ex.Message == "Wrong Login or Password!") return BadRequest(ex.Message);
                 return StatusCode(500, "Server error");
             }
+        }
+        // Controller that process user password change
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [HttpPost("passChange")]
+        public async Task<ActionResult> UserPassChange([FromBody] PassChange pasCh)
+        {
+            try
+            {
+                User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+                if (user == null) return Unauthorized();
+                //Checking user input on data validation
+                if (!_userRepository.DataValidation(pasCh.OldPass)) return BadRequest("Invalid Old Password");
+                if (!_userRepository.DataValidation(pasCh.NewPass)) return BadRequest("Invalid New Password");
+                
+                if (!Hash.Verify(pasCh.OldPass, user.Password)) return BadRequest("Wrong old Password");
+
+                var ans = await _userRepository.ChangeUserPasswordAsync(user, pasCh.NewPass);
+
+                if (ans.Success) return Accepted();
+                throw new Exception(ans.ErrorMessage);
+            }
+            catch (Exception ex)
+            {
+                // Return error to clien if something goes wrong
+                return StatusCode(500, "Server error");
+            }
+        }
+        // Delete user account
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [HttpPost("delUser")]
+        public async Task<ActionResult> UserDelete([FromBody] Pass pas)
+        {
+            try
+            {
+                User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+                if (user == null) return Unauthorized();
+                //Checking user input on data validation
+                if (!_userRepository.DataValidation(pas.Pas)) return BadRequest("Invalid Password");
+
+                if (!Hash.Verify(pas.Pas, user.Password)) return BadRequest("Wrong Password");
+
+                var ans = await _userRepository.DeleteUserAsync(user);
+
+                if (ans.Success) return Accepted();
+                throw new Exception(ans.ErrorMessage);
+            }
+            catch (Exception ex)
+            {
+                // Return error to clien if something goes wrong
+                return StatusCode(500, "Server error");
+            }
+        }
+
+        public class PassChange
+        {
+            public string OldPass { get; set; }
+            public string NewPass { get; set; }
+        }
+        public class Pass
+        {
+            public string Pas { get; set; }
         }
     }
 }

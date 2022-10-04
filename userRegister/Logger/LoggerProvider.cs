@@ -1,9 +1,9 @@
 ﻿namespace API.Logger
 {
-    public class LoggerProvider : ILoggerProvider
+    public sealed class LoggerProvider : ILoggerProvider
     {
         private string _path;
-
+        
         public LoggerProvider(string path)
         {
             _path = path;

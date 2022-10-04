@@ -1296,3 +1296,404 @@ Date: 14.09.2022 0:15:11:  State: Saving '6267fea599251c426804d69f' changes to D
 Date: 14.09.2022 0:18:27:  State: Saving '6267fea599251c426804d69f' changes to DB
 Date: 14.09.2022 0:29:45:  State: Saving '6267fea599251c426804d69f' changes to DB
 Date: 14.09.2022 0:32:30:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 16.09.2022 18:20:27:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 16.09.2022 18:21:49:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 17:12:33:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 17:13:33:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 17:18:50:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 18:23:24:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 18:33:52:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 18:34:54:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 18:35:54:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 18:37:10:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 18:44:49:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 19:01:54:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 19:09:15:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 19:11:08:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 19:31:28:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 21:09:20:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 21:41:42:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 21:59:47:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 22:45:47:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 22:48:37:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 22:55:31:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 17.09.2022 23:00:06:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 18.09.2022 1:47:54:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: The client reset the request stream.
+Stack Trace   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpRequestStream.ReadAsyncInternal(Memory`1 destination, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.ReadFromStreamAsync(Stream utf8Json, ReadBufferState bufferState, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.ReadAllAsync[TValue](Stream utf8Json, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+Date: 18.09.2022 1:51:52:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 18.09.2022 1:53:44:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 19.09.2022 18:36:21:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 21.09.2022 20:31:14:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 21.09.2022 20:34:17:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 21.09.2022 20:36:40:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 21.09.2022 20:38:31:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 21.09.2022 20:41:47:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 22.09.2022 20:42:06:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 22.09.2022 20:50:31:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 26.09.2022 2:07:03:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: The request matched multiple endpoints. Matches: 
+
+API.Controllers.GetDataController.GetUserCredits (API)
+API.Controllers.GetDataController.GetUserInfo (API)
+Stack Trace   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 26.09.2022 2:08:13:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 26.09.2022 2:09:16:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 26.09.2022 2:11:06:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 26.09.2022 2:13:12:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: The request matched multiple endpoints. Matches: 
+
+API.Controllers.GetDataController.GetUserCredits (API)
+API.Controllers.GetDataController.GetUserInfo (API)
+Stack Trace   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 26.09.2022 3:28:04:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 26.09.2022 15:26:22:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 26.09.2022 15:53:35:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 26.09.2022 16:00:39:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 1:23:15:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Deserialization of types without a parameterless constructor, a singular parameterized constructor, or a parameterized constructor annotated with 'JsonConstructorAttribute' is not supported. Type 'API.Models.UserInfo'. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+Stack Trace   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(ReadStack& state, Utf8JsonReader& reader, NotSupportedException ex)
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException_DeserializeNoConstructor(Type type, Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCoreAsObject(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadCore[TValue](JsonConverter jsonConverter, Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadCore[TValue](JsonReaderState& readerState, Boolean isFinalBlock, ReadOnlySpan`1 buffer, JsonSerializerOptions options, ReadStack& state, JsonConverter converterBase)
+   at System.Text.Json.JsonSerializer.ContinueDeserialize[TValue](ReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, JsonConverter converter, JsonSerializerOptions options)
+   at System.Text.Json.JsonSerializer.ReadAllAsync[TValue](Stream utf8Json, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+Date: 27.09.2022 1:23:52:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Deserialization of types without a parameterless constructor, a singular parameterized constructor, or a parameterized constructor annotated with 'JsonConstructorAttribute' is not supported. Type 'API.Models.UserInfo'. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+Stack Trace   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(ReadStack& state, Utf8JsonReader& reader, NotSupportedException ex)
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException_DeserializeNoConstructor(Type type, Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCoreAsObject(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadCore[TValue](JsonConverter jsonConverter, Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadCore[TValue](JsonReaderState& readerState, Boolean isFinalBlock, ReadOnlySpan`1 buffer, JsonSerializerOptions options, ReadStack& state, JsonConverter converterBase)
+   at System.Text.Json.JsonSerializer.ContinueDeserialize[TValue](ReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, JsonConverter converter, JsonSerializerOptions options)
+   at System.Text.Json.JsonSerializer.ReadAllAsync[TValue](Stream utf8Json, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+Date: 27.09.2022 1:25:53:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Deserialization of types without a parameterless constructor, a singular parameterized constructor, or a parameterized constructor annotated with 'JsonConstructorAttribute' is not supported. Type 'API.Models.UserInfo'. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+Stack Trace   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(ReadStack& state, Utf8JsonReader& reader, NotSupportedException ex)
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException_DeserializeNoConstructor(Type type, Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCoreAsObject(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadCore[TValue](JsonConverter jsonConverter, Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadCore[TValue](JsonReaderState& readerState, Boolean isFinalBlock, ReadOnlySpan`1 buffer, JsonSerializerOptions options, ReadStack& state, JsonConverter converterBase)
+   at System.Text.Json.JsonSerializer.ContinueDeserialize[TValue](ReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, JsonConverter converter, JsonSerializerOptions options)
+   at System.Text.Json.JsonSerializer.ReadAllAsync[TValue](Stream utf8Json, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+Date: 27.09.2022 1:28:25:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 1:29:45:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 1:32:38:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 1:37:21:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 1:40:06:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 1:55:53:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 2:02:19:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 2:07:37:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 2:08:07:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: The client reset the request stream.
+Stack Trace   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpRequestStream.ReadAsyncInternal(Memory`1 destination, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.ReadFromStreamAsync(Stream utf8Json, ReadBufferState bufferState, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.ReadAllAsync[TValue](Stream utf8Json, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+Date: 27.09.2022 2:09:02:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 2:10:20:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 2:11:46:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 15:19:31:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 15:22:14:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 15:28:36:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 15:31:13:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 15:44:08:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 16:01:46:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 18:38:56:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 19:16:21:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 19:29:16:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 27.09.2022 19:52:52:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 28.09.2022 1:31:57:  State: Saving '633379084943a770bec22f19' changes to DB
+Date: 28.09.2022 1:41:31:  State: Saving '63337bb27c4bad8337df9788' changes to DB
+Date: 28.09.2022 1:41:33:  State: Saving '63337bb27c4bad8337df9788' changes to DB
+Date: 28.09.2022 1:50:14:  State: Saving '63337dd6dc0ba55262c7ba50' changes to DB
+Date: 28.09.2022 1:50:14:  State: Saving '63337dd6dc0ba55262c7ba50' changes to DB
+Date: 28.09.2022 1:50:15:  State: Saving '63337dd6dc0ba55262c7ba50' changes to DB
+Date: 28.09.2022 1:51:36:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Sequence contains more than one element
+Stack Trace   at System.Linq.ThrowHelper.ThrowMoreThanOneElementException()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at MongoDB.Driver.IAsyncCursorExtensions.SingleOrDefault[TDocument](IAsyncCursor`1 cursor, CancellationToken cancellationToken)
+   at API.Repositories.GetDataRepository.GetUsersItemsAsync(ObjectId userId) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 52
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 70
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 47
+   at lambda_method30(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 28.09.2022 1:51:36:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Sequence contains more than one element
+Stack Trace   at System.Linq.ThrowHelper.ThrowMoreThanOneElementException()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at MongoDB.Driver.IAsyncCursorExtensions.SingleOrDefault[TDocument](IAsyncCursor`1 cursor, CancellationToken cancellationToken)
+   at API.Repositories.GetDataRepository.GetUsersResourcesAsync(ObjectId userId) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 46
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 70
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 29
+   at lambda_method28(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 28.09.2022 1:52:35:  State: Saving '63337dd6dc0ba55262c7ba50' changes to DB
+Date: 28.09.2022 1:52:35:  State: Saving '63337dd6dc0ba55262c7ba50' changes to DB
+Date: 28.09.2022 1:54:34:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Sequence contains more than one element
+Stack Trace   at System.Linq.ThrowHelper.ThrowMoreThanOneElementException()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at MongoDB.Driver.IAsyncCursorExtensions.SingleOrDefault[TDocument](IAsyncCursor`1 cursor, CancellationToken cancellationToken)
+   at API.Repositories.GetDataRepository.GetUsersResourcesAsync(ObjectId userId) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 46
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 70
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 29
+   at lambda_method34(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 28.09.2022 1:54:34:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Sequence contains more than one element
+Stack Trace   at System.Linq.ThrowHelper.ThrowMoreThanOneElementException()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at MongoDB.Driver.IAsyncCursorExtensions.SingleOrDefault[TDocument](IAsyncCursor`1 cursor, CancellationToken cancellationToken)
+   at API.Repositories.GetDataRepository.GetUsersItemsAsync(ObjectId userId) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 52
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 70
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 47
+   at lambda_method27(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 28.09.2022 1:56:06:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Sequence contains more than one element
+Stack Trace   at System.Linq.ThrowHelper.ThrowMoreThanOneElementException()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at MongoDB.Driver.IAsyncCursorExtensions.SingleOrDefault[TDocument](IAsyncCursor`1 cursor, CancellationToken cancellationToken)
+   at API.Repositories.GetDataRepository.GetUsersResourcesAsync(ObjectId userId) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 46
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 70
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 29
+   at lambda_method29(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 28.09.2022 1:56:06:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Sequence contains more than one element
+Stack Trace   at System.Linq.ThrowHelper.ThrowMoreThanOneElementException()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at MongoDB.Driver.IAsyncCursorExtensions.SingleOrDefault[TDocument](IAsyncCursor`1 cursor, CancellationToken cancellationToken)
+   at API.Repositories.GetDataRepository.GetUsersItemsAsync(ObjectId userId) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 52
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 70
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 47
+   at lambda_method28(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 28.09.2022 1:58:51:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Sequence contains more than one element
+Stack Trace   at System.Linq.ThrowHelper.ThrowMoreThanOneElementException()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at MongoDB.Driver.IAsyncCursorExtensions.SingleOrDefault[TDocument](IAsyncCursor`1 cursor, CancellationToken cancellationToken)
+   at API.Repositories.GetDataRepository.GetUsersItemsAsync(ObjectId userId) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 52
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 70
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 47
+   at lambda_method28(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 28.09.2022 1:58:51:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Sequence contains more than one element
+Stack Trace   at System.Linq.ThrowHelper.ThrowMoreThanOneElementException()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at MongoDB.Driver.IAsyncCursorExtensions.SingleOrDefault[TDocument](IAsyncCursor`1 cursor, CancellationToken cancellationToken)
+   at API.Repositories.GetDataRepository.GetUsersResourcesAsync(ObjectId userId) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 46
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 70
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 29
+   at lambda_method29(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 28.09.2022 1:59:25:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Sequence contains more than one element
+Stack Trace   at System.Linq.ThrowHelper.ThrowMoreThanOneElementException()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at MongoDB.Driver.IAsyncCursorExtensions.SingleOrDefault[TDocument](IAsyncCursor`1 cursor, CancellationToken cancellationToken)
+   at API.Repositories.GetDataRepository.GetUsersItemsAsync(ObjectId userId) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 52
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 70
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 47
+   at lambda_method28(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 28.09.2022 1:59:25:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Sequence contains more than one element
+Stack Trace   at System.Linq.ThrowHelper.ThrowMoreThanOneElementException()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at MongoDB.Driver.IAsyncCursorExtensions.SingleOrDefault[TDocument](IAsyncCursor`1 cursor, CancellationToken cancellationToken)
+   at API.Repositories.GetDataRepository.GetUsersResourcesAsync(ObjectId userId) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 46
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 70
+   at API.Controllers.GetDataController.GetUserResourcesList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 29
+   at lambda_method29(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 28.09.2022 2:04:36:  State: Saving '63337dd6dc0ba55262c7ba50' changes to DB
+Date: 28.09.2022 2:06:40:  State: Saving '63337dd6dc0ba55262c7ba50' changes to DB
+Date: 28.09.2022 2:07:58:  State: Saving '63337dd6dc0ba55262c7ba50' changes to DB
+Date: 28.09.2022 2:22:45:  State: Saving '63338574594986dd3756151b' changes to DB
+Date: 28.09.2022 23:10:01:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 29.09.2022 12:41:50:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 29.09.2022 12:43:17:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 01.10.2022 0:19:35:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 01.10.2022 22:20:35:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 01.10.2022 22:30:20:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 02.10.2022 10:44:26:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 04.10.2022 2:30:40:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 04.10.2022 2:34:29:  State: Saving '6267fea599251c426804d69f' changes to DB
+Date: 04.10.2022 2:35:00:  State: Saving '633b7117d77fb0500be9f272' changes to DB
+Date: 04.10.2022 2:35:34:  State: Saving '633b7122d77fb0500be9f273' changes to DB
+Date: 04.10.2022 2:42:51:  State: Saving '633b712ad77fb0500be9f274' changes to DB
+Date: 04.10.2022 2:46:46:  State: Saving '633b7405f71fd9e634f6177f' changes to DB
+Date: 04.10.2022 3:32:42:  State: Saving '633b7ec7d06f8654f88f6b58' changes to DB

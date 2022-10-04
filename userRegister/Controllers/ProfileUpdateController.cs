@@ -14,21 +14,8 @@ namespace API.Controllers
     public class ProfileUpdateController : ControllerBase
     {
         private ProfileUpdateRepository repository = new ProfileUpdateRepository();
-        // GET: api/<ProfileUpdateController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
 
-        // GET api/<ProfileUpdateController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<ProfileUpdateController>
+        // POST api/ProfUp
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] Change res)
         {
@@ -40,17 +27,37 @@ namespace API.Controllers
                 if (await repository.UpdateUserItemsAsync(user, new KeyValuePair<string, int>(res.Resource, res.Number))) return Accepted();
             return BadRequest();
         }
-
-        // PUT api/<ProfileUpdateController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // POST api/ProfUp/creds
+        [HttpPost("creds")]
+        public async Task<ActionResult> CredCh([FromBody] Cred num)
         {
+            try
+            {
+                User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+                if (user == null) return Unauthorized();
+                if (repository.UpdateCredits(user, num.Number) == false) return BadRequest();
+                return Accepted();
+            }
+            catch
+            {
+                return BadRequest();
+            }  
         }
-
-        // DELETE api/<ProfileUpdateController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // POST api/ProfUp/userInfo
+        [HttpPost("userInfo")]
+        public async Task<ActionResult> ProfCh([FromBody] UserInfo ch)
         {
+            try
+            {
+                User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+                if (user == null) return Unauthorized();
+                if (repository.UpdateProfInfo(user, ch) == false) return BadRequest();
+                return Accepted();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         public class Change
@@ -58,6 +65,11 @@ namespace API.Controllers
             public string Resource { get; set; }
             public int Number { get; set; }
             public string Type { get; set; }
+        }
+
+        public class Cred
+        {
+            public int Number { get; set; }
         }
     }
 }

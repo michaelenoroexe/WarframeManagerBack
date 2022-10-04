@@ -1,6 +1,6 @@
 ﻿namespace API.Models.Responses
 {
-    public class UserResponse
+    public sealed class UserResponse
     {
         public UserResponse(User user)
         {
