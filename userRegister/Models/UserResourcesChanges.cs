@@ -13,6 +13,7 @@ namespace API.Models
             field = val;
         }
 
+        private bool isDisposed = false;
         // All changes in user item list, in buffer
         private Dictionary<string, int> _items = new Dictionary<string, int>();        
         new public Dictionary<string, int> Items { get { return _items; } set { CSetter(ref _items, value); } }
@@ -152,8 +153,12 @@ namespace API.Models
 
         public void Dispose()
         {
-            tokenSource.Cancel();
-            UserResourcesChangesBuffer._totalBuffer.Remove(this);
+            if (isDisposed == false)
+            {
+                isDisposed = true;
+                tokenSource.Cancel();
+                UserResourcesChangesBuffer._totalBuffer.Remove(this);
+            }
         }
     }
 }
