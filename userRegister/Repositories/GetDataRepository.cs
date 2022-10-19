@@ -74,7 +74,7 @@ namespace API.Repositories
             if (userRess is not null)
                 foreach (KeyValuePair<string, int> res in userRess)
                 {
-                    i = items.FirstOrDefault(re => re.strId == res.Key);
+                    i = items.FirstOrDefault(re => re.strId.Equals(res.Key, StringComparison.OrdinalIgnoreCase));
                     if (i == null) _logger.LogError($"User id:{user.Id} has incorrect item '{res.Key}:{res.Value}' in collection UserResources");
                     else
                     {
@@ -85,7 +85,7 @@ namespace API.Repositories
             if (bufres is not null)
                 foreach (KeyValuePair<string, int> res in bufres)
                 {
-                    i = items.FirstOrDefault(re => re.strId == res.Key);
+                    i = items.FirstOrDefault(re => re.strId.Equals(res.Key, StringComparison.OrdinalIgnoreCase));
                     if (i == null) _logger.LogError($"User id:{user.Id} has incorrect item '{res.Key}:{res.Value}' in changes UserResources");
                     else
                     {

@@ -37,15 +37,15 @@ namespace API.Models
             Mastery = mastery;
         }
 
-        public static bool IsResource(string[] Type)
+        public static bool IsResource(string[] type)
         {
-            if (Type.Intersect(Ex).Count() > 0) return false;
+            if (type.Intersect(Ex).Any()) return false;
             return true;
         }
         public static bool IsResource(Item item)
         {
             if (item.NeededResources != null) return false;
-            if (item.Type.Intersect(Ex).Count() > 0) return false;
+            if (item.Type.Intersect(Ex).Any()) return false;
             return true;
         }
     }
