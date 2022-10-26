@@ -10,11 +10,15 @@ namespace API.Repositories
 
         static DBClient()
         {    
-            // Chosing path depend on environment 
+            // Chosing path depend on environment. 
             string? MongoURL = Environment.GetEnvironmentVariable("MongoClientUrl");
-            if (MongoURL == null ){
+
+            if (MongoURL == null)
+            {
                 MongoURL = "mongodb+srv://warframe_manager_user:H9guvYhcVtWk5z25@warframemanagercluster.jvusw.mongodb.net/WarframeManager?retryWrites=true&w=majority";
-            }else{
+            }
+            else
+            {
                 // string MongoUser = Environment.GetEnvironmentVariable("MONGO_USER");
                 // string MongoPass = Environment.GetEnvironmentVariable("MONGO_PASS");
                 MongoURL = Environment.GetEnvironmentVariable("MongoClientUrl");

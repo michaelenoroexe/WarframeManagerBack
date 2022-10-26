@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace API.Controllers
 {
     [Authorize(AuthenticationSchemes = "Bearer")]
@@ -13,7 +11,12 @@ namespace API.Controllers
     [ApiController]
     public class ProfileUpdateController : ControllerBase
     {
-        private ProfileUpdateRepository repository = new ProfileUpdateRepository();
+        private ProfileUpdateRepository _repository;
+
+        public ProfileUpdateController(ProfileUpdateRepository updateRepository)
+        {
+            _repository = updateRepository;
+        }
 
         // POST api/ProfUp
         [HttpPost]
@@ -22,9 +25,9 @@ namespace API.Controllers
             User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
             if (user == null) return Unauthorized();
             if (res.Type == "resource")
-                if (await repository.UpdateUserResourcesAsync(user, new KeyValuePair<string, int>(res.Resource, res.Number))) return Accepted();
+                if (await _repository.UpdateUserResourcesAsync(user, new KeyValuePair<string, int>(res.Resource, res.Number))) return Accepted();
             if (res.Type == "item")
-                if (await repository.UpdateUserItemsAsync(user, new KeyValuePair<string, int>(res.Resource, res.Number))) return Accepted();
+                if (await _repository.UpdateUserItemsAsync(user, new KeyValuePair<string, int>(res.Resource, res.Number))) return Accepted();
             return BadRequest();
         }
         // POST api/ProfUp/creds
@@ -35,7 +38,7 @@ namespace API.Controllers
             {
                 User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
                 if (user == null) return Unauthorized();
-                if (repository.UpdateCredits(user, num.Number) == false) return BadRequest();
+                if (_repository.UpdateCredits(user, num.Number) == false) return BadRequest();
                 return Accepted();
             }
             catch
@@ -51,7 +54,7 @@ namespace API.Controllers
             {
                 User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
                 if (user == null) return Unauthorized();
-                if (repository.UpdateProfInfo(user, ch) == false) return BadRequest();
+                if (_repository.UpdateProfInfo(user, ch) == false) return BadRequest();
                 return Accepted();
             }
             catch

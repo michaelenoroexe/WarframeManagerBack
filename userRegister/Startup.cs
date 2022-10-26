@@ -28,8 +28,12 @@ namespace API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore().AddAuthorization();              
+            services.AddMvcCore().AddAuthorization();
+            // Dependency Injection
             services.AddLogging(conf => conf.AddLog(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")));
+            services.AddSingleton<GetDataRepository>();
+            services.AddSingleton<ProfileUpdateRepository>();
+            services.AddSingleton<UserRepository>();
             services.AddCors(); // Adding CORS Secvices
 
             //JwtAuth

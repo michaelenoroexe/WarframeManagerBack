@@ -14,7 +14,7 @@ namespace API.Repositories
         private readonly IMongoCollection<UserInfo> _usersInfoCollection;
         private readonly IMongoCollection<Planet> _planets;
         private readonly IMongoCollection<Restype> _types;
-        private readonly ILogger _logger = new LoggerProvider(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")).CreateLogger("");
+        private readonly ILogger _logger;
 
         public GetDataRepository(bool test = false)
         {
@@ -25,6 +25,7 @@ namespace API.Repositories
                 _usersInfoCollection = DBClient.Db.GetCollection<UserInfo>("UsersInfo");
                 _planets = DBClient.Db.GetCollection<Planet>("Planets");
                 _types = DBClient.Db.GetCollection<Restype>("Types");
+                _logger = new LoggerProvider(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")).CreateLogger("");
             }
         }
 

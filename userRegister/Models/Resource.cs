@@ -28,7 +28,7 @@ namespace API.Models
         private static readonly string[] Ex = { "62d8682daeef469267d8084f", "62d8682daeef469267d80850", "62d8682daeef469267d80851", "62d8682daeef469267d8080b" };
 
         public Resource() { }
-        public Resource(ObjectId id, string name, string[] type, string[] location = null, bool mastery = false)
+        public Resource(ObjectId id, string name, string[] type, string[]? location = null, bool mastery = false)
         {
             Id = id;
             Name = name;
