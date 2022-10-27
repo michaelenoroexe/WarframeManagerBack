@@ -28,7 +28,8 @@ namespace API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore().AddAuthorization();
+            services.AddMvcCore();
+            services.AddAuthorization();
             // Dependency Injection
             services.AddLogging(conf => conf.AddLog(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")));
             services.AddSingleton<GetDataRepository>();
@@ -37,7 +38,6 @@ namespace API
             services.AddCors(); // Adding CORS Secvices
 
             //JwtAuth
-            //services.AddSingleton<IPostConfigureOptions<JwtBearerOptions>, ConfigureJwtBearerOptions>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -60,8 +60,6 @@ namespace API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            Console.WriteLine(db);
-            // Configure the HTTP request pipeline.
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -85,7 +83,6 @@ namespace API
             {
                 endpoints.MapControllers();
             });
-
         }
     }
     //class ConfigureJwtBearerOptions : IPostConfigureOptions<JwtBearerOptions>

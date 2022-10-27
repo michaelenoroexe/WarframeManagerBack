@@ -4,7 +4,7 @@ using API.Models;
 using Microsoft.AspNetCore.Authorization;
 using MongoDB.Bson;
 using API.Models.Responses;
-
+using API.Models.Interfaces;
 
 namespace API.Controllers
 {
@@ -12,10 +12,10 @@ namespace API.Controllers
     [ApiController]
     public class GetDataController : ControllerBase
     {
-        private GetDataRepository _repository;
+        private IGetData _repository;
         private readonly ILogger<GetDataController> _logger;
 
-        public GetDataController(GetDataRepository dataRepository, ILogger<GetDataController> logger)
+        public GetDataController(IGetData dataRepository, ILogger<GetDataController> logger)
         {
             _repository = dataRepository;
             _logger = logger;
@@ -28,9 +28,9 @@ namespace API.Controllers
             var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
             if (user == null) return NotFound("User not found");
             var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-            GetDataResponses res = await _repository.GetUserItAsync(_repository.GetResourcesListAsync, _repository.GetUsersResourcesAsync, user, changes?.Resources);
-            if (res.Code == 20) return Ok(res.Data);
-            return BadRequest(res.Data);
+            List<Item> res = await _repository.GetUserResourcesAsync();
+            
+            return Ok(res);
         }
 
         [HttpGet("ResourcesList")]
@@ -47,9 +47,9 @@ namespace API.Controllers
             var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
             if (user == null) return NotFound("User not found");
             var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-            GetDataResponses res = await _repository.GetUserItAsync(_repository.GetItemsListAsync, _repository.GetUsersItemsAsync, user, changes?.Items);
-            if (res.Code == 20) return Ok(res.Data);
-            return BadRequest(res.Data);
+            List<Item> res = await _repository.GetUserItemsAsync();
+            
+            return Ok(res);
         }
 
         [HttpGet("ItemsList")]

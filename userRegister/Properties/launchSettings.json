@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "userRegister": {
+    "API": {
       "commandName": "Project",
       "launchBrowser": false,
       "launchUrl": "api/weatherforecast",

@@ -1697,3 +1697,259 @@ Date: 04.10.2022 2:35:34:  State: Saving '633b7122d77fb0500be9f273' changes to D
 Date: 04.10.2022 2:42:51:  State: Saving '633b712ad77fb0500be9f274' changes to DB
 Date: 04.10.2022 2:46:46:  State: Saving '633b7405f71fd9e634f6177f' changes to DB
 Date: 04.10.2022 3:32:42:  State: Saving '633b7ec7d06f8654f88f6b58' changes to DB
+Date: 27.10.2022 14:21:01:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: incorrect item '6305344e9070664c88e5fa27:100' in dictionary
+Stack Trace   at API.Repositories.GetDataRepository.FillItemNumber(IEnumerable`1& dict, List`1& items) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 55
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 125
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 50
+   at lambda_method49(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 27.10.2022 14:21:01:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: incorrect item '6305344e9070664c88e5fa27:100' in dictionary
+Stack Trace   at API.Repositories.GetDataRepository.FillItemNumber(IEnumerable`1& dict, List`1& items) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 55
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 125
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 50
+   at lambda_method50(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 27.10.2022 14:21:15:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: incorrect item '6305344e9070664c88e5fa27:100' in dictionary
+Stack Trace   at API.Repositories.GetDataRepository.FillItemNumber(IEnumerable`1& dict, List`1& items) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 55
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 125
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 50
+   at lambda_method50(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 27.10.2022 14:21:16:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: incorrect item '6305344e9070664c88e5fa27:100' in dictionary
+Stack Trace   at API.Repositories.GetDataRepository.FillItemNumber(IEnumerable`1& dict, List`1& items) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 55
+   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 125
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 50
+   at lambda_method50(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 27.10.2022 15:17:46:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Unable to cast object of type 'System.Collections.DictionaryEntry' to type 'System.Collections.Generic.KeyValuePair`2[System.String,System.String]'.
+Stack Trace   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 160
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 50
+   at lambda_method37(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 27.10.2022 15:17:46:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Unable to cast object of type 'System.Collections.DictionaryEntry' to type 'System.Collections.Generic.KeyValuePair`2[System.String,System.String]'.
+Stack Trace   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 160
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 50
+   at lambda_method37(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 27.10.2022 15:27:10:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Unable to cast object of type 'System.Collections.DictionaryEntry' to type 'System.Collections.Generic.KeyValuePair`2[System.String,System.String]'.
+Stack Trace   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 160
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 50
+   at lambda_method49(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 27.10.2022 15:27:10:  State: An unhandled exception has occurred while executing the request. Event: UnhandledException Exception Message: Unable to cast object of type 'System.Collections.DictionaryEntry' to type 'System.Collections.Generic.KeyValuePair`2[System.String,System.String]'.
+Stack Trace   at API.Repositories.GetDataRepository.GetUserItAsync(Func`1 allIt, Func`2 userIt, User user, Dictionary`2 bufres) in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Repositories\GetDataRepository.cs:line 160
+   at API.Controllers.GetDataController.GetUserItemsList() in H:\Projects\Web\warframeManagerB\WarframeManager\userRegister\Controllers\GetDataController.cs:line 50
+   at lambda_method34(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa27:100' in db
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa28:30' in db
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa29:23' in db
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa2a:11' in db
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa2b:22' in db
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '6305344f9070664c88e5fa3f:4' in db
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '630534519070664c88e5fa55:3' in db
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '630534689070664c88e5fb8c:0' in db
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '630534689070664c88e5fb91:0' in db
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '630534699070664c88e5fba4:0' in db
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '630534849070664c88e5fd16:43' in db
+Date: 27.10.2022 15:29:10:  State: User id:6267fea599251c426804d69f has incorrect item '630534879070664c88e5fd45:4' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534989070664c88e5fe24:3' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534b19070664c88e5ff86:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305349b9070664c88e5fe4e:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534699070664c88e5fb9b:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305348f9070664c88e5fdad:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534659070664c88e5fb65:12' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305346a9070664c88e5fba8:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa27:100' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534919070664c88e5fdc6:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa28:30' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305346a9070664c88e5fbaf:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa29:23' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534659070664c88e5fb6b:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa2a:11' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305346e9070664c88e5fbe0:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305344e9070664c88e5fa2b:22' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305346e9070664c88e5fbec:5' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305344f9070664c88e5fa3f:4' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534709070664c88e5fbfb:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534519070664c88e5fa55:3' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534719070664c88e5fc10:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534689070664c88e5fb8c:0' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534909070664c88e5fdb8:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534689070664c88e5fb91:0' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534739070664c88e5fc2c:3' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534699070664c88e5fba4:0' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534619070664c88e5fb31:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534849070664c88e5fd16:43' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534779070664c88e5fc5d:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534879070664c88e5fd45:4' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534779070664c88e5fc5f:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534989070664c88e5fe24:3' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534779070664c88e5fc68:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534b19070664c88e5ff86:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534789070664c88e5fc70:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305349b9070664c88e5fe4e:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534aa9070664c88e5ff21:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534699070664c88e5fb9b:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534909070664c88e5fdc3:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305348f9070664c88e5fdad:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534519070664c88e5fa53:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534659070664c88e5fb65:12' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534a19070664c88e5fea0:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305346a9070664c88e5fba8:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305347a9070664c88e5fc8b:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534919070664c88e5fdc6:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305347a9070664c88e5fc8e:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305346a9070664c88e5fbaf:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534b79070664c88e5ffce:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534659070664c88e5fb6b:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534889070664c88e5fd4e:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305346e9070664c88e5fbe0:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305349d9070664c88e5fe70:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305346e9070664c88e5fbec:5' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305347b9070664c88e5fc9e:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534709070664c88e5fbfb:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534609070664c88e5fb25:20' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534719070664c88e5fc10:1' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '6305347c9070664c88e5fcab:2' in db
+Date: 27.10.2022 15:29:11:  State: User id:6267fea599251c426804d69f has incorrect item '630534909070664c88e5fdb8:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa6c:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534739070664c88e5fc2c:3' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305347d9070664c88e5fcb9:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534619070664c88e5fb31:2' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305347e9070664c88e5fcc7:2' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534779070664c88e5fc5d:2' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534809070664c88e5fcd9:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534779070664c88e5fc5f:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534b39070664c88e5ffa1:6' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534779070664c88e5fc68:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305349d9070664c88e5fe72:55' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534789070664c88e5fc70:2' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa8c:19' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534aa9070664c88e5ff21:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305349e9070664c88e5fe7d:0' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534909070664c88e5fdc3:2' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '631c8a80f5156df87841ad04:15' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534519070664c88e5fa53:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534a19070664c88e5fea0:2' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305347a9070664c88e5fc8b:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305347a9070664c88e5fc8e:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534b79070664c88e5ffce:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534889070664c88e5fd4e:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305349d9070664c88e5fe70:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305347b9070664c88e5fc9e:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534609070664c88e5fb25:20' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305347c9070664c88e5fcab:2' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534539070664c88e5fa6c:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305347d9070664c88e5fcb9:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305347e9070664c88e5fcc7:2' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534809070664c88e5fcd9:1' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534b39070664c88e5ffa1:6' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305349d9070664c88e5fe72:55' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '630534559070664c88e5fa8c:19' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '6305349e9070664c88e5fe7d:0' in db
+Date: 27.10.2022 15:29:12:  State: User id:6267fea599251c426804d69f has incorrect item '631c8a80f5156df87841ad04:15' in db

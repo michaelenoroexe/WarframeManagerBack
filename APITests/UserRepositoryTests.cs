@@ -25,7 +25,7 @@ namespace APITests
             // Valid data check
             string[] cdata = { @"dima", @"misha", @"vladimir"
                                ,"a<script>alert(1)</script>"
-                               ,@"q!#$%&()*+,-./;<=>?@[\]^_{|}~", };
+                               ,@"q!#$%&()*+,-./;<=>?@[\]^_{|}~" };
             foreach (string data in cdata)
             Assert.IsTrue(checkData(data), data);
 
