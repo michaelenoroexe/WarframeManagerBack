@@ -18,18 +18,7 @@ namespace API.Repositories
         private readonly IMongoCollection<Restype> _types;
         private readonly ILogger _logger;
 
-        /// <summary>
-        /// Return full list of items filtered by predicate.
-        /// </summary>
-        /// <param name="func">Predicate to filter resulte list</param>
-        /// <returns></returns>
-        private async Task<List<Item>> GetFullList(Func<Item, bool> func)
-        {
-            // Get all items from db.
-            IAsyncCursor<Item> res = await _itemCollection.FindAsync<Item>(FilterDefinition<Item>.Empty);
-            // Filter items py predicate.
-            return res.ToEnumerable().Where(func).ToList();
-        } 
+        
         /// <summary>
         /// Get full users items list.
         /// </summary>

@@ -13,13 +13,16 @@ using Newtonsoft.Json;
 using API.Repositories;
 using API.Logger;
 using System.Text.Json;
+using API.Models;
+using API.Models.Interfaces;
+using API.Models.Service;
+using API.Models.Common;
 
 namespace API
 {
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        static IMongoDatabase db = DBClient.Db;
 
         public Startup(IConfiguration configuration)
         {
@@ -30,13 +33,32 @@ namespace API
         {
             services.AddMvcCore();
             services.AddAuthorization();
-            // Dependency Injection
+            #region Dependency Injection.
+            #region Database collections.
+            var DBclient = DBClient.GetDBClient();
+            IMongoDatabase DB = DBclient.Db;
+            services.AddSingleton(DB.GetCollection<Item>("Components"));
+            services.AddSingleton(DB.GetCollection<UserResources>("UsersResources"));
+            services.AddSingleton(DB.GetCollection<UserInfo>("UsersInfo"));
+            services.AddSingleton(DB.GetCollection<Planet>("Planets"));
+            services.AddSingleton(DB.GetCollection<Restype>("Types"));
+            #endregion
+            #region Functional dependency.
             services.AddLogging(conf => conf.AddLog(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")));
+            // Instantiate item collection service.
+            services.AddSingleton<ICollectionProvider>
+                (
+                servProvider => new CollectionProvider((IMongoCollection<Item>)servProvider.GetRequiredService(typeof(IMongoCollection<Item>)))
+                );
+            services.AddSingleton<Saver>();
+            services.AddSingleton<ManagersStorageBuilder>();
             services.AddSingleton<GetDataRepository>();
             services.AddSingleton<ProfileUpdateRepository>();
             services.AddSingleton<UserRepository>();
-            services.AddCors(); // Adding CORS Secvices
-
+            #endregion
+            // Adding CORS Secvices.
+            services.AddCors();
+            #endregion
             //JwtAuth
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>

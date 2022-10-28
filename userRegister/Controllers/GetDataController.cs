@@ -47,7 +47,7 @@ namespace API.Controllers
             var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
             if (user == null) return NotFound("User not found");
             var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-            List<Item> res = await _repository.GetUserItemsAsync();
+            List<Item> res = await _repository.GetUserItemsAsync(user);
             
             return Ok(res);
         }

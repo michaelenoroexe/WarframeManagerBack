@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson;
 
-namespace API.Models.Interfaces
+namespace API.Models.UserWork.Interfaces
 {
     public interface IUser
     {

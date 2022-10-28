@@ -1,4 +1,4 @@
-﻿namespace API.Models
+﻿namespace API.Models.Service
 {
     public static class Extention
     {

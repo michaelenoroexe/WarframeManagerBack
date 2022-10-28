@@ -6,7 +6,7 @@ using API.Repositories;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace API
+namespace API.Models.Service
 {
     public static class JwtAuthentication
     {

@@ -1,7 +1,8 @@
 ﻿using API.Models.Interfaces;
+using API.Models.UserWork.Interfaces;
 using MongoDB.Bson;
 
-namespace API.Models
+namespace API.Models.UserWork
 {
     // Model of user information
     public class User : IUser

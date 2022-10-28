@@ -1,7 +1,7 @@
 using System;
 using System.Security.Cryptography;
 
-namespace API
+namespace API.Models.Service
 {
     public static class Hash
     {

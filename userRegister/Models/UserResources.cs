@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using API.Models.Interfaces;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace API.Models
@@ -7,7 +8,7 @@ namespace API.Models
     {
         [BsonElement("_id")]
         [BsonId]
-        public ObjectId Id { get; set; }
+        public ObjectId? Id { get; set; }
         [BsonElement("user")]
         public ObjectId User { get; set; }
         [BsonElement("credits")]
@@ -17,6 +18,17 @@ namespace API.Models
         public Dictionary<string, int> Resources { get; set; }
         [BsonElement("items")]
         public Dictionary<string, int> Items { get; set; }
-      
+        /// <summary>
+        /// Create user resource.
+        /// </summary>
+        public UserResources(ObjectId user, ObjectId? id = null, 
+            int credits = 0, Dictionary<string, int>? resources = null, Dictionary<string, int>? items = null)
+        {
+            User = user;
+            Id = id;
+            Credits = credits;
+            Resources = resources ?? new Dictionary<string, int>();
+            Items = items ?? new Dictionary<string,int>();
+        }
     }
 }

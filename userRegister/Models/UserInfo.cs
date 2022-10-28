@@ -1,4 +1,6 @@
-﻿using MongoDB.Bson;
+﻿using API.Models.UserWork;
+using API.Models.UserWork.Interfaces;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace API.Models
@@ -15,7 +17,7 @@ namespace API.Models
         [BsonElement("img")]
         public int Image { get; set; }
 
-        public UserInfo(User us, int rank, int image)
+        public UserInfo(IUser us, int rank, int image)
         {
             Id = us?.Id;
             Login = us?.Login;
