@@ -29,42 +29,24 @@ namespace BufferUserRequests.ManStorage
         /// Get manager to control changes.
         /// </summary>
         /// <returns>Credits changes manager.</returns>
-        public ISavableChangeManager<int, UserResources> GetCreditManager()
-        {
-            if (_creditManager is not null) return _creditManager;
-            _creditManager = new CreditChangeManager();
-            return _creditManager;
-        }
+        public ISavableChangeManager<int, UserResources> GetCreditManager() => _creditManager ?? (_creditManager = new CreditChangeManager());
         /// <summary>
         /// Get manager to control changes.
         /// </summary>
         /// <returns>Items changes manager.</returns>
         public ISavableChangeManager<KeyValuePair<string, int>, Dictionary<string, int>, UserResources> GetItemsManager()
-        {
-            if (_itemManager is not null) return _itemManager;
-            _itemManager = new ItemChangeManager();
-            return _itemManager;
-        }
+            => _itemManager ?? (_itemManager = new ItemChangeManager());
         /// <summary>
         /// Get manager to control changes.
         /// </summary>
         /// <returns>Profile changes manager.</returns>
-        public ISavableChangeManager<UserInfo, UserInfo> GetProfileManager()
-        {
-            if (_profileManager is not null) return _profileManager;
-            _profileManager = new ProfileChangeManager();
-            return _profileManager;
-        }
+        public ISavableChangeManager<UserInfo, UserInfo> GetProfileManager() => _profileManager ?? (_profileManager = new ProfileChangeManager());
         /// <summary>
         /// Get manager to control changes.
         /// </summary>
         /// <returns>Resources changes manager.</returns>
         public ISavableChangeManager<KeyValuePair<string, int>, Dictionary<string, int>, UserResources> GetResourceManager()
-        {
-            if (_resManager is not null) return _resManager;
-            _resManager = new ResourceChangeManager();
-            return _resManager;
-        }
+            => _resManager ?? (_resManager = new ResourceChangeManager());
         /// <summary>
         /// Try get resource manager.
         /// </summary>

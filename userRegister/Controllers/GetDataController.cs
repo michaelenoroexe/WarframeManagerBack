@@ -5,6 +5,10 @@ using Microsoft.AspNetCore.Authorization;
 using MongoDB.Bson;
 using API.Models.Responses;
 using API.Models.Interfaces;
+using UserValidation;
+using System.Security.Claims;
+using Shared;
+using API.Models.Common.ItemComp;
 
 namespace API.Controllers
 {
@@ -14,75 +18,104 @@ namespace API.Controllers
     {
         private IGetData _repository;
         private readonly ILogger<GetDataController> _logger;
+        private readonly IUserValidator<ClaimsPrincipal> _validator;
+        private readonly IUserConverter<ClaimsPrincipal> _converter;
 
-        public GetDataController(IGetData dataRepository, ILogger<GetDataController> logger)
+        private IUser ValidateUser(ClaimsPrincipal us)
+        {
+            IUser? user = null;
+            IClientUser? clientUser;
+            try
+            {
+                clientUser = _converter.CreateUser(us);
+            }
+            catch (ArgumentNullException ex)
+            {
+                _logger.LogError("User tocken dont have login:"+ex.Message);
+                throw;
+            }
+            try
+            {
+                user = _validator.ValidateUser(clientUser);
+                if (user is null) throw new ArgumentException("User is not in database.");
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            return user;
+        }
+
+        public GetDataController(IGetData dataRepository, IUserValidator<ClaimsPrincipal> validator, ILogger<GetDataController> logger)
         {
             _repository = dataRepository;
             _logger = logger;
+            _validator = validator;
+            _converter = _validator.GetConverter();
         }
+
+        [HttpGet("ResourcesList")]
+        public ActionResult GetResourcesList() => Ok(_repository.GetResourcesList());
+        [HttpGet("ItemsList")]
+        public ActionResult GetItemsList() => Ok(_repository.GetItemsList());
+        [HttpGet("TypesList")]
+        public async Task<ActionResult> GetTypesList() => Ok(await _repository.GetTypesListAsync());
+        [HttpGet("Planets")]
+        public async Task<ActionResult> GetPlanets() => Ok(await _repository.GetPlanetListAsync());
+
         // GET: api/GetData/UserResourcesList
         [HttpGet("UserResourcesList")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> GetUserResourcesList()
         {
-            var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
-            if (user == null) return NotFound("User not found");
-            var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-            List<Item> res = await _repository.GetUserResourcesAsync();
-            
-            return Ok(res);
-        }
+            IUser user;
+            try
+            {
+                user = ValidateUser(User);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
-        [HttpGet("ResourcesList")]
-        public async Task<ActionResult> GetResourcesList()
-        {
-            //Return full list of resources
-            return Ok(await _repository.GetResourcesListAsync());
+            IEnumerable<IResource> res = await _repository.GetUserResourcesAsync(user);      
+            return Ok(res);
         }
 
         [HttpGet("UserItemsList")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> GetUserItemsList()
         {
-            var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
-            if (user == null) return NotFound("User not found");
-            var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-            List<Item> res = await _repository.GetUserItemsAsync(user);
-            
+            IUser user;
+            try
+            {
+                user = ValidateUser(User);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            IEnumerable<IResource> res = await _repository.GetUserItemsAsync(user);
             return Ok(res);
-        }
-
-        [HttpGet("ItemsList")]
-        public async Task<ActionResult> GetItemsList()
-        {
-            // Return full list of components
-            return Ok(await _repository.GetItemsListAsync());
-        }
-
-        [HttpGet("TypesList")]
-        public async Task<ActionResult> GetTypesList()
-        {
-            // Return full list of components
-            return Ok(await _repository.GetTypesListAsync());
-        }
-
-        [HttpGet("Planets")]
-        public async Task<ActionResult> GetPlanets()
-        {
-            return Ok(await _repository.GetPlanetListAsync());
         }
       
         [HttpGet("UserCredits")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> GetUserCredits()
         {
-            var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
-            if (user == null) return NotFound("User not found");
-            Task<int> res = _repository.GetUserCredits(user);
-            var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-            if (changes?.Credits is not null && changes.Credits != 0) return Ok(changes.Credits);
-            
-             return Ok(await res);
+            IUser user;
+            try
+            {
+                user = ValidateUser(User);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            int res = await _repository.GetUserCreditsAsync(user);
+            return Ok(res);
         }
 
         // GET: api/GetData/UserInfo
@@ -90,13 +123,18 @@ namespace API.Controllers
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> GetUserInfo()
         {
-            var user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
-            if (user == null) return NotFound("User not found");
-            Task<UserInfo> res = _repository.GetUserInfo(user);
-            var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-            if (changes?.ProfInfo is not null) return Ok(changes.ProfInfo.WithoutId());
-            var re = await res;
-            return Ok(re.WithoutId());
+            IUser user;
+            try
+            {
+                user = ValidateUser(User);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            UserInfo res = await _repository.GetUserInfoAsync(user);
+            return Ok(res);
         }
     }
 }

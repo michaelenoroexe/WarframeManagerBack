@@ -1,15 +1,17 @@
+using API.Models.UserWork;
+using Shared;
 using System;
 using System.Security.Cryptography;
 
 namespace API.Models.Service
 {
-    public static class Hash
+    public class Hash : IPasswordEqualityComparer, IPasswordHasher
     {
         private const int SaltSize = 16;
         private const int HashSize = 20;
         private const int Iterations = 1000;
 
-        public static string HashString(string password)
+        public string HashString(string password)
         {
             byte[] salt;
             using var rng = RandomNumberGenerator.Create();
@@ -25,7 +27,7 @@ namespace API.Models.Service
             return Convert.ToBase64String(hashBytes);
         }
 
-        public static bool Verify(string password, string hashedPassword)
+        public bool Equals(string password, string hashedPassword)
         {
             var hashBytes = Convert.FromBase64String(hashedPassword);
 
@@ -42,8 +44,8 @@ namespace API.Models.Service
                     return false;
                 }
             }
-
             return true;
         }
+
     }
 }

@@ -1,108 +1,32 @@
 ﻿using API.Models;
+using API.Models.Interfaces;
+using API.Models.UserWork;
+using API.Models.UserWork.Setter;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Shared;
 
 namespace API.Repositories
 {
-    public sealed class ProfileUpdateRepository
+    internal sealed class ProfileUpdateRepository : IChangeData
     {
-        private readonly IMongoCollection<UserResources> _usersItemsCollection;
+        private readonly ICollectionProvider _provider;
+        private readonly IBufferChanger _userInfoSetter;
+        private readonly ILogger _logger;
 
-        private readonly IMongoCollection<UserInfo> _usersInfCollection;
-
-        public ProfileUpdateRepository()
+        public ProfileUpdateRepository(ICollectionProvider collectionProvider, IBufferChanger userSetter, ILogger<GetDataRepository> logger)
         {
-            _usersItemsCollection = DBClient.Db.GetCollection<UserResources>("UsersResources");
-            _usersInfCollection = DBClient.Db.GetCollection<UserInfo>("UsersInfo");
+            _provider = collectionProvider;
+            _userInfoSetter = userSetter;
+            _logger = logger;
         }
 
-        public List<UserResources> GetAllUsersResources()
-        {
-            return _usersItemsCollection.Find(FilterDefinition<UserResources>.Empty).ToList();
-        }
+        public void UpdateCredits(IUser user, int credits) => _userInfoSetter.SetCreditNumber(user, credits);
 
-        public async Task<bool> UpdateUserResourcesAsync(User user, KeyValuePair<string, int> res)
-        {
-            try
-            {
-                var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-                if (changes == null)
-                {
-                    changes = new UserResourcesChanges(in _usersItemsCollection, in _usersInfCollection, user.Id);
-                    changes.Resources[res.Key] = res.Value;
-                    UserResourcesChangesBuffer._totalBuffer.AddLast(changes);
-                    return true;
-                }
-                changes.Resources[res.Key] = res.Value;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }         
-        }
+        public void UpdateItem(IUser user, KeyValuePair<string, int> item) => _userInfoSetter.SetItemNum(user, item);
 
-        public async Task<bool> UpdateUserItemsAsync(User user, KeyValuePair<string, int> item)
-        {
-            try
-            {
-                var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-                if (changes == null)
-                {
-                    changes = new UserResourcesChanges(in _usersItemsCollection, in _usersInfCollection, user.Id);
-                    changes.Items[item.Key] = item.Value;
-                    UserResourcesChangesBuffer._totalBuffer.AddLast(changes);
-                    return true;
-                }
-                changes.Items[item.Key] = item.Value;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
+        public void UpdateProfile(IUser user, UserInfo userInfo) => _userInfoSetter.SetProfileInfo(user, userInfo);
 
-        public bool UpdateCredits(User user, int num)
-        {
-            try
-            {
-                var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-                if (changes == null)
-                {
-                    changes = new UserResourcesChanges(in _usersItemsCollection, in _usersInfCollection, user.Id);
-
-                    UserResourcesChangesBuffer._totalBuffer.AddLast(changes);
-
-                }
-                changes.Credits = num;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
-
-        public bool UpdateProfInfo(User user, UserInfo inf)
-        {
-            try
-            {
-                var changes = UserResourcesChangesBuffer._totalBuffer.FirstOrDefault(userChan => userChan.User == user.Id);
-                if (changes == null)
-                {
-                    changes = new UserResourcesChanges(in _usersItemsCollection, in _usersInfCollection, user.Id);
-
-                    UserResourcesChangesBuffer._totalBuffer.AddLast(changes);
-
-                }
-                changes.ProfInfo = new UserInfo(user, inf.Rank, inf.Image);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
+        public void UpdateResource(IUser user, KeyValuePair<string, int> res) => _userInfoSetter.SetResourcesNum(user, res);
     }
 }

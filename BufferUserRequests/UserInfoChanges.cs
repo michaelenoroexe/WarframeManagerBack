@@ -71,12 +71,12 @@ namespace BufferUserRequests
         /// Set new user credit number to buffer.
         /// </summary>
         /// <param name="credNum">New resource number.</param>
-        public void ChangeResourceList(int credNum) => Refresh(() => _managerStorage.GetCreditManager().Edit(credNum));
+        public void ChangeCreditNumber(int credNum) => Refresh(() => _managerStorage.GetCreditManager().Edit(credNum));
         /// <summary>
         /// Change user profile info in buffer.
         /// </summary>
         /// <param name="profileInfo">User profile info.</param>
-        public void ChangeResourceList(UserInfo profileInfo) => Refresh(() => _managerStorage.GetProfileManager().Edit(profileInfo));
+        public void ChangeProfileInfo(UserInfo profileInfo) => Refresh(() => _managerStorage.GetProfileManager().Edit(profileInfo));
         #endregion
         #region Getting data from buffer
         /// <summary>

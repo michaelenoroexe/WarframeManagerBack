@@ -1,78 +1,146 @@
 ﻿using API.Models;
+using API.Models.Interfaces;
+using API.Models.UserWork.Setter;
 using API.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
+using Shared;
+using System.Security.Claims;
+using UserValidation;
 
 namespace API.Controllers
 {
     [Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/ProfUp")]
     [ApiController]
-    public class ProfileUpdateController : ControllerBase
+    internal class ProfileUpdateController : ControllerBase
     {
-        private ProfileUpdateRepository _repository;
+        private IChangeData _repository;
+        private readonly ILogger<GetDataController> _logger;
+        private readonly IUserValidator<ClaimsPrincipal> _validator;
+        private readonly IUserConverter<ClaimsPrincipal> _converter;
 
-        public ProfileUpdateController(ProfileUpdateRepository updateRepository)
+        private IUser ValidateUser(ClaimsPrincipal us)
         {
-            _repository = updateRepository;
+            IUser? user = null;
+            IClientUser? clientUser;
+            try
+            {
+                clientUser = _converter.CreateUser(us);
+            }
+            catch (ArgumentNullException ex)
+            {
+                _logger.LogError("User tocken dont have login:" + ex.Message);
+                throw;
+            }
+            try
+            {
+                user = _validator.ValidateUser(clientUser);
+                if (user is null) throw new ArgumentException("User is not in database.");
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            return user;
+        }
+
+        public ProfileUpdateController(IChangeData dataRepository, IUserValidator<ClaimsPrincipal> validator, ILogger<GetDataController> logger)
+        {
+            _repository = dataRepository;
+            _logger = logger;
+            _validator = validator;
+            _converter = _validator.GetConverter();
         }
 
         // POST api/ProfUp
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Change res)
+        public ActionResult Post([FromBody] ResourceChange res)
         {
-            User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
-            if (user == null) return Unauthorized();
+            IUser user;
+            try
+            {
+                user = ValidateUser(User);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
             if (res.Type == "resource")
-                if (await _repository.UpdateUserResourcesAsync(user, new KeyValuePair<string, int>(res.Resource, res.Number))) return Accepted();
+                try
+                {
+                    _repository.UpdateResource(user, new KeyValuePair<string, int>(res.Resource, res.Number));
+                    return Accepted();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogInformation($"User:{user.Login}, catch exeption on resource update:" + ex.Message, ex);
+                    return BadRequest();
+                } 
             if (res.Type == "item")
-                if (await _repository.UpdateUserItemsAsync(user, new KeyValuePair<string, int>(res.Resource, res.Number))) return Accepted();
+                try
+                {
+                    _repository.UpdateItem(user, new KeyValuePair<string, int>(res.Resource, res.Number));
+                    return Accepted();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogInformation($"User:{user.Login}, catch exeption on item update:" + ex.Message, ex);
+                    return BadRequest();
+                }
             return BadRequest();
+
         }
         // POST api/ProfUp/creds
         [HttpPost("creds")]
-        public async Task<ActionResult> CredCh([FromBody] Cred num)
+        public ActionResult CredCh([FromBody] Cred num)
         {
+            IUser? user = null;
             try
             {
-                User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
-                if (user == null) return Unauthorized();
-                if (_repository.UpdateCredits(user, num.Number) == false) return BadRequest();
+                try
+                {
+                    user = ValidateUser(User);
+                }
+                catch (ArgumentException ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+                _repository.UpdateCredits(user, num.Number);
                 return Accepted();
             }
-            catch
+            catch (Exception ex)
             {
+                _logger.LogInformation($"User:{user?.Login}, catch exeption on item update:" + ex.Message, ex);
                 return BadRequest();
             }  
         }
         // POST api/ProfUp/userInfo
         [HttpPost("userInfo")]
-        public async Task<ActionResult> ProfCh([FromBody] UserInfo ch)
+        public ActionResult ProfCh([FromBody] UserInfo ch)
         {
+            IUser? user = null;
             try
             {
-                User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
-                if (user == null) return Unauthorized();
-                if (_repository.UpdateProfInfo(user, ch) == false) return BadRequest();
+                try
+                {
+                    user = ValidateUser(User);
+                }
+                catch (ArgumentException ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+                _repository.UpdateProfile(user, ch);
                 return Accepted();
             }
-            catch
+            catch (Exception ex)
             {
+                _logger.LogInformation($"User:{user?.Login}, catch exeption on item update:" + ex.Message, ex);
                 return BadRequest();
             }
-        }
-
-        public class Change
-        {
-            public string Resource { get; set; }
-            public int Number { get; set; }
-            public string Type { get; set; }
-        }
-
-        public class Cred
-        {
-            public int Number { get; set; }
         }
     }
 }

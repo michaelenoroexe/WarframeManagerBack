@@ -19,6 +19,12 @@ using API.Models.Service;
 using API.Models.Common;
 using Shared;
 using BufferUserRequests;
+using API.Models.Common.ItemComp;
+using API.Models.UserWork.Interfaces;
+using API.Models.UserWork.Getter;
+using UserValidation.JWTValidation;
+using UserValidation.LoginPasswordValidator;
+using API.Models.UserWork.Setter;
 
 namespace API
 {
@@ -44,15 +50,37 @@ namespace API
             services.AddSingleton(DB.GetCollection<UserInfo>("UsersInfo"));
             services.AddSingleton(DB.GetCollection<Planet>("Planets"));
             services.AddSingleton(DB.GetCollection<Restype>("Types"));
-            #endregion
-            #region Functional dependency.
-            services.AddLogging(conf => conf.AddLog(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")));
             // Instantiate item collection service.
             services.AddSingleton<ICollectionProvider>
                 (
                 servProvider => new CollectionProvider((IMongoCollection<Item>)servProvider.GetRequiredService(typeof(IMongoCollection<Item>)))
                 );
+            #endregion
+            #region Functional dependency.
+            services.AddLogging(conf => conf.AddLog(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")));
+            services.AddSingleton<Hash>();
+            #region Buffer
             services.AddSingleton<UsersChangeBuffer>();
+            services.AddSingleton<IBufferChecker>
+                (
+                servProvider => new UserBufferChecker((UsersChangeBuffer)servProvider.GetRequiredService(typeof(UsersChangeBuffer)))
+                );
+            services.AddSingleton<UserBufferChanger>();
+            services.AddSingleton<DBGetter>
+                (
+                servProvider => new UserDBGetter((IMongoCollection<UserResources>)servProvider.GetRequiredService(typeof(IMongoCollection<UserResources>)),
+                                                 (IMongoCollection<UserInfo>)servProvider.GetRequiredService(typeof(IMongoCollection<UserInfo>)))
+                );
+            services.AddSingleton<IUserInfoGetter>
+                (
+                servProvider => new UserInfoGetter((IBufferChecker)servProvider.GetRequiredService(typeof(IBufferChecker)),
+                                                   (DBGetter)servProvider.GetRequiredService(typeof(DBGetter)))
+                );
+            #endregion
+            #region User validator
+            services.AddSingleton<JWTUserValidator>();
+            services.AddSingleton<LogPassUserValidator>();
+            #endregion
             services.AddSingleton<GetDataRepository>();
             services.AddSingleton<ProfileUpdateRepository>();
             services.AddSingleton<UserRepository>();
@@ -108,34 +136,4 @@ namespace API
             });
         }
     }
-    //class ConfigureJwtBearerOptions : IPostConfigureOptions<JwtBearerOptions>
-    //{
-    //    private readonly IOptions<JwtAuthentication> _jwtAuthentication;
-
-    //    public ConfigureJwtBearerOptions(IOptions<JwtAuthentication> jwtAuthentication)
-    //    {
-    //        _jwtAuthentication = jwtAuthentication ?? throw new System.ArgumentNullException(nameof(jwtAuthentication));
-    //    }
-
-    //    public void PostConfigure(string name, JwtBearerOptions options)
-    //    {
-    //        var jwtAuthentication = _jwtAuthentication.Value;
-
-    //        options.ClaimsIssuer = jwtAuthentication.ValidIssuer;
-    //        options.IncludeErrorDetails = true;
-    //        options.RequireHttpsMetadata = true;
-    //        options.TokenValidationParameters = new TokenValidationParameters
-    //        {
-    //            ValidateActor = true,
-    //            ValidateIssuer = true,
-    //            ValidateAudience = true,
-    //            ValidateLifetime = true,
-    //            ValidateIssuerSigningKey = true,
-    //            ValidIssuer = jwtAuthentication.ValidIssuer,
-    //            ValidAudience = jwtAuthentication.ValidAudience,
-    //            IssuerSigningKey = jwtAuthentication.SymmetricSecurityKey,
-    //            NameClaimType = ClaimTypes.NameIdentifier
-    //        };
-    //    }
-    //}
 }

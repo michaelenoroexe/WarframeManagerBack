@@ -6,6 +6,6 @@ namespace API.Models.Common.ItemComp
     {
         public ObjectId Id { get; }
         public string StringID => Id.ToString();
-        public int SetOwned(int number);
+        public void SetOwned(int number);
     }
 }

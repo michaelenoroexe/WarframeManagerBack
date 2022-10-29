@@ -19,25 +19,6 @@ namespace API.Repositories
                 _userCollection = DBClient.Db.GetCollection<User>("Users");
             }                                
         }
-        // Function that confirm validation of user input data.
-        public bool DataValidation(string data)
-        {
-            try
-            {
-                string validsymb = @"1234567890qwertyuiopasdfghjklzxcvbnm!#$%&()*+,-./;<=>?@[\]^_{|}~";
-                string datalower = data.ToLower();
-                if (!char.IsLetter(datalower[0])) return false;
-                if (datalower.Except(validsymb).Count() > 0) return false;
-                if (datalower.Length < 4 || datalower.Length > 32) return false;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-                return false;
-            }
-        }
-
         // Finding single user, when 0 = null, if users more than one = exeption.
         public async Task<User?> FindUserAsync(string us)
         {

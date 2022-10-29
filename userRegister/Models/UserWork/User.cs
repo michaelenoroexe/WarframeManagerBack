@@ -1,6 +1,7 @@
 ﻿using API.Models.Interfaces;
 using API.Models.UserWork.Interfaces;
 using MongoDB.Bson;
+using Shared;
 
 namespace API.Models.UserWork
 {
@@ -9,13 +10,11 @@ namespace API.Models.UserWork
     {
         public ObjectId Id { get; init; }
         public string Login { get; init; }
-        public string? Password { get; init; }
 
-        public User(ObjectId id, string login, string? password = null)
+        public User(ObjectId id, string login)
         {
             Id = id;
             Login = login;
-            Password = password;
         }
     }
 }

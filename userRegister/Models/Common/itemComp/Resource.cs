@@ -34,16 +34,18 @@ namespace API.Models.Common.ItemComp
             Type = type;
             Mastery = mastery;
         }
+        /// <summary>
+        /// Set user owned number.
+        /// </summary>
+        /// <param name="number">Positive having number.</param>
         public void SetOwned(int number)
         {
             if (number >= 0) _owned = number;
         }
-
         public bool Equals(IResource? x, IResource? y)
         {
             return x?.StringID.GetHashCode() == y?.StringID.GetHashCode();
         }
-
         public int GetHashCode([DisallowNull] IResource obj)
         {
             return obj.StringID.GetHashCode();

@@ -37,14 +37,14 @@ namespace API.Repositories
             ExceptionDispatchInfo? exep = null;
             foreach (KeyValuePair<string, int> res in dict)
             {
-                i = items.FirstOrDefault(re => re.strId.Equals(res.Key, StringComparison.OrdinalIgnoreCase));
+                i = items.FirstOrDefault(re => re.StringID.Equals(res.Key, StringComparison.OrdinalIgnoreCase));
 
                 if (i is null)
                 {
                     if (exep is null) exep = ExceptionDispatchInfo.Capture(new ArgumentException());
                     exep!.SourceException.Data.Add(res.Key, res.Value);
                 }
-                else i.Owned = res.Value;
+                else i.SetOwned(res.Value);
             }
             // Throw if user have incorrect items.
             exep?.Throw();
