@@ -1,9 +1,9 @@
-﻿using API.Models.Interfaces;
-using API.Models.Service;
-using API.Models.UserWork.Interfaces;
-using MongoDB.Driver;
+﻿using BufferUserRequests.ChangeManagers;
+using BufferUserRequests.DBSaver;
+using Microsoft.Extensions.Logging;
+using Shared;
 
-namespace API.Models.UserWork.Changes
+namespace BufferUserRequests.ManStorage
 {
     internal class ManagersStorage : IManagersStorage
     {
@@ -39,7 +39,7 @@ namespace API.Models.UserWork.Changes
         /// Get manager to control changes.
         /// </summary>
         /// <returns>Items changes manager.</returns>
-        public ISavableChangeManager<KeyValuePair<IResource, int>, Dictionary<IResource, int>, UserResources> GetItemsManager()
+        public ISavableChangeManager<KeyValuePair<string, int>, Dictionary<string, int>, UserResources> GetItemsManager()
         {
             if (_itemManager is not null) return _itemManager;
             _itemManager = new ItemChangeManager();
@@ -59,12 +59,32 @@ namespace API.Models.UserWork.Changes
         /// Get manager to control changes.
         /// </summary>
         /// <returns>Resources changes manager.</returns>
-        public ISavableChangeManager<KeyValuePair<IResource, int>, Dictionary<IResource, int>, UserResources> GetResourceManager()
+        public ISavableChangeManager<KeyValuePair<string, int>, Dictionary<string, int>, UserResources> GetResourceManager()
         {
             if (_resManager is not null) return _resManager;
             _resManager = new ResourceChangeManager();
             return _resManager;
         }
+        /// <summary>
+        /// Try get resource manager.
+        /// </summary>
+        /// <returns>Manager if it instantiate or null if user dont have current type of changes.</returns>
+        public ISavableChangeManager<KeyValuePair<string, int>, Dictionary<string, int>, UserResources>? TryGetResourceManager() => _resManager;
+        /// <summary>
+        /// Try get item manager.
+        /// </summary>
+        /// <returns>Manager if it instantiate or null if user dont have current type of changes.</returns>
+        public ISavableChangeManager<KeyValuePair<string, int>, Dictionary<string, int>, UserResources>? TryGetItemsManager() => _itemManager;
+        /// <summary>
+        /// Try get credit manager.
+        /// </summary>
+        /// <returns>Manager if it instantiate or null if user dont have current type of changes.</returns>
+        public ISavableChangeManager<int, UserResources>? TryGetCreditManager() => _creditManager;
+        /// <summary>
+        /// Try get profile manager.
+        /// </summary>
+        /// <returns>Manager if it instantiate or null if user dont have current type of changes.</returns>
+        public ISavableChangeManager<UserInfo, UserInfo>? TryGetProfileManager() => _profileManager;
         /// <summary>
         /// Save state in all managers to Database.
         /// </summary>

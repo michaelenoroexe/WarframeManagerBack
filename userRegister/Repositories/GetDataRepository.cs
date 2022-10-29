@@ -1,32 +1,26 @@
 ﻿using API.Models;
+using API.Models.Common;
+using API.Models.Common.ItemComp;
 using API.Models.Interfaces;
 using API.Models.Responses;
 using API.Models.Service;
+using API.Models.UserWork.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Shared;
 using System.Collections;
 using System.Runtime.ExceptionServices;
 
 namespace API.Repositories
 {
-    public sealed class GetDataRepository : IGetData
+    internal sealed class GetDataRepository : IGetData
     {
-        private readonly IMongoCollection<Item> _itemCollection;
-        private readonly IMongoCollection<UserResources> _usersItemsCollection;
-        private readonly IMongoCollection<UserInfo> _usersInfoCollection;
+        private readonly ICollectionProvider _provider;
+        private readonly IUserInfoGetter _userInfoGetter;
         private readonly IMongoCollection<Planet> _planets;
         private readonly IMongoCollection<Restype> _types;
         private readonly ILogger _logger;
 
-        
-        /// <summary>
-        /// Get full users items list.
-        /// </summary>
-        private async Task<UserResources?> GetUserFullList(ObjectId userId)
-        {
-            IAsyncCursor<UserResources> ress = await _usersItemsCollection.FindAsync(Builders<UserResources>.Filter.Eq(db => db.User, userId));
-            return ress.SingleOrDefault();
-        }
         /// <summary>
         /// Fill total item list with users owned items.
         /// </summary>
@@ -34,12 +28,12 @@ namespace API.Repositories
         /// <param name="items">Total item list.</param>
         /// <exception cref="ArgumentNullException">If one of item is invalid.</exception>
         /// <exception cref="ArgumentException">If key of dictionary not in item list.</exception>
-        private void FillItemNumber(in IEnumerable<KeyValuePair<string, int>> dict, in List<Item> items)
+        private void FillItemNumber(in Dictionary<string, int> dict, ref IEnumerable<IResource> items)
         {
             if (dict is null) throw new ArgumentNullException("Dictionary with items number is null");
             if (items is null) throw new ArgumentNullException("Dont have collection to search in");
 
-            Item? i;
+            IResource? i;
             ExceptionDispatchInfo? exep = null;
             foreach (KeyValuePair<string, int> res in dict)
             {
@@ -55,39 +49,39 @@ namespace API.Repositories
             // Throw if user have incorrect items.
             exep?.Throw();
         }
-
-        public GetDataRepository(ILogger<GetDataRepository> logger)
+        /// <summary>
+        /// Decorator for fillItemNumber with error hangdling.
+        /// </summary>
+        /// <param name="dict">Dictionary with users items.</param>
+        /// <param name="itemList">Full list of items.</param>
+        /// <param name="user">user resources are filled to log if exeption.</param>
+        private void FillWithCatch(in Dictionary<string, int> dict, ref IEnumerable<IResource> itemList, IUser user)
         {
-                _itemCollection = DBClient.Db.GetCollection<Item>("Components");
-                _usersItemsCollection = DBClient.Db.GetCollection<UserResources>("UsersResources");
-                _usersInfoCollection = DBClient.Db.GetCollection<UserInfo>("UsersInfo");
-                _planets = DBClient.Db.GetCollection<Planet>("Planets");
-                _types = DBClient.Db.GetCollection<Restype>("Types");
-                _logger = logger;
+            try
+            {
+                FillItemNumber(in dict, ref itemList);
+            }
+            catch (ArgumentException ex)
+            {
+                foreach (DictionaryEntry e in ex.Data)
+                {
+                    _logger.LogError($"User id:{user.Id} has incorrect item '{e.Key}:{e.Value}' in buffer");
+                }
+            }
         }
-        /// <summary>
-        /// Get all resource list.
-        /// </summary>
-        public async Task<List<Item>> GetResourcesListAsync() => await GetFullList(db => Resource.IsResource(db));
-        /// <summary>
-        /// Get all item list.
-        /// </summary>
-        /// <returns></returns>
-        public async Task<List<Item>> GetItemsListAsync() => await GetFullList(db => !Resource.IsResource(db));
-        /// <summary>
-        /// Get all user resources.
-        /// </summary>
-        /// <param name="userId">UserId which resources needed to get.</param>
-        /// <returns>Dictionary of resource name as key, and resource number as value.  Null if user dont have any.</returns>
-        public async Task<Dictionary<string, int>?> GetUsersResourcesAsync(ObjectId userId)
-            => (await GetUserFullList(userId))?.Resources;
-        /// <summary>
-        /// Get all user items.
-        /// </summary>
-        /// <param name="userId">UserId which items needed to get.</param>
-        /// <returns>Dictionary of item name as key, and item number as value. Null if user dont have any.</returns>
-        public async Task<Dictionary<string, int>?> GetUsersItemsAsync(ObjectId userId)
-            => (await GetUserFullList(userId))?.Items;
+
+        public GetDataRepository(IMongoCollection<Planet> planetColl, IMongoCollection<Restype> resColl, ICollectionProvider collectionProvider,
+            IUserInfoGetter userInfoGetter, ILogger<GetDataRepository> logger)
+        {
+            _provider = collectionProvider;
+            _userInfoGetter = userInfoGetter;
+            _planets = planetColl;
+            _types = resColl;
+            _logger = logger;
+        }
+
+        public IEnumerable<IResource> GetItemsList() => _provider.GetAllItems();
+        public IEnumerable<IResource> GetResourcesList() => _provider.GetAllResources();
         /// <summary>
         /// Get dictionary with all planets.
         /// </summary>
@@ -96,105 +90,35 @@ namespace API.Repositories
         {
             var planets = new Dictionary<string, string>();
 
-            IAsyncCursor<Planet> res = await _planets.FindAsync(FilterDefinition<Planet>.Empty);            
+            IAsyncCursor<Planet> res = await _planets.FindAsync(FilterDefinition<Planet>.Empty);
             await res.ForEachAsync(plan => planets.Add(plan.Id.ToString(), plan.Name));
 
             return planets;
         }
-
-        // Decide what user get items all resources.
-        public async Task<List<Item>> GetUserItAsync(Func<Task<List<Item>>> allIt, Func<ObjectId, Task<Dictionary<string, int>>> userIt, User user, Dictionary<string, int>? bufres = null)
+        public async Task<List<Restype>> GetTypesListAsync() => await _types.FindAsync(FilterDefinition<Restype>.Empty).Result.ToListAsync();
+        public async Task<int> GetUserCreditsAsync(IUser user) => await _userInfoGetter.GetCreditsAsync(user);
+        public async Task<UserInfo> GetUserInfoAsync(IUser user) => await _userInfoGetter.GetProfileAsync(user);
+        public async Task<IEnumerable<IResource>> GetUserItemsAsync(IUser user)
         {
-            //Return full list of resources.
-            var allRessTask = allIt();
-            List<Item> items;
+            IEnumerable<IResource> fullList = GetItemsList();
+            Dictionary<string, int>? userItems = await _userInfoGetter.GetFullItemAsync(user);
 
-            Dictionary<string, int> userRess = await userIt(user.Id);          
-            items = await allRessTask;
+            if (userItems is null) return fullList;
 
-            IEnumerable<KeyValuePair<string, int>>? userRessNotInBuffer = null;
-            if (bufres is not null)
-            {
-                IEqualityComparer<KeyValuePair<string, int>> equalityComparer = new KeyValEqualityComparer<string, int>();
+            FillWithCatch(in userItems, ref fullList, user);
 
-                userRessNotInBuffer = userRess.Except(bufres, equalityComparer);
-                try
-                {
-                    FillItemNumber(bufres, items);
-                }
-                catch (ArgumentNullException ex)
-                {
-                    _logger.LogCritical("Null argument in setting user buffer items:" + ex.Message);
-                    throw;
-                }
-                catch (ArgumentException ex)
-                {
-                    foreach (DictionaryEntry e in ex.Data)
-                    {
-                        _logger.LogError($"User id:{user.Id} has incorrect item '{e.Key}:{e.Value}' in buffer");
-                    }
-                }
-            }
-
-            try
-            { 
-                FillItemNumber(userRessNotInBuffer ?? userRess, items);
-            }
-            catch (ArgumentNullException ex)
-            {
-                _logger.LogCritical("Null argument in setting user items:" + ex.Message);
-                throw;
-            }
-            catch (ArgumentException ex)
-            {
-                foreach (DictionaryEntry e in ex.Data)
-                {
-                    _logger.LogError($"User id:{user.Id} has incorrect item '{e.Key}:{e.Value}' in db");
-                }
-            }
-                           
-            return items;
+            return fullList;
         }
-
-        public async Task<List<Restype>> GetTypesListAsync()
-        {       
-            return await _types.FindAsync(FilterDefinition<Restype>.Empty).Result.ToListAsync();
-        }
-
-        public async Task<int> GetUserCredits(IUser user)
+        public async Task<IEnumerable<IResource>> GetUserResourcesAsync(IUser user)
         {
-            try
-            {
-                var ress = await _usersItemsCollection.FindAsync(Builders<UserResources>.Filter.Eq(db => db.User, user.Id));
-                UserResources res = await ress.SingleOrDefaultAsync();
-                if (res == null || res?.Credits <= 0) 
-                {
-                    return 0;
+            IEnumerable<IResource> fullList = GetResourcesList();
+            Dictionary<string, int>? userResources = await _userInfoGetter.GetFullResourceAsync(user);
 
-                }
-                return res.Credits;
-            }
-            catch (Exception ex)
-            {
-                return 0;
-            }
-        }
+            if (userResources is null) return fullList;
 
-        public async Task<UserInfo> GetUserInfo(User user)
-        {
-            try
-            {
-                var ress = await _usersInfoCollection.FindAsync(Builders<UserInfo>.Filter.Eq(db => db.Login, user.Login));
-                UserInfo res = await ress.SingleOrDefaultAsync();
-                
-                if (res is null) return new UserInfo(user, 0, 0);
+            FillWithCatch(in userResources, ref fullList, user);
 
-                return res;
-            }
-            catch (Exception ex)
-            {
-                return new UserInfo(user, 0, 0);
-            }
+            return fullList;
         }
     }
 }

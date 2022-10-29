@@ -1,4 +1,8 @@
-﻿namespace API.Models.UserWork.Changes
+﻿using BufferUserRequests.ChangeManagers;
+using BufferUserRequests.DBSaver;
+using Shared;
+
+namespace BufferUserRequests
 {
     /// <summary>
     /// Interface if view and input changes are different.
@@ -6,11 +10,11 @@
     /// <typeparam name="T">Input change type.</typeparam>
     /// <typeparam name="R">View type.</typeparam>
     /// <typeparam name="S">Type of object to save in.</typeparam>
-    internal interface ISavableChangeManager<T,R,S> : IChangeManager<T,R>, ISavable<S> { }
+    public interface ISavableChangeManager<T,R,S> : IChangeManager<T,R>, ISavable<S> { }
     /// <summary>
     /// Interface if view and input changes are the same.
     /// </summary>
     /// <typeparam name="T">Input change type.</typeparam>
     /// <typeparam name="S">Type of object to save in.</typeparam>
-    internal interface ISavableChangeManager<T, S> : IChangeManager<T>, ISavable<S> { }
+    public interface ISavableChangeManager<T, S> : IChangeManager<T>, ISavable<S> { }
 }

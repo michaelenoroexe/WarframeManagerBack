@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace API.Models.Common
+namespace API.Models.Common.ItemComp
 {
     public class Item : Resource
     {

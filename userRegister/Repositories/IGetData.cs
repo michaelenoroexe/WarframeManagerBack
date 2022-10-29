@@ -1,4 +1,8 @@
-﻿namespace API.Models.Interfaces
+﻿using API.Models.Common;
+using API.Models.Common.ItemComp;
+using Shared;
+
+namespace API.Models.Interfaces
 {
     public interface IGetData
     {
@@ -6,12 +10,12 @@
         /// <summary>
         /// Get all resource list.
         /// </summary>
-        public Task<Dictionary<string, int>?> GetResourcesListAsync();
+        public IEnumerable<IResource> GetResourcesList();
         /// <summary>
         /// Get all item list.
         /// </summary>
         /// <returns></returns>
-        public Task<Dictionary<string, int>?> GetItemsListAsync();
+        public IEnumerable<IResource> GetItemsList();
         /// <summary>
         /// Get dictionary with all planets.
         /// </summary>
@@ -26,17 +30,17 @@
 
         #region User belong
         /// <summary>
-        /// Get all user resources.
+        /// Get all resources, to users resources set having number.
         /// </summary>
-        /// <param name="userId">UserId which resources needed to get.</param>
-        /// <returns>Dictionary of resource name as key, and resource number as value.  Null if user dont have any.</returns>
-        public Task<Dictionary<string, int>?> GetUserResourcesAsync(IUser user);
+        /// <param name="user">UserId which resources needed to get.</param>
+        /// <returns>Dictionary of resource name as key, and resource number as value.</returns>
+        public Task<IEnumerable<IResource>> GetUserResourcesAsync(IUser user);
         /// <summary>
-        /// Get all user items.
+        /// Get all items, to users items set having number.
         /// </summary>
-        /// <param name="userId">UserId which items needed to get.</param>
-        /// <returns>Dictionary of item name as key, and item number as value. Null if user dont have any.</returns>
-        public Task<Dictionary<string, int>?> GetUserItemsAsync(IUser user);
+        /// <param name="user">UserId which items needed to get.</param>
+        /// <returns>Dictionary of item name as key, and item number as value.</returns>
+        public Task<IEnumerable<IResource>> GetUserItemsAsync(IUser user);
         /// <summary>
         /// Get number of user credits.
         /// </summary>

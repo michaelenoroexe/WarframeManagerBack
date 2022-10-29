@@ -1,7 +1,8 @@
-﻿using API.Models.UserWork.Changes;
-using API.Models.UserWork.Interfaces;
+﻿using BufferUserRequests.DBSaver;
+using Microsoft.Extensions.Logging;
+using Shared;
 
-namespace API.Models.Service
+namespace BufferUserRequests.ManStorage
 {
     internal class ManagersStorageBuilder
     {

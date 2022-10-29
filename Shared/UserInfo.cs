@@ -1,9 +1,7 @@
-﻿using API.Models.UserWork;
-using API.Models.UserWork.Interfaces;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace API.Models
+namespace Shared
 {
     public class UserInfo
     {

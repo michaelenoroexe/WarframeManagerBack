@@ -1,9 +1,11 @@
-﻿namespace API.Models.UserWork.Changes
+﻿using Shared;
+
+namespace BufferUserRequests
 {
     /// <summary>
     /// Change manager that store and manage one type of user change.
     /// </summary>
-    internal interface IChangeManager<T, R>
+    public interface IChangeManager<T, R>
     {
         /// <summary>
         /// Edit item in manages buffer.
@@ -17,7 +19,7 @@
     /// <summary>
     /// Change manager that store and manage one type of user change.
     /// </summary>
-    internal interface IChangeManager<T>
+    public interface IChangeManager<T>
     {
         /// <summary>
         /// Edit item in manages buffer.

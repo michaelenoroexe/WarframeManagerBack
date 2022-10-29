@@ -17,6 +17,8 @@ using API.Models;
 using API.Models.Interfaces;
 using API.Models.Service;
 using API.Models.Common;
+using Shared;
+using BufferUserRequests;
 
 namespace API
 {
@@ -50,8 +52,7 @@ namespace API
                 (
                 servProvider => new CollectionProvider((IMongoCollection<Item>)servProvider.GetRequiredService(typeof(IMongoCollection<Item>)))
                 );
-            services.AddSingleton<Saver>();
-            services.AddSingleton<ManagersStorageBuilder>();
+            services.AddSingleton<UsersChangeBuffer>();
             services.AddSingleton<GetDataRepository>();
             services.AddSingleton<ProfileUpdateRepository>();
             services.AddSingleton<UserRepository>();

@@ -1,6 +1,6 @@
-﻿namespace API.Models.UserWork.Changes
+﻿namespace BufferUserRequests
 {
-    internal interface ISavable<S>
+    public interface ISavable<S>
     {
         /// <summary>
         /// Save state to object in parameter.

@@ -1,9 +1,11 @@
-﻿namespace API.Models.Interfaces
+﻿using API.Models.Common.ItemComp;
+
+namespace API.Models.Interfaces
 {
     internal interface ICollectionProvider
     {
-        public Dictionary<IResource, int> GetAllResources();
+        public IEnumerable<IResource> GetAllResources();
 
-        public Dictionary<IResource, int> GetAllItems();
+        public IEnumerable<IResource> GetAllItems();
     }
 }

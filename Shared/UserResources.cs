@@ -1,8 +1,8 @@
-﻿using API.Models.Interfaces;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
 
-namespace API.Models
+namespace Shared
 {
     public class UserResources
     {
@@ -12,7 +12,6 @@ namespace API.Models
         [BsonElement("user")]
         public ObjectId User { get; set; }
         [BsonElement("credits")]
-        //[BsonExtraElements]
         public int Credits { get; set; }
         [BsonElement("resources")]
         public Dictionary<string, int> Resources { get; set; }

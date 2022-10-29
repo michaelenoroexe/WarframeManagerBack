@@ -1,9 +1,8 @@
-﻿using API.Models.UserWork.Changes;
-using API.Models.UserWork.Interfaces;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using Shared;
 
-namespace API.Models.Service
+namespace BufferUserRequests.DBSaver
 {
     /// <summary>
     /// Class to save manager state to db.

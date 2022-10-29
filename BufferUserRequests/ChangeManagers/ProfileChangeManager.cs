@@ -1,30 +1,32 @@
-﻿namespace API.Models.UserWork.Changes
+﻿using Shared;
+
+namespace BufferUserRequests.ChangeManagers
 {
-    internal class CreditChangeManager : ISavableChangeManager<int, UserResources>
+    internal class ProfileChangeManager : ISavableChangeManager<UserInfo, UserInfo>
     {
         /// <summary>
         /// Storage of user changes.
         /// </summary>
-        private int _storage;
+        private UserInfo _storage;
         /// <summary>
-        /// Get instance of CreditChangeManager.
+        /// Get instance of ProfileChangeManager.
         /// </summary>
-        public CreditChangeManager()
+        public ProfileChangeManager()
         {
-            _storage = 0;
+            _storage = new UserInfo();
         }
         /// <summary>
         /// Change storage to input value.
         /// </summary>
-        public void Edit(int item) => _storage = item;
+        public void Edit(UserInfo item) => _storage = item;
         /// <summary>
         /// Get current state of storage.
         /// </summary>
-        public int GetCurrent() => _storage;
+        public UserInfo GetCurrent() => _storage;
         /// <summary>
         /// Save state to object in argument.
         /// </summary>
         /// <param name="save">User resource item to store resource in.</param>
-        public void Save(ref UserResources save) => save.Credits = _storage;
+        public void Save(ref UserInfo save) => save = _storage;
     }
 }

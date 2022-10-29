@@ -1,37 +1,37 @@
-﻿using API.Models.Interfaces;
+﻿using Shared;
 
-namespace API.Models.UserWork.Changes
+namespace BufferUserRequests.ChangeManagers
 {
-    internal class ItemChangeManager : ISavableChangeManager<KeyValuePair<IResource, int>, Dictionary<IResource, int>, UserResources>
+    internal class ItemChangeManager : ISavableChangeManager<KeyValuePair<string, int>, Dictionary<string, int>, UserResources>
     {
         /// <summary>
         /// Storage of user changes.
         /// </summary>
-        private Dictionary<IResource, int> _storage;
+        private Dictionary<string, int> _storage;
         /// <summary>
         /// Get instance of ItemChangeManager.
         /// </summary>
         public ItemChangeManager()
         {
-            _storage = new Dictionary<IResource, int>();
+            _storage = new Dictionary<string, int>();
         }
         /// <summary>
         /// Edit or add item in buffer.
         /// </summary>
-        public void Edit(KeyValuePair<IResource, int> item) => _storage[item.Key] = item.Value;
+        public void Edit(KeyValuePair<string, int> item) => _storage[item.Key] = item.Value;
         /// <summary>
         /// Get current state of storage.
         /// </summary>
-        public Dictionary<IResource, int> GetCurrent() => _storage;
+        public Dictionary<string, int> GetCurrent() => _storage;
         /// <summary>
         /// Save state to object in argument.
         /// </summary>
         /// <param name="save">User resource item to store resource in.</param>
         public void Save(ref UserResources save)
         {
-            foreach (KeyValuePair<IResource, int> item in _storage)
+            foreach (KeyValuePair<string, int> item in _storage)
             {
-                save.Items[item.Key.Id.ToString()] = item.Value;
+                save.Items[item.Key] = item.Value;
             }
         }
     }
