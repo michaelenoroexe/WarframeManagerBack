@@ -2,13 +2,16 @@
 using System.Collections.Specialized;
 using MongoDB.Driver;
 using MongoDB.Bson;
-//JSON
 using System.Web;
 using API.Models;
 using API.Repositories;
 using API.Controllers;
 using API;
 using Microsoft.AspNetCore.Authorization;
+using UserValidation;
+using Shared;
+using System.Security.Claims;
+using API.Models.UserWork;
 
 namespace API.Controllers
 {
@@ -17,124 +20,103 @@ namespace API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        static UserRepository _userRepository;
+        private UserRepository _userRepository;
+        private IUserValidator<(string, string)> _passValidator;
+        private IUserValidator<ClaimsPrincipal> _jwtValidator;
         private readonly ILogger<UserController> _logger;
 
-        public UserController(ILogger<UserController> logger)
+        public UserController(UserRepository userRepository, IUserValidator<(string, string)> passValidator, 
+            IUserValidator<ClaimsPrincipal> jwtValidator, ILogger<UserController> logger)
         {
-            _userRepository = new UserRepository();
+            _userRepository = userRepository;
+            _passValidator = passValidator;
+            _jwtValidator = jwtValidator;
             _logger = logger;
         }
 
         // Controller that process user registration requests
         [HttpPost("registration")]
-        public async Task<ActionResult> UserRegister([FromBody] User user)
+        public async Task<ActionResult> UserRegister([FromBody] FullUser user)
         {
+            //Checking user input on data validation
             try
             {
-                //Checking user input on data validation
-                if (!_userRepository.DataValidation(user.Login)) throw new Exception("Invalid Login");
-                if (!_userRepository.DataValidation(user.Password)) throw new Exception("Invalid Password");
-                //Adding user to DB or error
-                var ans = await _userRepository.AddUserAsync(user);
-
-                if (ans.Success) return Ok(ans);
-                throw new Exception(ans.ErrorMessage);
+                _passValidator.ValidateUser(user);
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
-                // Return error to clien if something goes wrong
-                if (ex.Message == "Invalid Login"
-                    || ex.Message == "Invalid Password") return BadRequest(ex.Message);
-                if (ex.Message == "A user with the given login already exists.")
-                    return Conflict(ex.Message);
+                _logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
-        }
-        // Controller that process user login in requests
-        [HttpPost("signin")]
-        public async Task<ActionResult> UserSignIn([FromBody] User user)
-        {
-            try
-            {
-                //Checking user input on data validation
-                if (!_userRepository.DataValidation(user.Login)) throw new Exception("Invalid Login");
-                if (!_userRepository.DataValidation(user.Password)) throw new Exception("Invalid Password");
-                //Adding creating JST tocken and send it back to user
-                var ans = await _userRepository.LoginUserAsync(user);
-
-                if (ans.Success) return Ok(ans);
-                throw new Exception(ans.ErrorMessage);
-            }
-            catch (Exception ex)
-            {
-                // Return error to clien if something goes wrong
-                if (ex.Message == "Invalid Login"
-                    || ex.Message == "Invalid Password"
-                    || ex.Message == "Wrong Login or Password!") return BadRequest(ex.Message);
-                return StatusCode(500, "Server error");
-            }
+            //Adding user to DB or error
+            await _userRepository.AddUserAsync(user, user.Password);
+                
+            return Ok();
         }
         // Controller that process user password change
         [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPost("passChange")]
-        public async Task<ActionResult> UserPassChange([FromBody] PassChange pasCh)
+        public async Task<ActionResult> UserPassChange([FromBody] (string OldPassword, string NewPassword) pasCh)
         {
+            IUser? user;
+            IClientUser clientUser;
+            IUser? initialUser;
             try
             {
-                User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
-                if (user == null) return Unauthorized();
-                //Checking user input on data validation
-                if (!_userRepository.DataValidation(pasCh.OldPass)) return BadRequest("Invalid Old Password");
-                if (!_userRepository.DataValidation(pasCh.NewPass)) return BadRequest("Invalid New Password");
-                
-                if (!Hash.Verify(pasCh.OldPass, user.Password)) return BadRequest("Wrong old Password");
-
-                var ans = await _userRepository.ChangeUserPasswordAsync(user, pasCh.NewPass);
-
-                if (ans.Success) return Accepted();
-                throw new Exception(ans.ErrorMessage);
+                // Validate user.
+                clientUser = _jwtValidator.GetConverter().CreateUser(User);
+                user = _passValidator.ValidateUser(clientUser);
+                if (user is null) return Unauthorized();
+                initialUser = user;
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
-                // Return error to clien if something goes wrong
-                return StatusCode(500, "Server error");
+                _logger.LogError(ex.Message);
+                // If old password is invalid
+                if (ex.Message == "Password is incorrect.") return BadRequest("Invalid Old Password");
+                if (ex.Message == "Password is not match.") return BadRequest("Wrong old Password");
+                return BadRequest(ex.Message);
             }
+            clientUser = new FullUser(user.Id, user.Login, pasCh.NewPassword);
+            // Check if new password is invalid.
+            try
+            {
+                user = _passValidator.ValidateUser(clientUser);
+            }
+            catch (ArgumentException ex)
+            {
+                if (ex.Message != "Password is not match.")
+                    return BadRequest("Invalid New Password");
+            }
+
+            await _userRepository.ChangeUserPasswordAsync(initialUser, pasCh.NewPassword);
+
+            return Accepted();
         }
         // Delete user account
         [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPost("delUser")]
-        public async Task<ActionResult> UserDelete([FromBody] Pass pas)
+        public async Task<ActionResult> UserDelete([FromBody] ReceivingPassword pas)
         {
+            IClientUser clientUser;
+            IUser? user;
+            //Checking user input on data validation
             try
             {
-                User user = await JwtAuthentication.GetUserFromTokenAsync(HttpContext.User.Claims.FirstOrDefault().Value);
+                clientUser = _jwtValidator.GetConverter().CreateUser(User);
+                clientUser = _passValidator.GetConverter().CreateUser((clientUser.Login, pas.Password));
+                user = _passValidator.ValidateUser(clientUser);
                 if (user == null) return Unauthorized();
-                //Checking user input on data validation
-                if (!_userRepository.DataValidation(pas.Pas)) return BadRequest("Invalid Password");
-
-                if (!Hash.Verify(pas.Pas, user.Password)) return BadRequest("Wrong Password");
-
-                var ans = await _userRepository.DeleteUserAsync(user);
-
-                if (ans.Success) return Accepted();
-                throw new Exception(ans.ErrorMessage);
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
-                // Return error to clien if something goes wrong
-                return StatusCode(500, "Server error");
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
             }
-        }
+            //Adding user to DB or error
+            await _userRepository.DeleteUserAsync(user);
 
-        public class PassChange
-        {
-            public string OldPass { get; set; }
-            public string NewPass { get; set; }
-        }
-        public class Pass
-        {
-            public string Pas { get; set; }
+            return Accepted();
         }
     }
 }

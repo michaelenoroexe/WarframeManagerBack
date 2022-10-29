@@ -1,6 +1,6 @@
 ﻿using Shared;
 
-namespace API.Models.UserWork.AccManager
+namespace API.Repositories
 {
     internal interface IUserManager
     {
@@ -8,8 +8,8 @@ namespace API.Models.UserWork.AccManager
 
         public string LoginUser(IUser user);
 
-        public Task ChangeUserPassword(User user, string newPassword);
+        public Task ChangeUserPasswordAsync(IUser user, string newPassword);
 
-        public string DeleteUserAsync(IUser user);
+        public Task DeleteUserAsync(IUser user);
     }
 }

@@ -5,6 +5,7 @@ using API.Models;
 using API.Repositories;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Shared;
 
 namespace API.Models.Service
 {
@@ -16,7 +17,7 @@ namespace API.Models.Service
 
         public static SymmetricSecurityKey SymmetricSecurityKey => new SymmetricSecurityKey(Convert.FromBase64String(SecurityKey));
         public static SigningCredentials SigningCredentials => new SigningCredentials(SymmetricSecurityKey, SecurityAlgorithms.HmacSha256);
-        public static string GenerateToken(User user)
+        public static string GenerateToken(IUser user)
         {
             var token = new JwtSecurityToken(
                 issuer: ValidIssuer,
@@ -30,32 +31,6 @@ namespace API.Models.Service
                 signingCredentials: SigningCredentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
-        }
-
-        private static string GetUserLoginFromToken(HttpRequest request)
-        {
-            var bearer =
-                request.Headers.ToArray().First(h => h.Key == "Authorization")
-                    .Value.First().Substring(7);
-
-            var jwtHandler = new JwtSecurityTokenHandler();
-            var readableToken = jwtHandler.CanReadToken(bearer);
-            if (readableToken != true) return "Error: No bearer in the header";
-
-            var token = jwtHandler.ReadJwtToken(bearer);
-            var claims = token.Claims;
-
-            var userLoginClaim = claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.UniqueName);
-
-            return userLoginClaim == null ? "Error: Token does not contain an Login claim." : userLoginClaim.Value;
-        }
-
-        public static async Task<User> GetUserFromTokenAsync(string userName)
-        {
-            var _userRepository = new UserRepository();
-            //var login = GetUserLoginFromToken(request);
-            var _login = userName;
-            return await _userRepository.FindUserAsync(_login);
         }
     }
 }
