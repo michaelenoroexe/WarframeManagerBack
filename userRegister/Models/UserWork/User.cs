@@ -16,5 +16,11 @@ namespace API.Models.UserWork
             Id = id;
             Login = login;
         }
+
+        public bool Equals(IUser? other)
+        {
+            if (other is null) return false;
+            return Id.ToString().GetHashCode() == other.Id.ToString().GetHashCode();
+        }
     }
 }

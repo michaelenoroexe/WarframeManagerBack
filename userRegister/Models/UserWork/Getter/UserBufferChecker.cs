@@ -15,9 +15,9 @@ namespace API.Models.UserWork.Getter
         {
             _changesBuffer = changesBuffer;
         }
-        public int? GetCredits(IUser user) => _changesBuffer.GetUserChanges(user).GetCurrentCreditNumber();
-        public Dictionary<string, int>? GetItems(IUser user) => _changesBuffer.GetUserChanges(user).GetCurrentItemList();
-        public UserInfo? GetProfile(IUser user) => _changesBuffer.GetUserChanges(user).GetCurrentProfileInfo();
-        public Dictionary<string, int>? GetResources(IUser user) => _changesBuffer.GetUserChanges(user).GetCurrentResourceList();
+        public int? GetCredits(IUser user) => _changesBuffer.TryGetUserChanges(user)?.GetCurrentCreditNumber();
+        public Dictionary<string, int>? GetItems(IUser user) => _changesBuffer.TryGetUserChanges(user)?.GetCurrentItemList();
+        public UserInfo? GetProfile(IUser user) => _changesBuffer.TryGetUserChanges(user)?.GetCurrentProfileInfo();
+        public Dictionary<string, int>? GetResources(IUser user) => _changesBuffer.TryGetUserChanges(user)?.GetCurrentResourceList();
     }
 }

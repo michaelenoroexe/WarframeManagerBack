@@ -2,7 +2,7 @@
 
 namespace Shared
 {
-    public interface IUser
+    public interface IUser : IEquatable<IUser>
     {
         public ObjectId Id { get; init; }
 

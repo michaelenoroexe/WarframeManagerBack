@@ -9,7 +9,7 @@ namespace BufferUserRequests
         private DateTime _lastAcces;
         private Task _savingToDB;
         private CancellationTokenSource _tokenSource = new();
-        private int _delayBeforeSave = (int)TimeSpan.FromMinutes(10).TotalMilliseconds;
+        private int _delayBeforeSave = (int)TimeSpan.FromMinutes(0.5).TotalMilliseconds;
         private LinkedList<UserInfoChanges> _storagePlace;
         internal IUser User { get; init; }
         private IManagersStorage _managerStorage;
@@ -32,7 +32,9 @@ namespace BufferUserRequests
             return Task.Run(async () => {
                 while ((DateTime.Now - _lastAcces).TotalMilliseconds < _delayBeforeSave && !tok.IsCancellationRequested)
                 {
+                    Console.WriteLine(_delayBeforeSave - (int)(DateTime.Now - _lastAcces).TotalMilliseconds);
                     await Task.Delay(_delayBeforeSave - (int)(DateTime.Now - _lastAcces).TotalMilliseconds);
+                    Console.WriteLine(_delayBeforeSave - (int)(DateTime.Now - _lastAcces).TotalMilliseconds);
                 }
             }, tok);   
         }
@@ -50,11 +52,12 @@ namespace BufferUserRequests
         /// <param name="user">User that do changes.</param>
         public UserInfoChanges(IManagersStorage managerStorage, IUser user, LinkedList<UserInfoChanges> storagePlace)
         {
+            _disposedValue = false;
             User = user;
             _managerStorage = managerStorage;
             _storagePlace = storagePlace;
             _lastAcces = DateTime.Now;
-            _savingToDB = Delay().ContinueWith(task => SaveToDB, TaskContinuationOptions.OnlyOnRanToCompletion);
+            _savingToDB = Delay().ContinueWith(task => SaveToDB(), TaskContinuationOptions.OnlyOnRanToCompletion);
         }
         #region Setting in buffer
         /// <summary>

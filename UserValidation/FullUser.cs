@@ -18,5 +18,11 @@ namespace UserValidation
             _login = login;
             _password = password;
         }
+
+        public bool Equals(IUser? other)
+        {
+            if (other is null) return false;
+            return _id.ToString().GetHashCode() == other.Id.ToString().GetHashCode();
+        }
     }
 }

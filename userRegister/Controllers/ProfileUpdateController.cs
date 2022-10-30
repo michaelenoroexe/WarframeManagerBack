@@ -1,20 +1,17 @@
-﻿using API.Models;
-using API.Models.Interfaces;
-using API.Models.UserWork.Setter;
+﻿using API.Models.UserWork.Setter;
 using API.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
 using Shared;
 using System.Security.Claims;
 using UserValidation;
 
 namespace API.Controllers
 {
-    [Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/ProfUp")]
     [ApiController]
-    internal class ProfileUpdateController : ControllerBase
+    [Authorize(AuthenticationSchemes = "Bearer")]
+    public class ProfileUpdateController : ControllerBase
     {
         private IChangeData _repository;
         private readonly ILogger<GetDataController> _logger;
@@ -133,7 +130,7 @@ namespace API.Controllers
                     return BadRequest(ex.Message);
                 }
 
-                _repository.UpdateProfile(user, ch);
+                _repository.UpdateProfile(user, new UserInfo(user, ch.Rank, ch.Image));
                 return Accepted();
             }
             catch (Exception ex)

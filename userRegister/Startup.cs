@@ -25,6 +25,8 @@ using API.Models.UserWork.Getter;
 using UserValidation.JWTValidation;
 using UserValidation.LoginPasswordValidator;
 using API.Models.UserWork.Setter;
+using API.Models.UserWork;
+using UserValidation;
 
 namespace API
 {
@@ -46,44 +48,32 @@ namespace API
             var DBclient = DBClient.GetDBClient();
             IMongoDatabase DB = DBclient.Db;
             services.AddSingleton(DB.GetCollection<Item>("Components"));
+            services.AddSingleton(DB.GetCollection<FullUser>("Users"));
             services.AddSingleton(DB.GetCollection<UserResources>("UsersResources"));
             services.AddSingleton(DB.GetCollection<UserInfo>("UsersInfo"));
             services.AddSingleton(DB.GetCollection<Planet>("Planets"));
             services.AddSingleton(DB.GetCollection<Restype>("Types"));
             // Instantiate item collection service.
-            services.AddSingleton<ICollectionProvider>
-                (
-                servProvider => new CollectionProvider((IMongoCollection<Item>)servProvider.GetRequiredService(typeof(IMongoCollection<Item>)))
-                );
+            services.AddSingleton<ICollectionProvider, CollectionProvider>();
             #endregion
             #region Functional dependency.
             services.AddLogging(conf => conf.AddLog(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")));
-            services.AddSingleton<Hash>();
+            services.AddSingleton<IPasswordEqualityComparer, Hash>();
+            services.AddSingleton<IPasswordHasher, Hash>();
             #region Buffer
             services.AddSingleton<UsersChangeBuffer>();
-            services.AddSingleton<IBufferChecker>
-                (
-                servProvider => new UserBufferChecker((UsersChangeBuffer)servProvider.GetRequiredService(typeof(UsersChangeBuffer)))
-                );
-            services.AddSingleton<UserBufferChanger>();
-            services.AddSingleton<DBGetter>
-                (
-                servProvider => new UserDBGetter((IMongoCollection<UserResources>)servProvider.GetRequiredService(typeof(IMongoCollection<UserResources>)),
-                                                 (IMongoCollection<UserInfo>)servProvider.GetRequiredService(typeof(IMongoCollection<UserInfo>)))
-                );
-            services.AddSingleton<IUserInfoGetter>
-                (
-                servProvider => new UserInfoGetter((IBufferChecker)servProvider.GetRequiredService(typeof(IBufferChecker)),
-                                                   (DBGetter)servProvider.GetRequiredService(typeof(DBGetter)))
-                );
+            services.AddSingleton<IBufferChecker, UserBufferChecker>();
+            services.AddSingleton<IBufferChanger, UserBufferChanger>();
+            services.AddSingleton<DBGetter, UserDBGetter>();
+            services.AddSingleton<IUserInfoGetter, UserInfoGetter>();
             #endregion
             #region User validator
-            services.AddSingleton<JWTUserValidator>();
-            services.AddSingleton<LogPassUserValidator>();
+            services.AddSingleton<IUserValidator<ClaimsPrincipal>, JWTUserValidator>();
+            services.AddSingleton<IUserValidator<(string, string)>, LogPassUserValidator >();
             #endregion
-            services.AddSingleton<GetDataRepository>();
-            services.AddSingleton<ProfileUpdateRepository>();
-            services.AddSingleton<UserRepository>();
+            services.AddSingleton<IGetData, GetDataRepository>();
+            services.AddSingleton<IChangeData, ProfileUpdateRepository>();
+            services.AddSingleton<IUserManager, UserRepository>();
             #endregion
             // Adding CORS Secvices.
             services.AddCors();

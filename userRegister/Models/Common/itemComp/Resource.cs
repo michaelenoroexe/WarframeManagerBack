@@ -25,6 +25,8 @@ namespace API.Models.Common.ItemComp
         private int _owned;
         [BsonIgnore]
         public int Owned { get => _owned; }
+        [BsonIgnore]
+        public string StringID => Id.ToString();       
 
         public Resource(ObjectId id, string name, string[] type, string[]? location = null, bool mastery = false)
         {

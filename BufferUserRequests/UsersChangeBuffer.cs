@@ -16,7 +16,7 @@ namespace BufferUserRequests
         /// Instantiate UserChanges buffer.
         /// </summary>
         public UsersChangeBuffer(IMongoCollection<UserResources> userResCollection, 
-                                 IMongoCollection<UserInfo> userProfCollection, ILogger loger)
+                                 IMongoCollection<UserInfo> userProfCollection, ILogger<UsersChangeBuffer> loger)
         {           
             _saver = new Saver(userResCollection, userProfCollection);
             _logger = loger;
@@ -30,7 +30,7 @@ namespace BufferUserRequests
         public UserInfoChanges GetUserChanges(IUser user)
         {
             // Return existed user info.
-            UserInfoChanges? changes = _changeBuffer.FirstOrDefault(changes => changes.User == user);
+            UserInfoChanges? changes = _changeBuffer.FirstOrDefault(changes => changes.User.Equals(user));
             if (changes is not null) return changes;
             // Create new user info.
             var manager = _managersStorageBuilder.CreateManagersStorage(user);
@@ -38,5 +38,13 @@ namespace BufferUserRequests
             _changeBuffer.AddLast(changes);
             return changes;
         }
+        /// <summary>
+        /// Try to get associated with user change buffer.
+        /// </summary>
+        /// <param name="user">User which buffer needed to find.</param>
+        /// <return>Return associated with user buffer, if user dont have buffer return null.</return>
+        public UserInfoChanges? TryGetUserChanges(IUser user)
+            => _changeBuffer.FirstOrDefault(changes => changes.User.Equals(user));
+
     }
 }

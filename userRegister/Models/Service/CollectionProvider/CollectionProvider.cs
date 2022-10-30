@@ -20,7 +20,7 @@ namespace API.Models.Service
             // Get all items from db.
             IAsyncCursor<Item> res = await collection.FindAsync<Item>(FilterDefinition<Item>.Empty);
             // Filter items py predicate.
-            return res.ToEnumerable().Where(func);
+            return res.ToEnumerable().Where(func).ToList();
         }
         /// <summary>
         /// Create collection provider with full list of items.

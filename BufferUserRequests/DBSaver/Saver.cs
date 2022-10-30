@@ -29,7 +29,7 @@ namespace BufferUserRequests.DBSaver
         /// <returns></returns>
         private async Task<UserInfo> GetCurrentProfile(IUser user)
         {
-            IAsyncCursor<UserInfo> stat = await _userProfileInfoCollection.FindAsync(Builders<UserInfo>.Filter.Eq(dbIt => dbIt.Id, user.Id));
+            IAsyncCursor<UserInfo> stat = await _userProfileInfoCollection.FindAsync(Builders<UserInfo>.Filter.Eq(dbIt => dbIt.Id!, user.Id));
             UserInfo result = await stat.SingleOrDefaultAsync();
             return result ?? new UserInfo();
         }
@@ -56,8 +56,17 @@ namespace BufferUserRequests.DBSaver
         {
             if (profile.Id is not null)
             {
-                await _userProfileInfoCollection.UpdateOneAsync(Builders<UserInfo>.Filter.Eq(dbIt => dbIt.Id, profile.Id),
-                                                                       Builders<UserInfo>.Update.Set(x => x, profile));
+                var userInfMass = await _userProfileInfoCollection.FindAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, user.Id));
+                UserInfo userInf = await userInfMass.SingleOrDefaultAsync();
+
+                userInf.Login = profile.Login;
+                userInf.Rank = profile.Rank;
+                userInf.Image = profile.Image;
+
+                await _userProfileInfoCollection.UpdateOneAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, userInf.Id),
+                                                                                   Builders<UserInfo>.Update.Set(x => x.Login, userInf.Login)
+                                                                                                            .Set(x => x.Rank, userInf.Rank)
+                                                                                                            .Set(x => x.Image, userInf.Image)); ;
                 return;
             }
             profile.Id = user.Id;
@@ -77,12 +86,12 @@ namespace BufferUserRequests.DBSaver
         /// <summary>
         /// Save change to user resource.
         /// </summary>
-        public async void Save(IUser user, params ISavable<UserResources>[] savable)
+        public async void Save(IUser user, params ISavable<UserResources>?[] savable)
         {
             if (savable.Length <= 0) throw new ArgumentNullException("Needed to use at least one saver argument");
 
             UserResources resources = await GetCurrentResources(user);
-            Parallel.ForEach(savable, saver => saver.Save(ref resources));
+            Parallel.ForEach(savable, saver => saver?.Save(ref resources));
 
             await SetCurrentResources(resources);
         }
