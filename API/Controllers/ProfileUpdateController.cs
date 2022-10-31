@@ -11,7 +11,7 @@ namespace API.Controllers
     [Route("api/ProfUp")]
     [ApiController]
     [Authorize(AuthenticationSchemes = "Bearer")]
-    public class ProfileUpdateController : ControllerBase
+    public sealed class ProfileUpdateController : ControllerBase
     {
         private readonly IChangeData _repository;
         private readonly ILogger<GetDataController> _logger;
@@ -53,7 +53,7 @@ namespace API.Controllers
 
         // POST api/ProfUp
         [HttpPost("")]
-        public ActionResult ChangeResourceNumber([FromBody] ResourceChange res)
+        public ActionResult ChangeResourceNumber([FromBody] ReceiveResourceChange res)
         {
             IUser user;
             try
@@ -81,7 +81,7 @@ namespace API.Controllers
         }
         // POST api/ProfUp/creds
         [HttpPost("creds")]
-        public ActionResult ChangeCreditNumber([FromBody] Cred num)
+        public ActionResult ChangeCreditNumber([FromBody] ReceiveCreditsChange num)
         {
             IUser? user;
             try

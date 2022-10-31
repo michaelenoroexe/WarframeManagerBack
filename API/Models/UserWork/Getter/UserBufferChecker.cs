@@ -4,9 +4,9 @@ using Shared;
 
 namespace API.Models.UserWork.Getter
 {
-    public class UserBufferChecker : IBufferChecker
+    public sealed class UserBufferChecker : IBufferChecker
     {
-        private UsersChangeBuffer _changesBuffer;
+        private readonly UsersChangeBuffer _changesBuffer;
         /// <summary>
         /// Check curent values in buffer of user changes.
         /// </summary>
@@ -16,8 +16,8 @@ namespace API.Models.UserWork.Getter
             _changesBuffer = changesBuffer;
         }
         public int? GetCredits(IUser user) => _changesBuffer.TryGetUserChanges(user)?.GetCurrentCreditNumber();
-        public Dictionary<string, int>? GetItems(IUser user) => _changesBuffer.TryGetUserChanges(user)?.GetCurrentItemList();
         public UserInfo? GetProfile(IUser user) => _changesBuffer.TryGetUserChanges(user)?.GetCurrentProfileInfo();
+        public Dictionary<string, int>? GetItems(IUser user) => _changesBuffer.TryGetUserChanges(user)?.GetCurrentItemList();
         public Dictionary<string, int>? GetResources(IUser user) => _changesBuffer.TryGetUserChanges(user)?.GetCurrentResourceList();
     }
 }

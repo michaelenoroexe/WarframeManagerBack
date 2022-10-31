@@ -1,10 +1,9 @@
-﻿using API.Models.UserWork.Interfaces;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using Shared;
 
 namespace API.Models.UserWork.Getter
 {
-    internal class UserDBGetter : DBGetter
+    internal sealed class UserDBGetter : DBGetter
     {
         /// <summary>
         /// Get full users items list.
@@ -19,11 +18,11 @@ namespace API.Models.UserWork.Getter
 
         public override async Task<int?> GetCredits(IUser user) => (await GetUserResources(user))?.Credits;
         public override async Task<Dictionary<string, int>?> GetItems(IUser user) => (await GetUserResources(user))?.Items;
+        public override async Task<Dictionary<string, int>?> GetResources(IUser user) => (await GetUserResources(user))?.Resources;
         public override async Task<UserInfo?> GetProfile(IUser user)
         {
             IAsyncCursor<UserInfo> userRes = await _profileCollection.FindAsync(Builders<UserInfo>.Filter.Eq(db => db.Id, user.Id));
             return userRes.SingleOrDefault();
-        }
-        public override async Task<Dictionary<string, int>?> GetResources(IUser user) => (await GetUserResources(user))?.Resources;
+        } 
     }
 }

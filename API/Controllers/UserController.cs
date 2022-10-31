@@ -12,7 +12,7 @@ namespace API.Controllers
     // Control users requests about accounts 
     [Route("api")]
     [ApiController]
-    public class UserController : ControllerBase
+    public sealed class UserController : ControllerBase
     {
         private readonly IUserManager _userRepository;
         private readonly IUserValidator<(string, string)> _passValidator;

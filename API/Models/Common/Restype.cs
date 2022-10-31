@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace API.Models.Common
 {
-    public class Restype
+    public sealed class Restype
     {   
         [BsonId]
         [BsonElement("_id")]

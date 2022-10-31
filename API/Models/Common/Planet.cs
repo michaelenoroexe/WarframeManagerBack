@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace API.Models.Common
 {
-    internal class Planet
+    internal sealed class Planet
     {        
         [BsonId]
         [BsonElement("_id")]

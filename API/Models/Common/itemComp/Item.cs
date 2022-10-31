@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace API.Models.Common.ItemComp
 {
-    internal class Item : Resource
+    internal sealed class Item : Resource
     {
         [BsonElement("createTime")]
         public int CreationTime { get; set; }

@@ -6,9 +6,9 @@ namespace API.Models.Common.ItemComp
 {
     internal class Resource : IResource
     {
-        [BsonElement("_id")]
-        [JsonProperty("_id")]
         [BsonId]
+        [BsonElement("_id")]
+        [JsonProperty("_id")]        
         public ObjectId Id { get; init; }
         [BsonElement("name")]
         public string Name { get; init; }
@@ -19,9 +19,7 @@ namespace API.Models.Common.ItemComp
         [BsonElement("masterable")]
         public bool Mastery { get; init; }
         [BsonIgnore]
-        private int _owned;
-        [BsonIgnore]
-        public int Owned { get => _owned; }
+        public int Owned { get; protected set; }
         [BsonIgnore]
         public string StringID => Id.ToString();
 
@@ -37,29 +35,14 @@ namespace API.Models.Common.ItemComp
         /// Set user owned number.
         /// </summary>
         /// <param name="number">Positive having number.</param>
-        public void SetOwned(int number)
-        {
-            if (number >= 0) _owned = number;
-        }
-        public bool Equals(IResource? other)
-        {
-            if (other == null) return false;
-            return GetHashCode() == other?.GetHashCode();
-        }
+        public void SetOwned(int number) => Owned = (number > 0) ? number : Owned;
+        public bool Equals(IResource? other) => other is not null && GetHashCode() == other!.GetHashCode();
         public override bool Equals(object? obj)
         {
-            if (obj is string) return StringID.Equals((string)obj, StringComparison.OrdinalIgnoreCase);
-            if (obj is not IResource) return false;
-            return Equals((IResource)obj);
+            if (obj is string itemID) return StringID.Equals(itemID, StringComparison.OrdinalIgnoreCase);
+            return obj is IResource resource && Equals(resource);
         }
-        public override int GetHashCode()
-        {
-            return StringID.GetHashCode();
-        }
-
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public override int GetHashCode() => StringID.GetHashCode();
+        public object Clone() => MemberwiseClone();
     }
 }

@@ -1,7 +1,6 @@
 ﻿using MongoDB.Bson;
-using Shared;
 
-namespace API.Models.UserWork
+namespace Shared
 {
     // Model of user information
     public class User : IUser
@@ -15,10 +14,6 @@ namespace API.Models.UserWork
             Login = login;
         }
 
-        public bool Equals(IUser? other)
-        {
-            if (other is null) return false;
-            return Id.ToString().GetHashCode() == other.Id.ToString().GetHashCode();
-        }
+        public bool Equals(IUser? other) => other is not null && Id.Equals(other.Id);
     }
 }
