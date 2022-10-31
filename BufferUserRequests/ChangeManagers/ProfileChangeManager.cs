@@ -11,10 +11,7 @@ namespace BufferUserRequests.ChangeManagers
         /// <summary>
         /// Get instance of ProfileChangeManager.
         /// </summary>
-        public ProfileChangeManager()
-        {
-            _storage = new UserInfo();
-        }
+        public ProfileChangeManager(IUser user) => _storage = new UserInfo(user);
         /// <summary>
         /// Change storage to input value.
         /// </summary>

@@ -2,7 +2,7 @@
 
 namespace UserValidation.JWTValidation
 {
-    public class JWTUserConverter : IUserConverter<ClaimsPrincipal>
+    internal sealed class JWTUserConverter : IUserConverter<ClaimsPrincipal>
     {
         public IClientUser CreateUser(ClaimsPrincipal user)
         {

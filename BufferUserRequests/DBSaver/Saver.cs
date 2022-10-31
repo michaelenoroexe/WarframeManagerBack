@@ -30,7 +30,7 @@ namespace BufferUserRequests.DBSaver
         {
             IAsyncCursor<UserInfo> stat = await _userProfileInfoCollection.FindAsync(Builders<UserInfo>.Filter.Eq(dbIt => dbIt.Id!, user.Id));
             UserInfo result = await stat.SingleOrDefaultAsync();
-            return result ?? new UserInfo();
+            return result ?? new UserInfo(null);
         }
         #endregion
         #region Set state in db

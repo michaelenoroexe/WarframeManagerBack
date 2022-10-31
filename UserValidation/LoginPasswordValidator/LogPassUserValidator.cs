@@ -4,7 +4,7 @@ using UserValidation.DBSearcher;
 
 namespace UserValidation.LoginPasswordValidator
 {
-    public class LogPassUserValidator : IUserValidator<(string Login, string Password)>
+    public sealed class LogPassUserValidator : IUserValidator<(string Login, string Password)>
     {
         private readonly DBUserSearcher _dbSearcher;
         private readonly IPasswordEqualityComparer _comparer;
@@ -17,16 +17,8 @@ namespace UserValidation.LoginPasswordValidator
             _comparer = comparer;
             _dbSearcher = new DBUserSearcher(userCollection);
         }
-        public IUserConverter<(string Login, string Password)> GetConverter()
-        {
-            return new LogPassUserConverter();
-        }
-
-        public bool ValidateCredential(string value)
-        {
-            return StringValidator.GetStringValidator().Validate(value);
-        }
-
+        public IUserConverter<(string Login, string Password)> GetConverter() => new LogPassUserConverter();
+        public bool ValidateCredential(string value) => StringValidator.GetStringValidator().Validate(value);
         public IUser? ValidateUser(IClientUser user)
         {
             var inputValidator = StringValidator.GetStringValidator();

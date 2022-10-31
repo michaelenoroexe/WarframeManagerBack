@@ -3,19 +3,26 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Shared
 {
-    public class UserResources
+    public sealed class UserResources
     {
-        [BsonElement("_id")]
+        [BsonIgnore]
+        private int _credits = 0;
+
         [BsonId]
-        public ObjectId? Id { get; set; }
+        [BsonElement("_id")]       
+        public ObjectId? Id { get; }
         [BsonElement("user")]
-        public ObjectId User { get; set; }
+        public ObjectId User { get; }
         [BsonElement("credits")]
-        public int Credits { get; set; }
+        public int Credits 
+        {
+            get => _credits;
+            set => _credits = (value > 0) ? value : _credits; 
+        }
         [BsonElement("resources")]
-        public Dictionary<string, int> Resources { get; set; }
+        public Dictionary<string, int> Resources { get; }
         [BsonElement("items")]
-        public Dictionary<string, int> Items { get; set; }
+        public Dictionary<string, int> Items { get; }
         /// <summary>
         /// Create user resource.
         /// </summary>

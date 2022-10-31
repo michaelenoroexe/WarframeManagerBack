@@ -5,26 +5,21 @@ using UserValidation.DBSearcher;
 
 namespace UserValidation.JWTValidation
 {
-    public class JWTUserValidator : IUserValidator<ClaimsPrincipal>
+    public sealed class JWTUserValidator : IUserValidator<ClaimsPrincipal>
     {
         private readonly DBUserSearcher _dbSearcher;
+
         public JWTUserValidator(IMongoCollection<FullUser> userCollection)
-        {
-            _dbSearcher = new DBUserSearcher(userCollection);
-        }
+            => _dbSearcher = new DBUserSearcher(userCollection);        
         /// <summary>
         /// Creates converter that converts user intput data to type ready to validate.
         /// </summary>
         /// <returns></returns>
         public IUserConverter<ClaimsPrincipal> GetConverter()
-        {
-            return new JWTUserConverter();
-        }
+            => new JWTUserConverter();
 
         public bool ValidateCredential(string value)
-        {
-            return StringValidator.GetStringValidator().Validate(value);
-        }
+            => StringValidator.GetStringValidator().Validate(value);
 
         public IUser? ValidateUser(IClientUser user)
         {

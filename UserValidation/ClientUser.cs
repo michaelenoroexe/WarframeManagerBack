@@ -1,9 +1,8 @@
 ﻿namespace UserValidation
 {
-    internal class ClientUser : IClientUser
+    internal sealed class ClientUser : IClientUser
     {
         public string Login { get; init; }
-
         public string? Password { get; init; }
 
         public ClientUser(string login, string? password = null)

@@ -40,7 +40,7 @@ namespace BufferUserRequests.ManStorage
         /// Get manager to control changes.
         /// </summary>
         /// <returns>Profile changes manager.</returns>
-        public ISavableChangeManager<UserInfo, UserInfo> GetProfileManager() => _profileManager ?? (_profileManager = new ProfileChangeManager());
+        public ISavableChangeManager<UserInfo, UserInfo> GetProfileManager() => _profileManager ?? (_profileManager = new ProfileChangeManager(_user));
         /// <summary>
         /// Get manager to control changes.
         /// </summary>

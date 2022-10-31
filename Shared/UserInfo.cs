@@ -3,38 +3,24 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Shared
 {
-    public class UserInfo
+    public sealed class UserInfo
     {
         [BsonElement("_id")]
         [BsonId]
-        public ObjectId? Id { get; set; }
+        public ObjectId? Id { get; }
         [BsonElement("login")]
-        public string Login { get; set; }
+        public string? Login { get; }
         [BsonElement("rank")]
-        public int Rank { get; set; }
+        public int Rank { get; }
         [BsonElement("img")]
-        public int Image { get; set; }
+        public int Image { get; }
 
-        public UserInfo(IUser us, int rank, int image)
+        public UserInfo(IUser? us, int rank = 0, int image = 0)
         {
             Id = us?.Id;
             Login = us?.Login;
             Rank = rank;
             Image = image;
         }
-        public UserInfo()
-        {
-
-        }
-        public UserInfo(string login, int rank, int image)
-        {
-            Login = login;
-            Rank = rank;
-            Image = image;
-        }
-        //public UserInfo WithoutId()
-        //{
-        //    return new UserInfo(this.Login, this.Rank, this.Image);
-        //}
     }
 }
