@@ -2,7 +2,7 @@
 
 namespace API.Repositories
 {
-    internal interface IUserManager
+    public interface IUserManager
     {
         public Task AddUserAsync(IUser user, string password);
 

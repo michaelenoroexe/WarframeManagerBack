@@ -74,7 +74,7 @@ namespace BufferUserRequests.ManStorage
         {
             _logger.LogInformation($"Saving '{_user}' changes to DB");
             // Save changes to User resources.
-            if (_itemManager is not null || _profileManager is not null || _creditManager is not null)
+            if (_itemManager is not null || _resManager is not null || _creditManager is not null)
                 _saver.Save(_user, _itemManager!, _resManager!, _creditManager!);
             // Save changes to user profile.
             if (_profileManager is not null)

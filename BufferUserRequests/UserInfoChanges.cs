@@ -9,7 +9,7 @@ namespace BufferUserRequests
         private DateTime _lastAcces;
         private Task _savingToDB;
         private CancellationTokenSource _tokenSource = new();
-        private int _delayBeforeSave = (int)TimeSpan.FromMinutes(0.5).TotalMilliseconds;
+        private int _delayBeforeSave = (int)TimeSpan.FromMinutes(0.1).TotalMilliseconds;
         private LinkedList<UserInfoChanges> _storagePlace;
         internal IUser User { get; init; }
         private IManagersStorage _managerStorage;

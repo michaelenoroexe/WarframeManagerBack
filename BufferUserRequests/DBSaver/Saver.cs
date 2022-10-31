@@ -42,8 +42,7 @@ namespace BufferUserRequests.DBSaver
         {
             if (resources.Id is not null)
             {
-                await _userResourcesCollection.UpdateOneAsync(Builders<UserResources>.Filter.Eq(dbIt => dbIt.User, resources.User),
-                                                                     Builders<UserResources>.Update.Set(x => x, resources));
+                await _userResourcesCollection.ReplaceOneAsync(Builders<UserResources>.Filter.Eq(dbIt => dbIt.User, resources.User), resources);
                 return;
             }
             resources.Id = ObjectId.GenerateNewId();
@@ -55,18 +54,9 @@ namespace BufferUserRequests.DBSaver
         private async Task SetCurrentProfile(UserInfo profile, IUser user)
         {
             if (profile.Id is not null)
-            {
-                var userInfMass = await _userProfileInfoCollection.FindAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, user.Id));
-                UserInfo userInf = await userInfMass.SingleOrDefaultAsync();
+            {           
+                await _userProfileInfoCollection.ReplaceOneAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, profile.Id), profile);
 
-                userInf.Login = profile.Login;
-                userInf.Rank = profile.Rank;
-                userInf.Image = profile.Image;
-
-                await _userProfileInfoCollection.UpdateOneAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, userInf.Id),
-                                                                                   Builders<UserInfo>.Update.Set(x => x.Login, userInf.Login)
-                                                                                                            .Set(x => x.Rank, userInf.Rank)
-                                                                                                            .Set(x => x.Image, userInf.Image)); ;
                 return;
             }
             profile.Id = user.Id;

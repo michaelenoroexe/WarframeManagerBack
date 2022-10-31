@@ -10,6 +10,7 @@ using API;
 using Microsoft.AspNetCore.Authorization;
 using UserValidation;
 using Shared;
+using Shared;
 using System.Security.Claims;
 using API.Models.UserWork;
 
@@ -20,12 +21,12 @@ namespace API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private UserRepository _userRepository;
+        private IUserManager _userRepository;
         private IUserValidator<(string, string)> _passValidator;
         private IUserValidator<ClaimsPrincipal> _jwtValidator;
         private readonly ILogger<UserController> _logger;
 
-        public UserController(UserRepository userRepository, IUserValidator<(string, string)> passValidator, 
+        public UserController(IUserManager userRepository, IUserValidator<(string, string)> passValidator, 
             IUserValidator<ClaimsPrincipal> jwtValidator, ILogger<UserController> logger)
         {
             _userRepository = userRepository;
@@ -53,6 +54,29 @@ namespace API.Controllers
                 
             return Ok();
         }
+        // Controller that process user login in requests
+        [HttpPost("signin")]
+        public ActionResult UserSignIn([FromBody] ClientUser us)
+        {
+            IClientUser clientUser;
+            IUser? user;
+            //Checking user input on data validation
+            try
+            {
+                if (us.Login is null) return BadRequest("Invalid Login");
+                if (us.Password is null) return BadRequest("Invalid Password");
+                clientUser = _passValidator.GetConverter().CreateUser(new (us.Login, us.Password));
+                user = _passValidator.ValidateUser(clientUser);
+                if (user == null) return BadRequest("User with this login is not created");
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
+            }
+            return Ok(new {Token = _userRepository.LoginUser(user)});
+        }
+
         // Controller that process user password change
         [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPost("passChange")]
@@ -65,7 +89,8 @@ namespace API.Controllers
             {
                 // Validate user.
                 clientUser = _jwtValidator.GetConverter().CreateUser(User);
-                user = _passValidator.ValidateUser(clientUser);
+                var us = new FullUser(ObjectId.Empty, clientUser.Login, pasCh.OldPassword);
+                user = _passValidator.ValidateUser(us);
                 if (user is null) return Unauthorized();
                 initialUser = user;
             }
