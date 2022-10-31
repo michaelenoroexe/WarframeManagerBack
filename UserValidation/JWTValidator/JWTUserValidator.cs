@@ -20,11 +20,16 @@ namespace UserValidation.JWTValidation
         {
             return new JWTUserConverter();
         }
+
+        public bool ValidateCredential(string value)
+        {
+            return StringValidator.GetStringValidator().Validate(value);
+        }
+
         public IUser? ValidateUser(IClientUser user)
         {
-            var inputValidator = StringValidator.GetStringValidator();
             if (user?.Login is null) throw new ArgumentNullException("User dont have login.");
-            if (!inputValidator.Validate(user.Login)) throw new ArgumentException("Login is incorrect.");
+            if (!StringValidator.GetStringValidator().Validate(user.Login)) throw new ArgumentException("Login is incorrect.");
             return _dbSearcher.TryFindUserAsync(user).Result;
         }
     }

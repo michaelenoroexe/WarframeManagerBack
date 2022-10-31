@@ -7,8 +7,8 @@ namespace API.Models.Service
 {
     sealed class CollectionProvider : ICollectionProvider
     {
-        private IEnumerable<IResource> _items;
-        private IEnumerable<IResource> _resources;
+        private IResource[] _items;
+        private IResource[] _resources;
 
         /// <summary>
         /// Return full list of items filtered by predicate.
@@ -33,17 +33,17 @@ namespace API.Models.Service
             Task<IEnumerable<IResource>> resourcesGetTask = getCollectionByPredicate(item => item.IsResource());
             Task<IEnumerable<IResource>> itemsGetTask = getCollectionByPredicate(item => !item.IsResource());
 
-            _resources = resourcesGetTask.Result;
-            _items = itemsGetTask.Result;
+            _resources = resourcesGetTask.Result.ToArray();
+            _items = itemsGetTask.Result.ToArray();
         }
         /// <summary>
         /// Get all items with own number 0.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<IResource> GetAllItems() => _items;
+        public IResource[] GetAllItems() => (IResource[])_items.Clone();
         /// <summary>
         /// Get all resources with own number 0.
         /// </summary>
-        public IEnumerable<IResource> GetAllResources() => _resources;
+        public IResource[] GetAllResources() => (IResource[])_resources.Clone();
     }
 }

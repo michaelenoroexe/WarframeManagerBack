@@ -1,6 +1,6 @@
 ﻿namespace UserValidation
 {
-    public class ClientUser : IClientUser
+    internal class ClientUser : IClientUser
     {
         public string Login { get; init; }
 

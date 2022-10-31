@@ -4,8 +4,8 @@ namespace API.Models.Interfaces
 {
     internal interface ICollectionProvider
     {
-        public IEnumerable<IResource> GetAllResources();
+        public IResource[] GetAllResources();
 
-        public IEnumerable<IResource> GetAllItems();
+        public IResource[] GetAllItems();
     }
 }

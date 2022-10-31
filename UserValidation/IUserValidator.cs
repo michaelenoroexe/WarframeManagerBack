@@ -9,8 +9,10 @@ namespace UserValidation
         /// </summary>
         /// <param name="user">User to validate.</param>
         /// <returns>Return user if he correct and in database, null if user correct but not in db, else exeption.</returns>
-        IUser? ValidateUser(IClientUser user);
+        public IUser? ValidateUser(IClientUser user);
 
-        IUserConverter<T> GetConverter();
+        public bool ValidateCredential(string value); 
+
+        public IUserConverter<T> GetConverter();
     }
 }

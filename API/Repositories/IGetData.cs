@@ -10,12 +10,12 @@ namespace API.Models.Interfaces
         /// <summary>
         /// Get all resource list.
         /// </summary>
-        public IEnumerable<IResource> GetResourcesList();
+        public IResource[] GetResourcesList();
         /// <summary>
         /// Get all item list.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<IResource> GetItemsList();
+        public IResource[] GetItemsList();
         /// <summary>
         /// Get dictionary with all planets.
         /// </summary>
@@ -34,13 +34,13 @@ namespace API.Models.Interfaces
         /// </summary>
         /// <param name="user">UserId which resources needed to get.</param>
         /// <returns>Dictionary of resource name as key, and resource number as value.</returns>
-        public Task<IEnumerable<IResource>> GetUserResourcesAsync(IUser user);
+        public Task<IResource[]> GetUserResourcesAsync(IUser user);
         /// <summary>
         /// Get all items, to users items set having number.
         /// </summary>
         /// <param name="user">UserId which items needed to get.</param>
         /// <returns>Dictionary of item name as key, and item number as value.</returns>
-        public Task<IEnumerable<IResource>> GetUserItemsAsync(IUser user);
+        public Task<IResource[]> GetUserItemsAsync(IUser user);
         /// <summary>
         /// Get number of user credits.
         /// </summary>

@@ -40,27 +40,17 @@ namespace BufferUserRequests.DBSaver
         /// </summary>
         private async Task SetCurrentResources(UserResources resources)
         {
-            if (resources.Id is not null)
-            {
-                await _userResourcesCollection.ReplaceOneAsync(Builders<UserResources>.Filter.Eq(dbIt => dbIt.User, resources.User), resources);
-                return;
-            }
-            resources.Id = ObjectId.GenerateNewId();
-            await _userResourcesCollection.InsertOneAsync(resources);
+            await _userResourcesCollection.ReplaceOneAsync(Builders<UserResources>.Filter.Eq(dbIt => dbIt.User, resources.User), resources, new ReplaceOptions { IsUpsert = true });
+            return;
         }
         /// <summary>
         /// Set current user porfile info.
         /// </summary>
-        private async Task SetCurrentProfile(UserInfo profile, IUser user)
-        {
-            if (profile.Id is not null)
-            {           
-                await _userProfileInfoCollection.ReplaceOneAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, profile.Id), profile);
+        private async Task SetCurrentProfile(UserInfo profile)
+        { 
+            await _userProfileInfoCollection.ReplaceOneAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, profile.Id), profile, new ReplaceOptions { IsUpsert = true });
 
-                return;
-            }
-            profile.Id = user.Id;
-            await _userProfileInfoCollection.InsertOneAsync(profile);
+            return;
         }
         #endregion
         /// <summary>
@@ -98,7 +88,7 @@ namespace BufferUserRequests.DBSaver
                 saver.Save(ref profile);
             }
 
-            await SetCurrentProfile(profile, user);
+            await SetCurrentProfile(profile);
         }
     }
 }

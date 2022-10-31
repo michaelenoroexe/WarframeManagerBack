@@ -51,9 +51,9 @@ namespace API.Controllers
         }
 
         [HttpGet("ResourcesList")]
-        public ActionResult GetResourcesList() => Ok(_repository.GetResourcesList());
+        public ActionResult GetResourcesList() => Ok(_repository.GetResourcesList().Cast<Resource>());
         [HttpGet("ItemsList")]
-        public ActionResult GetItemsList() => Ok(_repository.GetItemsList());
+        public ActionResult GetItemsList() => Ok(_repository.GetItemsList().Cast<Item>());
         [HttpGet("TypesList")]
         public async Task<ActionResult> GetTypesList() => Ok(await _repository.GetTypesListAsync());
         [HttpGet("Planets")]
@@ -74,8 +74,8 @@ namespace API.Controllers
                 return BadRequest(ex.Message);
             }
 
-            IEnumerable<IResource> res = await _repository.GetUserResourcesAsync(user);      
-            return Ok(res);
+            IEnumerable<IResource> res = await _repository.GetUserResourcesAsync(user);
+            return Ok(res.Cast<Item>());
         }
 
         [HttpGet("UserItemsList")]
@@ -93,7 +93,7 @@ namespace API.Controllers
             }
 
             IEnumerable<IResource> res = await _repository.GetUserItemsAsync(user);
-            return Ok(res);
+            return Ok(res.Cast<Item>());
         }
       
         [HttpGet("UserCredits")]

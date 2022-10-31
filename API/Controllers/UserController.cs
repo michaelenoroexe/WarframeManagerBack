@@ -10,7 +10,6 @@ using API;
 using Microsoft.AspNetCore.Authorization;
 using UserValidation;
 using Shared;
-using Shared;
 using System.Security.Claims;
 using API.Models.UserWork;
 
@@ -39,13 +38,17 @@ namespace API.Controllers
         [HttpPost("registration")]
         public async Task<ActionResult> UserRegister([FromBody] FullUser user)
         {
+            IUser? clientUser;
             //Checking user input on data validation
             try
             {
-                _passValidator.ValidateUser(user);
+                clientUser = _passValidator.ValidateUser(user);
+
+                if (clientUser is not null) return BadRequest("User already in DB");
             }
             catch (ArgumentException ex)
             {
+                if (ex.Message == "Password is not match.") return BadRequest("User already in DB");
                 _logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
@@ -56,7 +59,7 @@ namespace API.Controllers
         }
         // Controller that process user login in requests
         [HttpPost("signin")]
-        public ActionResult UserSignIn([FromBody] ClientUser us)
+        public ActionResult UserSignIn([FromBody] FullUser us)
         {
             IClientUser clientUser;
             IUser? user;
@@ -84,7 +87,10 @@ namespace API.Controllers
         {
             IUser? user;
             IClientUser clientUser;
-            IUser? initialUser;
+
+            if (!_passValidator.ValidateCredential(pasCh.NewPassword)) return BadRequest("Invalid New Password");
+            if (!_passValidator.ValidateCredential(pasCh.OldPassword)) return BadRequest("Invalid Old Password");
+
             try
             {
                 // Validate user.
@@ -92,29 +98,15 @@ namespace API.Controllers
                 var us = new FullUser(ObjectId.Empty, clientUser.Login, pasCh.OldPassword);
                 user = _passValidator.ValidateUser(us);
                 if (user is null) return Unauthorized();
-                initialUser = user;
             }
             catch (ArgumentException ex)
             {
                 _logger.LogError(ex.Message);
-                // If old password is invalid
-                if (ex.Message == "Password is incorrect.") return BadRequest("Invalid Old Password");
                 if (ex.Message == "Password is not match.") return BadRequest("Wrong old Password");
                 return BadRequest(ex.Message);
             }
-            clientUser = new FullUser(user.Id, user.Login, pasCh.NewPassword);
-            // Check if new password is invalid.
-            try
-            {
-                user = _passValidator.ValidateUser(clientUser);
-            }
-            catch (ArgumentException ex)
-            {
-                if (ex.Message != "Password is not match.")
-                    return BadRequest("Invalid New Password");
-            }
 
-            await _userRepository.ChangeUserPasswordAsync(initialUser, pasCh.NewPassword);
+            await _userRepository.ChangeUserPasswordAsync(user, pasCh.NewPassword);
 
             return Accepted();
         }
@@ -129,7 +121,7 @@ namespace API.Controllers
             try
             {
                 clientUser = _jwtValidator.GetConverter().CreateUser(User);
-                clientUser = _passValidator.GetConverter().CreateUser((clientUser.Login, pas.Password));
+                clientUser = _passValidator.GetConverter().CreateUser(new (clientUser.Login, pas.Password));
                 user = _passValidator.ValidateUser(clientUser);
                 if (user == null) return Unauthorized();
             }

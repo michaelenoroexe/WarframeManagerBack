@@ -44,13 +44,25 @@ namespace API.Models.Common.ItemComp
         {
             if (number >= 0) _owned = number;
         }
-        public bool Equals(IResource? x, IResource? y)
+        public bool Equals(IResource? other)
         {
-            return x?.StringID.GetHashCode() == y?.StringID.GetHashCode();
+            if (other == null) return false;
+            return GetHashCode() == other?.GetHashCode();
         }
-        public int GetHashCode([DisallowNull] IResource obj)
+        public override bool Equals(object? obj)
         {
-            return obj.StringID.GetHashCode();
+            if (obj is string) return StringID.Equals((string)obj, StringComparison.OrdinalIgnoreCase);
+            if (obj is not IResource) return false;
+            return Equals((IResource)obj);
+        }
+        public override int GetHashCode()
+        {
+            return StringID.GetHashCode();
+        }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
         }
     }
 }

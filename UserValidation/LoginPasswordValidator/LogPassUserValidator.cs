@@ -22,6 +22,11 @@ namespace UserValidation.LoginPasswordValidator
             return new LogPassUserConverter();
         }
 
+        public bool ValidateCredential(string value)
+        {         
+            return StringValidator.GetStringValidator().Validate(value);
+        }
+
         public IUser? ValidateUser(IClientUser user)
         {
             var inputValidator = StringValidator.GetStringValidator();
