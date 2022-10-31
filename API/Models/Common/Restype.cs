@@ -4,29 +4,19 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace API.Models.Common
 {
     public class Restype
-    {
-        [BsonIgnore]
-        private ObjectId _id;
-
-        [BsonElement("_id")]
+    {   
         [BsonId]
-        public ObjectId Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                strId = value.ToString();
-                _id = value;
-            }
-        }
-
+        [BsonElement("_id")]
+        public ObjectId Id { get; }
         [BsonElement("name")]
-        public string Name { get; set; }
-
+        public string Name { get; }
         [BsonIgnore]
-        public string strId { get; set; }
+        public string StringID => Id.ToString();
+
+        public Restype(ObjectId id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 }

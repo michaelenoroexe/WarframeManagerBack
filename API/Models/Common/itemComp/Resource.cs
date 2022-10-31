@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace API.Models.Common.ItemComp
 {
-    public class Resource : IResource
+    internal class Resource : IResource
     {
         [BsonElement("_id")]
         [JsonProperty("_id")]
