@@ -14,13 +14,13 @@ namespace API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private IUserManager _userRepository;
-        private IUserValidator<(string, string)> _passValidator;
-        private IUserValidator<ClaimsPrincipal> _jwtValidator;
+        private readonly IUserManager _userRepository;
+        private readonly IUserValidator<(string, string)> _passValidator;
+        private readonly IUserValidator<ClaimsPrincipal> _jwtValidator;
         private readonly ILogger<UserController> _logger;
 
         public UserController(IUserManager userRepository, IUserValidator<(string, string)> passValidator,
-            IUserValidator<ClaimsPrincipal> jwtValidator, ILogger<UserController> logger)
+                              IUserValidator<ClaimsPrincipal> jwtValidator, ILogger<UserController> logger)
         {
             _userRepository = userRepository;
             _passValidator = passValidator;
@@ -28,17 +28,13 @@ namespace API.Controllers
             _logger = logger;
         }
 
-        // Controller that process user registration requests
+        // POST api/registration
         [HttpPost("registration")]
-        public async Task<ActionResult> UserRegister([FromBody] FullUser user)
+        public async Task<ActionResult> RegisterUser([FromBody] FullUser user)
         {
-            IUser? clientUser;
-            //Checking user input on data validation
             try
             {
-                clientUser = _passValidator.ValidateUser(user);
-
-                if (clientUser is not null) return BadRequest("User already in DB");
+                if (_passValidator.ValidateUser(user) is not null) return BadRequest("User already in DB");
             }
             catch (ArgumentException ex)
             {
@@ -46,18 +42,15 @@ namespace API.Controllers
                 _logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
-            //Adding user to DB or error
             await _userRepository.AddUserAsync(user, user.Password);
-
             return Ok();
         }
-        // Controller that process user login in requests
+        // POST api/signin
         [HttpPost("signin")]
-        public ActionResult UserSignIn([FromBody] FullUser us)
+        public ActionResult SignInUser([FromBody] FullUser us)
         {
             IClientUser clientUser;
             IUser? user;
-            //Checking user input on data validation
             try
             {
                 if (us.Login is null) return BadRequest("Invalid Login");
@@ -71,13 +64,12 @@ namespace API.Controllers
                 _logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
-            return Ok(new { Token = _userRepository.LoginUser(user) });
+            return Ok(new { Token = _userRepository.SignInUser(user) });
         }
-
-        // Controller that process user password change
-        [Authorize(AuthenticationSchemes = "Bearer")]
+        // POST api/passChange       
         [HttpPost("passChange")]
-        public async Task<ActionResult> UserPassChange([FromBody] ReceivingChangePassword pasCh)
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<ActionResult> ChangeUserPassword([FromBody] ReceivingChangePassword pasCh)
         {
             IUser? user;
             IClientUser clientUser;
@@ -85,10 +77,8 @@ namespace API.Controllers
             if (pasCh.NewPassword is null) return BadRequest("Invalid New Password");
             if (!_passValidator.ValidateCredential(pasCh.NewPassword)) return BadRequest("Invalid New Password");
             if (!_passValidator.ValidateCredential(pasCh.OldPassword)) return BadRequest("Invalid Old Password");
-
             try
             {
-                // Validate user.
                 clientUser = _jwtValidator.GetConverter().CreateUser(User);
                 var us = new FullUser(ObjectId.Empty, clientUser.Login, pasCh.OldPassword);
                 user = _passValidator.ValidateUser(us);
@@ -100,19 +90,16 @@ namespace API.Controllers
                 if (ex.Message == "Password is not match.") return BadRequest("Wrong old Password");
                 return BadRequest(ex.Message);
             }
-
             await _userRepository.ChangeUserPasswordAsync(user, pasCh.NewPassword);
-
             return Accepted();
         }
-        // Delete user account
-        [Authorize(AuthenticationSchemes = "Bearer")]
+        // POST api/delUser          
         [HttpPost("delUser")]
-        public async Task<ActionResult> UserDelete([FromBody] ReceivingPassword pas)
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<ActionResult> DeleteUser([FromBody] ReceivingPassword pas)
         {
             IClientUser clientUser;
             IUser? user;
-            //Checking user input on data validation
             try
             {
                 clientUser = _jwtValidator.GetConverter().CreateUser(User);
@@ -125,9 +112,7 @@ namespace API.Controllers
                 _logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
-            //Adding user to DB or error
             await _userRepository.DeleteUserAsync(user);
-
             return Accepted();
         }
     }

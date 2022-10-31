@@ -13,14 +13,14 @@ namespace API.Controllers
     [Authorize(AuthenticationSchemes = "Bearer")]
     public class ProfileUpdateController : ControllerBase
     {
-        private IChangeData _repository;
+        private readonly IChangeData _repository;
         private readonly ILogger<GetDataController> _logger;
         private readonly IUserValidator<ClaimsPrincipal> _validator;
         private readonly IUserConverter<ClaimsPrincipal> _converter;
 
         private IUser ValidateUser(ClaimsPrincipal us)
         {
-            IUser? user = null;
+            IUser? user;
             IClientUser? clientUser;
             try
             {
@@ -52,8 +52,8 @@ namespace API.Controllers
         }
 
         // POST api/ProfUp
-        [HttpPost]
-        public ActionResult Post([FromBody] ResourceChange res)
+        [HttpPost("")]
+        public ActionResult ChangeResourceNumber([FromBody] ResourceChange res)
         {
             IUser user;
             try
@@ -64,80 +64,52 @@ namespace API.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            if (res.Type == "resource")
-                try
-                {
-                    _repository.UpdateResource(user, new KeyValuePair<string, int>(res.Resource, res.Number));
-                    return Accepted();
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogInformation($"User:{user.Login}, catch exeption on resource update:" + ex.Message, ex);
-                    return BadRequest();
-                }
-            if (res.Type == "item")
-                try
-                {
-                    _repository.UpdateItem(user, new KeyValuePair<string, int>(res.Resource, res.Number));
-                    return Accepted();
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogInformation($"User:{user.Login}, catch exeption on item update:" + ex.Message, ex);
-                    return BadRequest();
-                }
-            return BadRequest();
-
+            Action<IUser, KeyValuePair<string, int>>? update = null;
+            if (res.Type == "resource") update = _repository.UpdateResource;
+            if (res.Type == "item") update = _repository.UpdateItem;
+            if (update is null) return BadRequest("Wrong item type.");
+            try
+            {
+                update(user, new KeyValuePair<string, int>(res.Resource, res.Number));
+                return Accepted();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation($"User:{user.Login}, catch exeption on resource update:" + ex.Message, ex);
+                return BadRequest();
+            }
         }
         // POST api/ProfUp/creds
         [HttpPost("creds")]
-        public ActionResult CredCh([FromBody] Cred num)
+        public ActionResult ChangeCreditNumber([FromBody] Cred num)
         {
-            IUser? user = null;
+            IUser? user;
             try
             {
-                try
-                {
-                    user = ValidateUser(User);
-                }
-                catch (ArgumentException ex)
-                {
-                    return BadRequest(ex.Message);
-                }
-
-                _repository.UpdateCredits(user, num.Number);
-                return Accepted();
+                user = ValidateUser(User);
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
-                _logger.LogInformation($"User:{user?.Login}, catch exeption on item update:" + ex.Message, ex);
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
+            _repository.UpdateCredits(user, num.Number);
+            return Accepted();
         }
         // POST api/ProfUp/userInfo
         [HttpPost("userInfo")]
-        public ActionResult ProfCh([FromBody] UserInfo ch)
+        public ActionResult ChangeProfileInfo([FromBody] UserInfo ch)
         {
-            IUser? user = null;
+            IUser? user;
             try
             {
-                try
-                {
-                    user = ValidateUser(User);
-                }
-                catch (ArgumentException ex)
-                {
-                    return BadRequest(ex.Message);
-                }
-
-                _repository.UpdateProfile(user, new UserInfo(user, ch.Rank, ch.Image));
-                return Accepted();
+                user = ValidateUser(User);
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
-                _logger.LogInformation($"User:{user?.Login}, catch exeption on item update:" + ex.Message, ex);
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
+            _repository.UpdateProfile(user, new UserInfo(user, ch.Rank, ch.Image));
+            return Accepted();
         }
     }
 }

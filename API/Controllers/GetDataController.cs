@@ -50,15 +50,10 @@ namespace API.Controllers
             _converter = _validator.GetConverter();
         }
 
-        [HttpGet("ResourcesList")]
-        public ActionResult GetResourcesList() => Ok(_repository.GetResourcesList().Cast<Resource>());
-        [HttpGet("ItemsList")]
-        public ActionResult GetItemsList() => Ok(_repository.GetItemsList().Cast<Item>());
-        [HttpGet("TypesList")]
-        public async Task<ActionResult> GetTypesList() => Ok(await _repository.GetTypesListAsync());
-        [HttpGet("Planets")]
-        public async Task<ActionResult> GetPlanets() => Ok(await _repository.GetPlanetListAsync());
-
+        [HttpGet("ResourcesList")] public ActionResult GetResourcesList() => Ok(_repository.GetResourcesList().Cast<Resource>());
+        [HttpGet("ItemsList")] public ActionResult GetItemsList() => Ok(_repository.GetItemsList().Cast<Item>());
+        [HttpGet("TypesList")] public async Task<ActionResult> GetTypesList() => Ok(await _repository.GetTypesListAsync());
+        [HttpGet("Planets")] public async Task<ActionResult> GetPlanets() => Ok(await _repository.GetPlanetListAsync());
         // GET: api/GetData/UserResourcesList
         [HttpGet("UserResourcesList")]
         [Authorize(AuthenticationSchemes = "Bearer")]
@@ -77,7 +72,7 @@ namespace API.Controllers
             IEnumerable<IResource> res = await _repository.GetUserResourcesAsync(user);
             return Ok(res.Cast<Item>());
         }
-
+        // GET: api/GetData/UserItemsList
         [HttpGet("UserItemsList")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> GetUserItemsList()
@@ -95,7 +90,7 @@ namespace API.Controllers
             IEnumerable<IResource> res = await _repository.GetUserItemsAsync(user);
             return Ok(res.Cast<Item>());
         }
-
+        // GET: api/GetData/UserCredits
         [HttpGet("UserCredits")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> GetUserCredits()
@@ -113,7 +108,6 @@ namespace API.Controllers
             int res = await _repository.GetUserCreditsAsync(user);
             return Ok(res);
         }
-
         // GET: api/GetData/UserInfo
         [HttpGet("UserInfo")]
         [Authorize(AuthenticationSchemes = "Bearer")]

@@ -6,7 +6,7 @@ namespace API.Repositories
     {
         public Task AddUserAsync(IUser user, string password);
 
-        public string LoginUser(IUser user);
+        public string SignInUser(IUser user);
 
         public Task ChangeUserPasswordAsync(IUser user, string newPassword);
 

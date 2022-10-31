@@ -67,7 +67,7 @@ namespace API.Repositories
             }
         }
 
-        public string LoginUser(IUser user)
+        public string SignInUser(IUser user)
         {
             return JwtAuthentication.GenerateToken(user);
         }
