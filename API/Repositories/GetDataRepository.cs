@@ -36,18 +36,16 @@ namespace API.Repositories
             foreach (KeyValuePair<string, int> res in dict)
             {
                 index = ((IList)items).IndexOf(res.Key);
-                if (index != -1) i = items[index].Clone() as IResource;
-                else i = null;
-
-                if (i is null)
+                if (index != -1)
                 {
-                    if (exep is null) exep = ExceptionDispatchInfo.Capture(new ArgumentException());
-                    exep!.SourceException.Data.Add(res.Key, res.Value);
+                    i = (IResource)items[index].Clone();
+                    i.SetOwned(res.Value);
+                    items[index] = i;
                 }
                 else
                 {
-                    i.SetOwned(res.Value);
-                    items[index] = i;
+                    if (exep is null) exep = ExceptionDispatchInfo.Capture(new ArgumentException());
+                    exep!.SourceException.Data.Add(res.Key, res.Value);
                 }
             }
             // Throw if user have incorrect items.
@@ -61,21 +59,16 @@ namespace API.Repositories
         /// <param name="user">user resources are filled to log if exeption.</param>
         private void FillWithCatch(in Dictionary<string, int> dict, ref IResource[] itemList, IUser user)
         {
-            try
-            {
-                FillItemNumber(in dict, ref itemList);
-            }
+            try { FillItemNumber(in dict, ref itemList); }
             catch (ArgumentException ex)
             {
                 foreach (DictionaryEntry e in ex.Data)
-                {
                     _logger.LogError($"User id:{user.Id} has incorrect item '{e.Key}:{e.Value}' in buffer");
-                }
             }
         }
 
-        public GetDataRepository(IMongoCollection<Planet> planetColl, IMongoCollection<Restype> resColl, ICollectionProvider collectionProvider,
-            IUserInfoGetter userInfoGetter, ILogger<GetDataRepository> logger)
+        public GetDataRepository(IMongoCollection<Planet> planetColl, IMongoCollection<Restype> resColl,
+            ICollectionProvider collectionProvider, IUserInfoGetter userInfoGetter, ILogger<GetDataRepository> logger)
         {
             _provider = collectionProvider;
             _userInfoGetter = userInfoGetter;
@@ -84,12 +77,8 @@ namespace API.Repositories
             _logger = logger;
         }
 
-        public IResource[] GetItemsList() => _provider.GetAllItems();
-        public IResource[] GetResourcesList() => _provider.GetAllResources();
-        /// <summary>
-        /// Get dictionary with all planets.
-        /// </summary>
-        /// <returns>All planets id/name.</returns>
+        public IResource[] GetItemList() => _provider.GetAllItems();
+        public IResource[] GetResourceList() => _provider.GetAllResources();
         public async Task<Dictionary<string, string>> GetPlanetListAsync()
         {
             var planets = new Dictionary<string, string>();
@@ -99,29 +88,27 @@ namespace API.Repositories
 
             return planets;
         }
-        public async Task<List<Restype>> GetTypesListAsync() => await _types.FindAsync(FilterDefinition<Restype>.Empty).Result.ToListAsync();
+        public async Task<List<Restype>> GetTypeListAsync() => await _types.FindAsync(FilterDefinition<Restype>.Empty).Result.ToListAsync();
         public async Task<int> GetUserCreditsAsync(IUser user) => await _userInfoGetter.GetCreditsAsync(user);
         public async Task<UserInfo> GetUserInfoAsync(IUser user) => await _userInfoGetter.GetProfileAsync(user);
         public async Task<IResource[]> GetUserItemsAsync(IUser user)
         {
-            IResource[] fullList = GetItemsList().ToArray();
-            Dictionary<string, int>? userItems = await _userInfoGetter.GetFullItemAsync(user);
+            IResource[] fullList = GetItemList();
 
+            Dictionary<string, int>? userItems = await _userInfoGetter.GetFullItemAsync(user);
             if (userItems is null) return fullList;
 
             FillWithCatch(in userItems, ref fullList, user);
-
             return fullList;
         }
         public async Task<IResource[]> GetUserResourcesAsync(IUser user)
         {
-            IResource[] fullList = GetResourcesList();
-            Dictionary<string, int>? userResources = await _userInfoGetter.GetFullResourceAsync(user);
+            IResource[] fullList = GetResourceList();
 
+            Dictionary<string, int>? userResources = await _userInfoGetter.GetFullResourceAsync(user);
             if (userResources is null) return fullList;
 
             FillWithCatch(in userResources, ref fullList, user);
-
             return fullList;
         }
     }

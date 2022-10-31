@@ -50,9 +50,9 @@ namespace API.Controllers
             _converter = _validator.GetConverter();
         }
 
-        [HttpGet("ResourcesList")] public ActionResult GetResourcesList() => Ok(_repository.GetResourcesList().Cast<Resource>());
-        [HttpGet("ItemsList")] public ActionResult GetItemsList() => Ok(_repository.GetItemsList().Cast<Item>());
-        [HttpGet("TypesList")] public async Task<ActionResult> GetTypesList() => Ok(await _repository.GetTypesListAsync());
+        [HttpGet("ResourcesList")] public ActionResult GetResourcesList() => Ok(_repository.GetResourceList().Cast<Resource>());
+        [HttpGet("ItemsList")] public ActionResult GetItemsList() => Ok(_repository.GetItemList().Cast<Item>());
+        [HttpGet("TypesList")] public async Task<ActionResult> GetTypesList() => Ok(await _repository.GetTypeListAsync());
         [HttpGet("Planets")] public async Task<ActionResult> GetPlanets() => Ok(await _repository.GetPlanetListAsync());
         // GET: api/GetData/UserResourcesList
         [HttpGet("UserResourcesList")]
@@ -60,10 +60,7 @@ namespace API.Controllers
         public async Task<ActionResult> GetUserResourcesList()
         {
             IUser user;
-            try
-            {
-                user = ValidateUser(User);
-            }
+            try { user = ValidateUser(User); }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
@@ -77,10 +74,7 @@ namespace API.Controllers
         public async Task<ActionResult> GetUserItemsList()
         {
             IUser user;
-            try
-            {
-                user = ValidateUser(User);
-            }
+            try { user = ValidateUser(User); }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
@@ -95,9 +89,7 @@ namespace API.Controllers
         {
             IUser user;
             try
-            {
-                user = ValidateUser(User);
-            }
+            { user = ValidateUser(User); }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
@@ -112,9 +104,7 @@ namespace API.Controllers
         {
             IUser user;
             try
-            {
-                user = ValidateUser(User);
-            }
+            { user = ValidateUser(User); }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);

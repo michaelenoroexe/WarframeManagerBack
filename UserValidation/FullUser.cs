@@ -7,7 +7,7 @@ namespace UserValidation
     {
         public string Password { get; init; }
 
-        public FullUser(ObjectId id, string login, string password) 
+        public FullUser(ObjectId id, string login, string password)
             : base(id, login) => Password = password;
     }
 }

@@ -34,7 +34,7 @@
         {
             if (exception == null) return "";
             string splitStr = $"{Environment.NewLine}--- End of stack trace from previous location ---";
-            return "Event: " + evId.Name + " Exception Message: " + exception.Message + Environment.NewLine + 
+            return "Event: " + evId.Name + " Exception Message: " + exception.Message + Environment.NewLine +
                     "Stack Trace: " + exception?.StackTrace?.Split(splitStr).FirstOrDefault();
         }
     }

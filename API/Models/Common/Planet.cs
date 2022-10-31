@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace API.Models.Common
 {
     internal sealed class Planet
-    {        
+    {
         [BsonId]
         [BsonElement("_id")]
         public ObjectId Id { get; set; }

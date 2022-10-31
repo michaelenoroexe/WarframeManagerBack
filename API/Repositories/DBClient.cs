@@ -3,32 +3,17 @@
 namespace API.Repositories
 {
     // Static client to connect to DB
-    public class DBClient
+    internal sealed class DBClient
     {
-        private static readonly DBClient _instance;
-        private MongoClient MongoClient { get; }
-        private DBClient()
-        {
-            // Chosing path depend on environment. 
-            string? MongoURL = Environment.GetEnvironmentVariable("MongoClientUrl");
-
-            if (MongoURL is null) MongoURL = "mongodb+srv://warframe_manager_user:H9guvYhcVtWk5z25@warframemanagercluster.jvusw.mongodb.net/WarframeManager?retryWrites=true&w=majority";
-
-            MongoClient = new MongoClient(MongoURL);
-            Db = MongoClient.GetDatabase("WarframeManager");
-        }
-        /// <summary>
-        /// Get instance of DBClient.
-        /// </summary>
-        public static DBClient GetDBClient() => _instance;
+        private MongoClient _mongoClient { get; }
         /// <summary>
         /// Working database
         /// </summary>
         public IMongoDatabase Db { get; }
-
-        static DBClient()
+        public DBClient(string mongoUrl)
         {
-            _instance = new DBClient();
+            _mongoClient = new MongoClient(mongoUrl);
+            Db = _mongoClient.GetDatabase("WarframeManager");
         }
     }
 }

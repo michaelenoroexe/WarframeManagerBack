@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace API.Models.Common
 {
     public sealed class Restype
-    {   
+    {
         [BsonId]
         [BsonElement("_id")]
         public ObjectId Id { get; }

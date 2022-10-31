@@ -14,7 +14,7 @@ namespace API.Models.Common.ItemComp
         [BsonIgnore]
         private static readonly string[] Ex = { "62d8682daeef469267d8084f", "62d8682daeef469267d80850", "62d8682daeef469267d80851", "62d8682daeef469267d8080b" };
 
-        public Item(ObjectId id, string name, string[] type, int creationTime, int credits, Dictionary<string, int> neededRes, 
+        public Item(ObjectId id, string name, string[] type, int creationTime, int credits, Dictionary<string, int> neededRes,
                     string[]? location = null, bool mastery = false) : base(id, name, type, location, mastery)
         {
             CreationTime = creationTime;

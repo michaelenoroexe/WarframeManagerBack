@@ -33,22 +33,22 @@ namespace API.Models.UserWork.Getter
         /// <summary>
         /// Get user credit numner, 0 if user dont have credits.
         /// </summary>
-        public async Task<int> GetCreditsAsync(IUser user) 
+        public async Task<int> GetCreditsAsync(IUser user)
             => _bufferChecker.GetCredits(user) ?? await _dbGetter.GetCredits(user) ?? 0;
         /// <summary>
         /// Get user profile info, new default profile if user dont have record.
         /// </summary>
-        public async Task<UserInfo> GetProfileAsync(IUser user) 
+        public async Task<UserInfo> GetProfileAsync(IUser user)
             => _bufferChecker.GetProfile(user) ?? await _dbGetter.GetProfile(user) ?? new UserInfo(user, 0, 0);
         /// <summary>
         /// Get user items and number, null if user dont have record in db and in buffer.
         /// </summary>
-        public async Task<Dictionary<string, int>?> GetFullItemAsync(IUser user) 
+        public async Task<Dictionary<string, int>?> GetFullItemAsync(IUser user)
             => DictionaryFiller(await _dbGetter.GetItems(user), _bufferChecker.GetItems(user));
         /// <summary>
         /// Get user resource and number, null if user dont have record in db and in buffer.
         /// </summary>
-        public async Task<Dictionary<string, int>?> GetFullResourceAsync(IUser user) 
+        public async Task<Dictionary<string, int>?> GetFullResourceAsync(IUser user)
             => DictionaryFiller(await _dbGetter.GetResources(user), _bufferChecker.GetResources(user));
     }
 }

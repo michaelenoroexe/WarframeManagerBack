@@ -23,6 +23,6 @@ namespace API.Models.UserWork.Getter
         {
             IAsyncCursor<UserInfo> userRes = await _profileCollection.FindAsync(Builders<UserInfo>.Filter.Eq(db => db.Id, user.Id));
             return userRes.SingleOrDefault();
-        } 
+        }
     }
 }

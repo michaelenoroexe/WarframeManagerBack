@@ -56,10 +56,7 @@ namespace API.Controllers
         public ActionResult ChangeResourceNumber([FromBody] ReceiveResourceChange res)
         {
             IUser user;
-            try
-            {
-                user = ValidateUser(User);
-            }
+            try { user = ValidateUser(User); }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
@@ -84,10 +81,7 @@ namespace API.Controllers
         public ActionResult ChangeCreditNumber([FromBody] ReceiveCreditsChange num)
         {
             IUser? user;
-            try
-            {
-                user = ValidateUser(User);
-            }
+            try { user = ValidateUser(User); }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
@@ -100,10 +94,7 @@ namespace API.Controllers
         public ActionResult ChangeProfileInfo([FromBody] UserInfo ch)
         {
             IUser? user;
-            try
-            {
-                user = ValidateUser(User);
-            }
+            try { user = ValidateUser(User); }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);

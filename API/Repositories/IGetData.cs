@@ -10,12 +10,12 @@ namespace API.Models.Interfaces
         /// <summary>
         /// Get all resource list.
         /// </summary>
-        public IResource[] GetResourcesList();
+        public IResource[] GetResourceList();
         /// <summary>
         /// Get all item list.
         /// </summary>
         /// <returns></returns>
-        public IResource[] GetItemsList();
+        public IResource[] GetItemList();
         /// <summary>
         /// Get dictionary with all planets.
         /// </summary>
@@ -25,7 +25,7 @@ namespace API.Models.Interfaces
         /// Get availible types of items. 
         /// </summary>
         /// <returns></returns>
-        public Task<List<Restype>> GetTypesListAsync();
+        public Task<List<Restype>> GetTypeListAsync();
         #endregion
 
         #region User belong

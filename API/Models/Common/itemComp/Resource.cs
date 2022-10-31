@@ -8,7 +8,7 @@ namespace API.Models.Common.ItemComp
     {
         [BsonId]
         [BsonElement("_id")]
-        [JsonProperty("_id")]        
+        [JsonProperty("_id")]
         public ObjectId Id { get; init; }
         [BsonElement("name")]
         public string Name { get; init; }

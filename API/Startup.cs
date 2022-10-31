@@ -3,7 +3,6 @@ using API.Models.Common;
 using API.Models.Common.ItemComp;
 using API.Models.Interfaces;
 using API.Models.Service;
-using API.Models.UserWork;
 using API.Models.UserWork.Getter;
 using API.Models.UserWork.Interfaces;
 using API.Models.UserWork.Setter;
@@ -20,7 +19,7 @@ using UserValidation.LoginPasswordValidator;
 
 namespace API
 {
-    public class Startup
+    internal sealed class Startup
     {
         public IConfiguration Configuration { get; }
 
@@ -34,37 +33,8 @@ namespace API
             services.AddMvcCore();
             services.AddAuthorization();
             #region Dependency Injection.
-            #region Database collections.
-            var DBclient = DBClient.GetDBClient();
-            IMongoDatabase DB = DBclient.Db;
-            services.AddSingleton(DB.GetCollection<Item>("Components"));
-            services.AddSingleton(DB.GetCollection<FullUser>("Users"));
-            services.AddSingleton(DB.GetCollection<UserResources>("UsersResources"));
-            services.AddSingleton(DB.GetCollection<UserInfo>("UsersInfo"));
-            services.AddSingleton(DB.GetCollection<Planet>("Planets"));
-            services.AddSingleton(DB.GetCollection<Restype>("Types"));
-            // Instantiate item collection service.
-            services.AddSingleton<ICollectionProvider, CollectionProvider>();
-            #endregion
-            #region Functional dependency.
-            services.AddLogging(conf => conf.AddLog(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")));
-            services.AddSingleton<IPasswordEqualityComparer, Hash>();
-            services.AddSingleton<IPasswordHasher, Hash>();
-            #region Buffer
-            services.AddSingleton<UsersChangeBuffer>();
-            services.AddSingleton<IBufferChecker, UserBufferChecker>();
-            services.AddSingleton<IBufferChanger, UserBufferChanger>();
-            services.AddSingleton<DBGetter, UserDBGetter>();
-            services.AddSingleton<IUserInfoGetter, UserInfoGetter>();
-            #endregion
-            #region User validator
-            services.AddSingleton<IUserValidator<ClaimsPrincipal>, JWTUserValidator>();
-            services.AddSingleton<IUserValidator<(string, string)>, LogPassUserValidator>();
-            #endregion
-            services.AddSingleton<IGetData, GetDataRepository>();
-            services.AddSingleton<IChangeData, ProfileUpdateRepository>();
-            services.AddSingleton<IUserManager, UserRepository>();
-            #endregion
+            InstantiateDBServices(ref services);
+            InstantiateApplicationServices(ref services);
             // Adding CORS Secvices.
             services.AddCors();
             #endregion
@@ -92,15 +62,11 @@ namespace API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-            }
             else
-            {
                 app.UseHsts();
-            }
-            app.UseRouting();
 
+            app.UseRouting();
             // Allowing CORS
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
@@ -114,6 +80,42 @@ namespace API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private void InstantiateDBServices(ref IServiceCollection services)
+        {
+            // Chosing path depend on environment. 
+            string mongoURL = Environment.GetEnvironmentVariable("MongoClientUrl") ?? Configuration["MongoUri"];
+            var DBclient = new DBClient(mongoURL);
+            IMongoDatabase DB = DBclient.Db;
+            services.AddSingleton(DB.GetCollection<Item>("Components"));
+            services.AddSingleton(DB.GetCollection<FullUser>("Users"));
+            services.AddSingleton(DB.GetCollection<UserResources>("UsersResources"));
+            services.AddSingleton(DB.GetCollection<UserInfo>("UsersInfo"));
+            services.AddSingleton(DB.GetCollection<Planet>("Planets"));
+            services.AddSingleton(DB.GetCollection<Restype>("Types"));
+            // Instantiate item collection service.
+            services.AddSingleton<ICollectionProvider, CollectionProvider>();
+        }
+        private void InstantiateApplicationServices(ref IServiceCollection services)
+        {
+            services.AddLogging(conf => conf.AddLog(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")));
+            services.AddSingleton<IPasswordEqualityComparer, Hash>();
+            services.AddSingleton<IPasswordHasher, Hash>();
+            #region Buffer
+            services.AddSingleton<UsersChangeBuffer>();
+            services.AddSingleton<IBufferChecker, UserBufferChecker>();
+            services.AddSingleton<IBufferChanger, UserBufferChanger>();
+            services.AddSingleton<DBGetter, UserDBGetter>();
+            services.AddSingleton<IUserInfoGetter, UserInfoGetter>();
+            #endregion
+            #region User validator
+            services.AddSingleton<IUserValidator<ClaimsPrincipal>, JWTUserValidator>();
+            services.AddSingleton<IUserValidator<(string, string)>, LogPassUserValidator>();
+            #endregion
+            services.AddSingleton<IGetData, GetDataRepository>();
+            services.AddSingleton<IChangeData, ProfileUpdateRepository>();
+            services.AddSingleton<IUserManager, UserRepository>();
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using API.Models.Service;
-using API.Models.UserWork;
 using BufferUserRequests;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -8,7 +7,7 @@ using UserValidation;
 
 namespace API.Repositories
 {
-    public sealed class UserRepository : IUserManager
+    internal sealed class UserRepository : IUserManager
     {
         private readonly IMongoCollection<FullUser> _userCollection;
         private readonly IMongoCollection<UserInfo> _userProfileCollection;
@@ -33,7 +32,7 @@ namespace API.Repositories
             var us = new FullUser(ObjectId.GenerateNewId(), user.Login, _hasher.HashString(password));
             await _userCollection.WithWriteConcern(new WriteConcern(1)).InsertOneAsync(us);
         }
-
+        public string SignInUser(IUser user) => JwtAuthentication.GenerateToken(user);
         public async Task ChangeUserPasswordAsync(IUser user, string newPassword)
         {
             try
@@ -47,7 +46,6 @@ namespace API.Repositories
                 throw;
             }
         }
-
         public async Task DeleteUserAsync(IUser user)
         {
             try
@@ -65,11 +63,6 @@ namespace API.Repositories
                 _logger.LogError(ex.Message);
                 throw;
             }
-        }
-
-        public string SignInUser(IUser user)
-        {
-            return JwtAuthentication.GenerateToken(user);
         }
     }
 }
