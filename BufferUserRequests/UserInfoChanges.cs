@@ -124,7 +124,6 @@ namespace BufferUserRequests
                 {
                     _tokenSource.Cancel();
                     _storagePlace.Remove(this);
-                    _savingToDB.Wait(100);
                 }
                 _storagePlace = null!;
                 _savingToDB = null!;

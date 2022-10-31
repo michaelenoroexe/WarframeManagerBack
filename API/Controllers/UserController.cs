@@ -83,11 +83,12 @@ namespace API.Controllers
         // Controller that process user password change
         [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPost("passChange")]
-        public async Task<ActionResult> UserPassChange([FromBody] (string OldPassword, string NewPassword) pasCh)
+        public async Task<ActionResult> UserPassChange([FromBody] ReceivingChangePassword pasCh)
         {
             IUser? user;
             IClientUser clientUser;
-
+            if (pasCh.OldPassword is null) return BadRequest("Invalid Old Password");
+            if (pasCh.NewPassword is null) return BadRequest("Invalid New Password");
             if (!_passValidator.ValidateCredential(pasCh.NewPassword)) return BadRequest("Invalid New Password");
             if (!_passValidator.ValidateCredential(pasCh.OldPassword)) return BadRequest("Invalid Old Password");
 

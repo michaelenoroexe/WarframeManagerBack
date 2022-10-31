@@ -38,7 +38,7 @@ namespace UserValidation.LoginPasswordValidator
             FullUser? userInDB = _dbSearcher.TryFindUserAsync(user).Result;
             if (userInDB is null) return null;
 
-            if (!_comparer.Equals(user.Password, userInDB.Password)) throw new ArgumentException("Password is not match.");
+            if (!_comparer.Equals(user.Password, userInDB.Password)) throw new ArgumentException("Password don't match.");
             return userInDB;
         }
     }
