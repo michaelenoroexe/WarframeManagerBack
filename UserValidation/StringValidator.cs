@@ -3,7 +3,7 @@
     internal class StringValidator
     {
         private static StringValidator? _instance;
-        
+
         public static StringValidator GetStringValidator() => _instance ?? (_instance = new StringValidator());
         // Function that confirm validation of user input data.
         public bool Validate(string data)

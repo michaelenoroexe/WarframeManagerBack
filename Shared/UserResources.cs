@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Driver;
 
 namespace Shared
 {
@@ -20,14 +19,14 @@ namespace Shared
         /// <summary>
         /// Create user resource.
         /// </summary>
-        public UserResources(ObjectId user, ObjectId? id = null, 
+        public UserResources(ObjectId user, ObjectId? id = null,
             int credits = 0, Dictionary<string, int>? resources = null, Dictionary<string, int>? items = null)
         {
             User = user;
             Id = id;
             Credits = credits;
             Resources = resources ?? new Dictionary<string, int>();
-            Items = items ?? new Dictionary<string,int>();
+            Items = items ?? new Dictionary<string, int>();
         }
     }
 }

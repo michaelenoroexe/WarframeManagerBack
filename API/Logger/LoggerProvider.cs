@@ -3,7 +3,7 @@
     public sealed class LoggerProvider : ILoggerProvider
     {
         private string _path;
-        
+
         public LoggerProvider(string path)
         {
             _path = path;

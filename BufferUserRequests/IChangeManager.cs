@@ -1,6 +1,4 @@
-﻿using Shared;
-
-namespace BufferUserRequests
+﻿namespace BufferUserRequests
 {
     /// <summary>
     /// Change manager that store and manage one type of user change.
@@ -14,7 +12,7 @@ namespace BufferUserRequests
         /// <summary>
         /// Get current state from buffer.
         /// </summary>
-        public  R GetCurrent();
+        public R GetCurrent();
     }
     /// <summary>
     /// Change manager that store and manage one type of user change.

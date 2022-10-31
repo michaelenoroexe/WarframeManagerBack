@@ -7,7 +7,7 @@ namespace API.Repositories
     {
         private static readonly DBClient _instance;
         private MongoClient MongoClient { get; }
-        private DBClient() 
+        private DBClient()
         {
             // Chosing path depend on environment. 
             string? MongoURL = Environment.GetEnvironmentVariable("MongoClientUrl");
@@ -20,7 +20,7 @@ namespace API.Repositories
         /// <summary>
         /// Get instance of DBClient.
         /// </summary>
-        public static DBClient GetDBClient() => _instance ;
+        public static DBClient GetDBClient() => _instance;
         /// <summary>
         /// Working database
         /// </summary>

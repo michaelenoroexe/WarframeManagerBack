@@ -14,8 +14,8 @@ namespace API.Models.UserWork.Getter
             IAsyncCursor<UserResources> userRes = await _resourceCollection.FindAsync(Builders<UserResources>.Filter.Eq(db => db.User, user.Id));
             return userRes.SingleOrDefault();
         }
-        public UserDBGetter(IMongoCollection<UserResources> resourceCollection, IMongoCollection<UserInfo> profileCollection) 
-            : base(resourceCollection, profileCollection){}
+        public UserDBGetter(IMongoCollection<UserResources> resourceCollection, IMongoCollection<UserInfo> profileCollection)
+            : base(resourceCollection, profileCollection) { }
 
         public override async Task<int?> GetCredits(IUser user) => (await GetUserResources(user))?.Credits;
         public override async Task<Dictionary<string, int>?> GetItems(IUser user) => (await GetUserResources(user))?.Items;

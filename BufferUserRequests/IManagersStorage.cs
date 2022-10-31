@@ -1,5 +1,4 @@
-﻿using BufferUserRequests.ChangeManagers;
-using Shared;
+﻿using Shared;
 
 namespace BufferUserRequests
 {

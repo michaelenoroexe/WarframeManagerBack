@@ -1,9 +1,5 @@
-﻿using API.Models;
-using API.Models.Interfaces;
-using API.Models.UserWork;
+﻿using API.Models.Interfaces;
 using API.Models.UserWork.Setter;
-using MongoDB.Bson;
-using MongoDB.Driver;
 using Shared;
 
 namespace API.Repositories

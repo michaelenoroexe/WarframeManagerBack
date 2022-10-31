@@ -1,8 +1,4 @@
-﻿using BufferUserRequests.ChangeManagers;
-using BufferUserRequests.DBSaver;
-using Shared;
-
-namespace BufferUserRequests
+﻿namespace BufferUserRequests
 {
     /// <summary>
     /// Interface if view and input changes are different.
@@ -10,7 +6,7 @@ namespace BufferUserRequests
     /// <typeparam name="T">Input change type.</typeparam>
     /// <typeparam name="R">View type.</typeparam>
     /// <typeparam name="S">Type of object to save in.</typeparam>
-    public interface ISavableChangeManager<T,R,S> : IChangeManager<T,R>, ISavable<S> { }
+    public interface ISavableChangeManager<T, R, S> : IChangeManager<T, R>, ISavable<S> { }
     /// <summary>
     /// Interface if view and input changes are the same.
     /// </summary>

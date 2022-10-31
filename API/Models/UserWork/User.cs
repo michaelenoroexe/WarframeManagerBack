@@ -1,6 +1,4 @@
-﻿using API.Models.Interfaces;
-using API.Models.UserWork.Interfaces;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using Shared;
 
 namespace API.Models.UserWork

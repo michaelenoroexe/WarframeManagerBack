@@ -15,9 +15,9 @@ namespace BufferUserRequests
         /// <summary>
         /// Instantiate UserChanges buffer.
         /// </summary>
-        public UsersChangeBuffer(IMongoCollection<UserResources> userResCollection, 
+        public UsersChangeBuffer(IMongoCollection<UserResources> userResCollection,
                                  IMongoCollection<UserInfo> userProfCollection, ILogger<UsersChangeBuffer> loger)
-        {           
+        {
             _saver = new Saver(userResCollection, userProfCollection);
             _logger = loger;
             _managersStorageBuilder = new ManagersStorageBuilder(_saver, _logger);

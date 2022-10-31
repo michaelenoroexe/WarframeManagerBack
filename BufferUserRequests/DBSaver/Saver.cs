@@ -1,5 +1,4 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using Shared;
 
 namespace BufferUserRequests.DBSaver
@@ -47,7 +46,7 @@ namespace BufferUserRequests.DBSaver
         /// Set current user porfile info.
         /// </summary>
         private async Task SetCurrentProfile(UserInfo profile)
-        { 
+        {
             await _userProfileInfoCollection.ReplaceOneAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, profile.Id), profile, new ReplaceOptions { IsUpsert = true });
 
             return;

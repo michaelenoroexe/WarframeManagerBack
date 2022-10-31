@@ -74,7 +74,7 @@ namespace API.Controllers
                 {
                     _logger.LogInformation($"User:{user.Login}, catch exeption on resource update:" + ex.Message, ex);
                     return BadRequest();
-                } 
+                }
             if (res.Type == "item")
                 try
                 {
@@ -112,7 +112,7 @@ namespace API.Controllers
             {
                 _logger.LogInformation($"User:{user?.Login}, catch exeption on item update:" + ex.Message, ex);
                 return BadRequest();
-            }  
+            }
         }
         // POST api/ProfUp/userInfo
         [HttpPost("userInfo")]

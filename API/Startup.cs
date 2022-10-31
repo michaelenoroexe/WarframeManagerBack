@@ -1,32 +1,22 @@
-﻿using System.Security.Claims;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.Extensions.Hosting;
-using MongoDB.Driver;
-using Newtonsoft.Json;
-using API.Repositories;
-using API.Logger;
-using System.Text.Json;
-using API.Models;
+﻿using API.Logger;
+using API.Models.Common;
+using API.Models.Common.ItemComp;
 using API.Models.Interfaces;
 using API.Models.Service;
-using API.Models.Common;
-using Shared;
-using BufferUserRequests;
-using API.Models.Common.ItemComp;
-using API.Models.UserWork.Interfaces;
+using API.Models.UserWork;
 using API.Models.UserWork.Getter;
+using API.Models.UserWork.Interfaces;
+using API.Models.UserWork.Setter;
+using API.Repositories;
+using BufferUserRequests;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
+using Shared;
+using System.Security.Claims;
+using UserValidation;
 using UserValidation.JWTValidation;
 using UserValidation.LoginPasswordValidator;
-using API.Models.UserWork.Setter;
-using API.Models.UserWork;
-using UserValidation;
 
 namespace API
 {
@@ -69,7 +59,7 @@ namespace API
             #endregion
             #region User validator
             services.AddSingleton<IUserValidator<ClaimsPrincipal>, JWTUserValidator>();
-            services.AddSingleton<IUserValidator<(string, string)>, LogPassUserValidator >();
+            services.AddSingleton<IUserValidator<(string, string)>, LogPassUserValidator>();
             #endregion
             services.AddSingleton<IGetData, GetDataRepository>();
             services.AddSingleton<IChangeData, ProfileUpdateRepository>();
@@ -118,7 +108,7 @@ namespace API
 
             app.UseAuthentication();
             app.UseAuthorization();
-            
+
 
             app.UseEndpoints(endpoints =>
             {

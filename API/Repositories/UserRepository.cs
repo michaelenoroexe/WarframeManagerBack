@@ -1,14 +1,10 @@
-﻿using API.Models;
-using Microsoft.Extensions.Options;
-using API.Repositories;
-using MongoDB.Driver;
-using MongoDB.Bson;
-using API.Logger;
-using UserValidation;
-using Shared;
+﻿using API.Models.Service;
 using API.Models.UserWork;
 using BufferUserRequests;
-using API.Models.Service;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using Shared;
+using UserValidation;
 
 namespace API.Repositories
 {
@@ -21,8 +17,8 @@ namespace API.Repositories
         private readonly IPasswordHasher _hasher;
         private readonly ILogger _logger;
 
-        public UserRepository(IMongoCollection<FullUser> userCollection, IMongoCollection<UserInfo> userProfileCollection, 
-            IMongoCollection<UserResources> userResourceCollection, IPasswordHasher hasher,UsersChangeBuffer usersChangeBuffer, ILogger<UserRepository> logger)
+        public UserRepository(IMongoCollection<FullUser> userCollection, IMongoCollection<UserInfo> userProfileCollection,
+            IMongoCollection<UserResources> userResourceCollection, IPasswordHasher hasher, UsersChangeBuffer usersChangeBuffer, ILogger<UserRepository> logger)
         {
             _userCollection = userCollection;
             _userProfileCollection = userProfileCollection;
@@ -73,7 +69,7 @@ namespace API.Repositories
 
         public string LoginUser(IUser user)
         {
-             return JwtAuthentication.GenerateToken(user);
+            return JwtAuthentication.GenerateToken(user);
         }
     }
 }

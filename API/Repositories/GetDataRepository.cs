@@ -1,10 +1,7 @@
-﻿using API.Models;
-using API.Models.Common;
+﻿using API.Models.Common;
 using API.Models.Common.ItemComp;
 using API.Models.Interfaces;
-using API.Models.Service;
 using API.Models.UserWork.Interfaces;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using Shared;
 using System.Collections;
@@ -40,7 +37,7 @@ namespace API.Repositories
                 index = ((IList)items).IndexOf(res.Key);
                 if (index != -1) i = items[index].Clone() as IResource;
                 else i = null;
-                
+
                 if (i is null)
                 {
                     if (exep is null) exep = ExceptionDispatchInfo.Capture(new ArgumentException());

@@ -10,11 +10,12 @@ namespace API.Models.Common
 
         [BsonElement("_id")]
         [BsonId]
-        public ObjectId Id { 
+        public ObjectId Id
+        {
             get
             {
                 return _id;
-            } 
+            }
             set
             {
                 strId = value.ToString();

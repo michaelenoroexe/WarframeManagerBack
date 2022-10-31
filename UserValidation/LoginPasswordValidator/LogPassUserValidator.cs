@@ -23,7 +23,7 @@ namespace UserValidation.LoginPasswordValidator
         }
 
         public bool ValidateCredential(string value)
-        {         
+        {
             return StringValidator.GetStringValidator().Validate(value);
         }
 

@@ -7,7 +7,7 @@ namespace BufferUserRequests.ChangeManagers
         /// <summary>
         /// Storage of user changes.
         /// </summary>
-        private Dictionary<string, int> _storage ;
+        private Dictionary<string, int> _storage;
         /// <summary>
         /// Get instance of ResourceChangeManager.
         /// </summary>

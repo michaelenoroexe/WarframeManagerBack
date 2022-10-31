@@ -1,11 +1,7 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using Shared;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using API.Models;
-using API.Repositories;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Shared;
 
 namespace API.Models.Service
 {

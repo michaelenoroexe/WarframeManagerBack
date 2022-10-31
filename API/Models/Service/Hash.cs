@@ -1,6 +1,5 @@
 using API.Models.UserWork;
 using Shared;
-using System;
 using System.Security.Cryptography;
 
 namespace API.Models.Service

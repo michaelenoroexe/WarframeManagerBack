@@ -10,16 +10,16 @@ namespace API.Controllers
 {
     [Route("api/GetData")]
     [ApiController]
-    public class GetDataController : ControllerBase
+    public sealed class GetDataController : ControllerBase
     {
-        private IGetData _repository;
+        private readonly IGetData _repository;
         private readonly ILogger<GetDataController> _logger;
         private readonly IUserValidator<ClaimsPrincipal> _validator;
         private readonly IUserConverter<ClaimsPrincipal> _converter;
 
         private IUser ValidateUser(ClaimsPrincipal us)
         {
-            IUser? user = null;
+            IUser? user;
             IClientUser? clientUser;
             try
             {
@@ -27,7 +27,7 @@ namespace API.Controllers
             }
             catch (ArgumentNullException ex)
             {
-                _logger.LogError("User tocken dont have login:"+ex.Message);
+                _logger.LogError("User token dont have login:" + ex.Message);
                 throw;
             }
             try
@@ -95,7 +95,7 @@ namespace API.Controllers
             IEnumerable<IResource> res = await _repository.GetUserItemsAsync(user);
             return Ok(res.Cast<Item>());
         }
-      
+
         [HttpGet("UserCredits")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> GetUserCredits()

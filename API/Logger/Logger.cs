@@ -1,12 +1,12 @@
 ﻿namespace API.Logger
 {
-    public sealed class Logger:ILogger, IDisposable
+    public sealed class Logger : ILogger, IDisposable
     {
         private readonly string _file;
         static object _lock = new object();
 
         public Logger(string file)
-        {  
+        {
             string? _dir = Path.GetDirectoryName(file);
             if (_dir == null || _dir == "") throw new Exception("Invalid Directory");
             Directory.CreateDirectory(_dir);
@@ -43,7 +43,7 @@
             }
         }
         // Formating accepted info
-        private string FormatExc( EventId evId, Exception? exception)
+        private string FormatExc(EventId evId, Exception? exception)
         {
             if (exception == null) return "";
             string splitStr = $"{Environment.NewLine}--- End of stack trace from previous location ---";

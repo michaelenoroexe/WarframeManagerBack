@@ -1,9 +1,6 @@
-﻿using API.Models;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
-using API.Models.Interfaces;
-using System.Diagnostics.CodeAnalysis;
 
 namespace API.Models.Common.ItemComp
 {
@@ -26,7 +23,7 @@ namespace API.Models.Common.ItemComp
         [BsonIgnore]
         public int Owned { get => _owned; }
         [BsonIgnore]
-        public string StringID => Id.ToString();       
+        public string StringID => Id.ToString();
 
         public Resource(ObjectId id, string name, string[] type, string[]? location = null, bool mastery = false)
         {

@@ -1,17 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Specialized;
-using MongoDB.Driver;
-using MongoDB.Bson;
-using System.Web;
-using API.Models;
+﻿using API.Models.UserWork;
 using API.Repositories;
-using API.Controllers;
-using API;
 using Microsoft.AspNetCore.Authorization;
-using UserValidation;
+using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 using Shared;
 using System.Security.Claims;
-using API.Models.UserWork;
+using UserValidation;
 
 namespace API.Controllers
 {
@@ -25,7 +19,7 @@ namespace API.Controllers
         private IUserValidator<ClaimsPrincipal> _jwtValidator;
         private readonly ILogger<UserController> _logger;
 
-        public UserController(IUserManager userRepository, IUserValidator<(string, string)> passValidator, 
+        public UserController(IUserManager userRepository, IUserValidator<(string, string)> passValidator,
             IUserValidator<ClaimsPrincipal> jwtValidator, ILogger<UserController> logger)
         {
             _userRepository = userRepository;
@@ -54,7 +48,7 @@ namespace API.Controllers
             }
             //Adding user to DB or error
             await _userRepository.AddUserAsync(user, user.Password);
-                
+
             return Ok();
         }
         // Controller that process user login in requests
@@ -68,7 +62,7 @@ namespace API.Controllers
             {
                 if (us.Login is null) return BadRequest("Invalid Login");
                 if (us.Password is null) return BadRequest("Invalid Password");
-                clientUser = _passValidator.GetConverter().CreateUser(new (us.Login, us.Password));
+                clientUser = _passValidator.GetConverter().CreateUser(new(us.Login, us.Password));
                 user = _passValidator.ValidateUser(clientUser);
                 if (user == null) return BadRequest("User with this login is not created");
             }
@@ -77,7 +71,7 @@ namespace API.Controllers
                 _logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
-            return Ok(new {Token = _userRepository.LoginUser(user)});
+            return Ok(new { Token = _userRepository.LoginUser(user) });
         }
 
         // Controller that process user password change
@@ -122,7 +116,7 @@ namespace API.Controllers
             try
             {
                 clientUser = _jwtValidator.GetConverter().CreateUser(User);
-                clientUser = _passValidator.GetConverter().CreateUser(new (clientUser.Login, pas.Password));
+                clientUser = _passValidator.GetConverter().CreateUser(new(clientUser.Login, pas.Password));
                 user = _passValidator.ValidateUser(clientUser);
                 if (user == null) return Unauthorized();
             }

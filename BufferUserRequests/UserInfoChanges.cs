@@ -1,5 +1,4 @@
-﻿using BufferUserRequests.ManStorage;
-using Shared;
+﻿using Shared;
 
 namespace BufferUserRequests
 {
@@ -29,14 +28,15 @@ namespace BufferUserRequests
         {
             CancellationToken tok = _tokenSource.Token;
             // Generate task that will save and dispose object after some time with no connect
-            return Task.Run(async () => {
+            return Task.Run(async () =>
+            {
                 while ((DateTime.Now - _lastAcces).TotalMilliseconds < _delayBeforeSave && !tok.IsCancellationRequested)
                 {
                     Console.WriteLine(_delayBeforeSave - (int)(DateTime.Now - _lastAcces).TotalMilliseconds);
                     await Task.Delay(_delayBeforeSave - (int)(DateTime.Now - _lastAcces).TotalMilliseconds);
                     Console.WriteLine(_delayBeforeSave - (int)(DateTime.Now - _lastAcces).TotalMilliseconds);
                 }
-            }, tok);   
+            }, tok);
         }
         private void SaveToDB()
         {

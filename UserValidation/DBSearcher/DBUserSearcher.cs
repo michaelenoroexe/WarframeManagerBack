@@ -10,10 +10,10 @@ namespace UserValidation.DBSearcher
         {
             _userCollection = userCollection;
         }
-        
+
         public async Task<FullUser?> TryFindUserAsync(IClientUser clientUser)
         {
-            IAsyncCursor<FullUser> usersInDB = await _userCollection.FindAsync( x => x.Login == clientUser.Login);
+            IAsyncCursor<FullUser> usersInDB = await _userCollection.FindAsync(x => x.Login == clientUser.Login);
             return usersInDB.SingleOrDefault();
         }
     }

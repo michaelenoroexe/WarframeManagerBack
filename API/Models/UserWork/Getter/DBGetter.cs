@@ -1,5 +1,4 @@
-﻿using API.Models.UserWork.Getter;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using Shared;
 
 namespace API.Models.UserWork.Interfaces

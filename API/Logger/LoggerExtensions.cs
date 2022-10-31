@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace API.Logger
+﻿namespace API.Logger
 {
     public static class LoggerExtensions
     {
