@@ -1,4 +1,4 @@
-﻿namespace API.Models.UserWork
+﻿namespace API.Models.Service
 {
     public interface IPasswordHasher
     {

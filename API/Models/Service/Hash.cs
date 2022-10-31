@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 
 namespace API.Models.Service
 {
-    public class Hash : IPasswordEqualityComparer, IPasswordHasher
+    internal class Hash : IPasswordEqualityComparer, IPasswordHasher
     {
         private const int SaltSize = 16;
         private const int HashSize = 20;
@@ -45,6 +45,5 @@ namespace API.Models.Service
             }
             return true;
         }
-
     }
 }

@@ -68,7 +68,6 @@ namespace API.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
             IEnumerable<IResource> res = await _repository.GetUserResourcesAsync(user);
             return Ok(res.Cast<Item>());
         }
@@ -86,7 +85,6 @@ namespace API.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
             IEnumerable<IResource> res = await _repository.GetUserItemsAsync(user);
             return Ok(res.Cast<Item>());
         }
@@ -104,7 +102,6 @@ namespace API.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
             int res = await _repository.GetUserCreditsAsync(user);
             return Ok(res);
         }
@@ -122,7 +119,6 @@ namespace API.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
             UserInfo res = await _repository.GetUserInfoAsync(user);
             return Ok(res);
         }

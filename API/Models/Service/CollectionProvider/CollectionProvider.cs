@@ -4,22 +4,22 @@ using MongoDB.Driver;
 
 namespace API.Models.Service
 {
-    sealed class CollectionProvider : ICollectionProvider
+    internal sealed class CollectionProvider : ICollectionProvider
     {
-        private IResource[] _items;
-        private IResource[] _resources;
+        private readonly IResource[] _items;
+        private readonly IResource[] _resources;
 
         /// <summary>
         /// Return full list of items filtered by predicate.
         /// </summary>
         /// <param name="func">Predicate to filter resulte list.</param>
         /// <returns></returns>
-        private async Task<IEnumerable<IResource>> GetFullList(IMongoCollection<Item> collection, Func<Item, bool> func)
+        private static async Task<IResource[]> GetFullList(IMongoCollection<Item> collection, Func<Item, bool> func)
         {
             // Get all items from db.
             IAsyncCursor<Item> res = await collection.FindAsync<Item>(FilterDefinition<Item>.Empty);
             // Filter items py predicate.
-            return res.ToEnumerable().Where(func).ToList();
+            return res.ToEnumerable().Where(func).ToArray();
         }
         /// <summary>
         /// Create collection provider with full list of items.
@@ -29,11 +29,11 @@ namespace API.Models.Service
         {
             var getCollectionByPredicate = (Func<Item, bool> arg) => GetFullList(fullList, arg);
 
-            Task<IEnumerable<IResource>> resourcesGetTask = getCollectionByPredicate(item => item.IsResource());
-            Task<IEnumerable<IResource>> itemsGetTask = getCollectionByPredicate(item => !item.IsResource());
+            Task<IResource[]> resourcesGetTask = getCollectionByPredicate(item => item.IsResource());
+            Task<IResource[]> itemsGetTask = getCollectionByPredicate(item => !item.IsResource());
 
-            _resources = resourcesGetTask.Result.ToArray();
-            _items = itemsGetTask.Result.ToArray();
+            _resources = resourcesGetTask.Result;
+            _items = itemsGetTask.Result;
         }
         /// <summary>
         /// Get all items with own number 0.

@@ -6,6 +6,6 @@
         /// Compare user inputed password with hashed in db.
         /// </summary>
         /// <returns>Are password equal or not.</returns>
-        public bool Equals(string x, string y);
+        public bool Equals(string password, string hashedPassword);
     }
 }

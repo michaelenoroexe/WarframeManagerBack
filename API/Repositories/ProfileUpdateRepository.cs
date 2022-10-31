@@ -1,4 +1,4 @@
-﻿using API.Models.Interfaces;
+﻿using API.Models.Service;
 using API.Models.UserWork.Setter;
 using Shared;
 

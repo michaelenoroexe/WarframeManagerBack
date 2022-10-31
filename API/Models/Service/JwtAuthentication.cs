@@ -7,9 +7,16 @@ namespace API.Models.Service
 {
     public static class JwtAuthentication
     {
-        public static string SecurityKey { get; set; } = "ouNtF8Xds1jE55/d+iVZ99u0f2U6lQ+AHdiPFwjVW3o=";
-        public static string ValidIssuer { get; set; } = "https://localhost:4200/";
-        public static string ValidAudience { get; set; } = "https://localhost:7132/";
+        public static string SecurityKey { get; }
+        public static string ValidIssuer { get; }
+        public static string ValidAudience { get; }
+
+        static JwtAuthentication()
+        {
+            SecurityKey = "ouNtF8Xds1jE55/d+iVZ99u0f2U6lQ+AHdiPFwjVW3o=";
+            ValidIssuer = "https://localhost:4200/";
+            ValidAudience = "https://localhost:7132/";
+        }
 
         public static SymmetricSecurityKey SymmetricSecurityKey => new SymmetricSecurityKey(Convert.FromBase64String(SecurityKey));
         public static SigningCredentials SigningCredentials => new SigningCredentials(SymmetricSecurityKey, SecurityAlgorithms.HmacSha256);

@@ -1,6 +1,6 @@
 ﻿using API.Models.Common.ItemComp;
 
-namespace API.Models.Interfaces
+namespace API.Models.Service
 {
     internal interface ICollectionProvider
     {
