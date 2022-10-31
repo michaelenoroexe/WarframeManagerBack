@@ -1,9 +1,9 @@
 ﻿namespace API.Logger
 {
-    public sealed class Logger : ILogger, IDisposable
+    internal sealed class Logger : ILogger, IDisposable
     {
         private readonly string _file;
-        static object _lock = new object();
+        static readonly object _lock = new();
 
         public Logger(string file)
         {
@@ -17,37 +17,25 @@
             _file = file;
         }
 
-        public IDisposable BeginScope<TState>(TState state)
-        {
-            return this;
-        }
-
+        public IDisposable BeginScope<TState>(TState state) => this;
         public void Dispose() { }
-
-        public bool IsEnabled(LogLevel logLevel)
-        {
-            return true;
-        }
+        public bool IsEnabled(LogLevel logLevel) => true;
         // Define logging logic
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
-        {
-            SaveLogToFile<TState>(eventId, state, exception);
-        }
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception,
+                                Func<TState, Exception?, string> formatter) => SaveLogToFile(eventId, state, exception);
         // Saving log to file
         private void SaveLogToFile<TState>(EventId evId, TState state, Exception? exception)
         {
             string time = DateTime.Now.ToString() + ": ";
-            lock (_lock)
-            {
-                File.AppendAllText(_file, "Date: " + time + " State: " + state.ToString() + FormatExc(evId, exception) + Environment.NewLine);
-            }
+            lock (_lock) File.AppendAllText(_file, "Date: " + time + " State: " + state?.ToString() + FormatExc(evId, exception) + Environment.NewLine);
         }
         // Formating accepted info
         private string FormatExc(EventId evId, Exception? exception)
         {
             if (exception == null) return "";
             string splitStr = $"{Environment.NewLine}--- End of stack trace from previous location ---";
-            return " Event: " + evId.Name + " Exception Message: " + exception.Message + Environment.NewLine + "Stack Trace" + exception.StackTrace.Split(splitStr).FirstOrDefault();
+            return "Event: " + evId.Name + " Exception Message: " + exception.Message + Environment.NewLine + 
+                    "Stack Trace: " + exception?.StackTrace?.Split(splitStr).FirstOrDefault();
         }
     }
 }
