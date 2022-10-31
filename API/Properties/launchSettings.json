@@ -11,7 +11,7 @@
   "profiles": {
     "API": {
       "commandName": "Project",
-      "launchBrowser": false,
+      "workingDirectory": "H:\\Projects\\Web\\warframeManagerB\\WarframeManager\\API",
       "launchUrl": "api/weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -21,7 +21,6 @@
     },
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": false,
       "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

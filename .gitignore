@@ -363,4 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Loger
-./API/logger.txt
+/API/logger.txt
