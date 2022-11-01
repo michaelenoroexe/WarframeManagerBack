@@ -35,9 +35,7 @@ namespace BufferUserRequests
             {
                 while ((DateTime.Now - _lastAcces).TotalMilliseconds < _delayBeforeSave && !tok.IsCancellationRequested)
                 {
-                    Console.WriteLine(_delayBeforeSave - (int)(DateTime.Now - _lastAcces).TotalMilliseconds);
                     await Task.Delay(_delayBeforeSave - (int)(DateTime.Now - _lastAcces).TotalMilliseconds);
-                    Console.WriteLine(_delayBeforeSave - (int)(DateTime.Now - _lastAcces).TotalMilliseconds);
                 }
             }, tok);
         }
