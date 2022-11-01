@@ -97,7 +97,7 @@ namespace API
             // Instantiate item collection service.
             services.AddSingleton<ICollectionProvider, CollectionProvider>();
         }
-        private void InstantiateApplicationServices(ref IServiceCollection services)
+        private static void InstantiateApplicationServices(ref IServiceCollection services)
         {
             services.AddLogging(conf => conf.AddLog(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt")));
             services.AddSingleton<IPasswordEqualityComparer, Hash>();
