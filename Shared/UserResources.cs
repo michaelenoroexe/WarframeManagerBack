@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Text.Json.Serialization;
 
 namespace Shared
 {
@@ -23,9 +24,11 @@ namespace Shared
         public Dictionary<string, int> Resources { get; }
         [BsonElement("items")]
         public Dictionary<string, int> Items { get; }
+        [BsonConstructor]
+        [JsonConstructor]
         /// <summary>
         /// Create user resource.
-        /// </summary>
+        /// </summary>   
         public UserResources(ObjectId user, ObjectId? id = null,
             int credits = 0, Dictionary<string, int>? resources = null, Dictionary<string, int>? items = null)
         {

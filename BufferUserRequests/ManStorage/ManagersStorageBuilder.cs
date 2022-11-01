@@ -4,10 +4,10 @@ using Shared;
 
 namespace BufferUserRequests.ManStorage
 {
-    internal class ManagersStorageBuilder
+    internal sealed class ManagersStorageBuilder
     {
-        private Saver _saver;
-        private ILogger _logger;
+        private readonly Saver _saver;
+        private readonly ILogger _logger;
         /// <summary>
         /// Instantiate storage builder.
         /// </summary>
@@ -21,8 +21,6 @@ namespace BufferUserRequests.ManStorage
         /// </summary>
         /// <param name="user">User who needed</param>
         public IManagersStorage CreateManagersStorage(IUser user)
-        {
-            return new ManagersStorage(user, _saver, _logger);
-        }
+            => new ManagersStorage(user, _saver, _logger);
     }
 }

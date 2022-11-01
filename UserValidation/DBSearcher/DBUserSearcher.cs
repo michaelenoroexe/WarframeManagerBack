@@ -4,7 +4,7 @@ namespace UserValidation.DBSearcher
 {
     internal sealed class DBUserSearcher
     {
-        private IMongoCollection<FullUser> _userCollection;
+        private readonly IMongoCollection<FullUser> _userCollection;
 
         public DBUserSearcher(IMongoCollection<FullUser> userCollection)
             => _userCollection = userCollection;   

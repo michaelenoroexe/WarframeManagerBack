@@ -5,7 +5,7 @@ namespace API.Repositories
     // Static client to connect to DB
     internal sealed class DBClient
     {
-        private MongoClient _mongoClient { get; }
+        private readonly IMongoClient _mongoClient;
         /// <summary>
         /// Working database
         /// </summary>

@@ -7,11 +7,11 @@ namespace BufferUserRequests
         // Variables to make class auto time exposeble
         private DateTime _lastAcces;
         private Task _savingToDB;
-        private CancellationTokenSource _tokenSource = new();
-        private int _delayBeforeSave = (int)TimeSpan.FromMinutes(0.2).TotalMilliseconds;
+        private readonly CancellationTokenSource _tokenSource = new();
+        private readonly int _delayBeforeSave = (int)TimeSpan.FromMinutes(10).TotalMilliseconds;
         private LinkedList<UserInfoChanges> _storagePlace;
         internal IUser User { get; init; }
-        private IManagersStorage _managerStorage;
+        private readonly IManagersStorage _managerStorage;
         private bool _disposedValue;
         /// <summary>
         /// Refresh last acces when add to any field.

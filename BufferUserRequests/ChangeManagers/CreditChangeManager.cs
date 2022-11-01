@@ -2,7 +2,7 @@
 
 namespace BufferUserRequests.ChangeManagers
 {
-    internal class CreditChangeManager : ISavableChangeManager<int, UserResources>
+    internal sealed class CreditChangeManager : ISavableChangeManager<int, UserResources>
     {
         /// <summary>
         /// Storage of user changes.
@@ -11,10 +11,7 @@ namespace BufferUserRequests.ChangeManagers
         /// <summary>
         /// Get instance of CreditChangeManager.
         /// </summary>
-        public CreditChangeManager()
-        {
-            _storage = 0;
-        }
+        public CreditChangeManager() => _storage = 0;
         /// <summary>
         /// Change storage to input value.
         /// </summary>

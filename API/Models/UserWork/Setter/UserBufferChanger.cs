@@ -5,7 +5,7 @@ namespace API.Models.UserWork.Setter
 {
     public sealed class UserBufferChanger : IBufferChanger
     {
-        private UsersChangeBuffer _changesBuffer;
+        private readonly UsersChangeBuffer _changesBuffer;
         /// <summary>
         /// Change values in buffer of user changes.
         /// </summary>

@@ -6,10 +6,10 @@ namespace BufferUserRequests.DBSaver
     /// <summary>
     /// Class to save manager state to db.
     /// </summary>
-    internal class Saver
+    internal sealed class Saver
     {
-        private IMongoCollection<UserResources> _userResourcesCollection;
-        private IMongoCollection<UserInfo> _userProfileInfoCollection;
+        private readonly IMongoCollection<UserResources> _userResourcesCollection;
+        private readonly IMongoCollection<UserInfo> _userProfileInfoCollection;
         #region Get state from db
         /// <summary>
         /// Get current user resources.
@@ -18,8 +18,7 @@ namespace BufferUserRequests.DBSaver
         private async Task<UserResources> GetCurrentResources(IUser user)
         {
             IAsyncCursor<UserResources> stat = await _userResourcesCollection.FindAsync(Builders<UserResources>.Filter.Eq(dbIt => dbIt.User, user.Id));
-            UserResources result = await stat.SingleOrDefaultAsync();
-            return result ?? new UserResources(user.Id);
+            return await stat.SingleOrDefaultAsync() ?? new UserResources(user.Id);
         }
         /// <summary>
         /// Get current user porfile info.
@@ -29,8 +28,7 @@ namespace BufferUserRequests.DBSaver
         private async Task<UserInfo> GetCurrentProfile(IUser user)
         {
             IAsyncCursor<UserInfo> stat = await _userProfileInfoCollection.FindAsync(Builders<UserInfo>.Filter.Eq(dbIt => dbIt.Id!, user.Id));
-            UserInfo result = await stat.SingleOrDefaultAsync();
-            return result ?? new UserInfo(null);
+            return await stat.SingleOrDefaultAsync() ?? new UserInfo(null);
         }
         #endregion
         #region Set state in db
@@ -39,17 +37,20 @@ namespace BufferUserRequests.DBSaver
         /// </summary>
         private async Task SetCurrentResources(UserResources resources)
         {
-            await _userResourcesCollection.ReplaceOneAsync(Builders<UserResources>.Filter.Eq(dbIt => dbIt.User, resources.User), resources, new ReplaceOptions { IsUpsert = true });
-            return;
+            await _userResourcesCollection.ReplaceOneAsync
+            (
+                Builders<UserResources>.Filter.Eq(dbIt => dbIt.User, resources.User), resources, new ReplaceOptions { IsUpsert = true }
+            );
         }
         /// <summary>
         /// Set current user porfile info.
         /// </summary>
         private async Task SetCurrentProfile(UserInfo profile)
         {
-            await _userProfileInfoCollection.ReplaceOneAsync(Builders<UserInfo>.Filter.Eq(x => x.Id, profile.Id), profile, new ReplaceOptions { IsUpsert = true });
-
-            return;
+            await _userProfileInfoCollection.ReplaceOneAsync
+            (
+                Builders<UserInfo>.Filter.Eq(x => x.Id, profile.Id), profile, new ReplaceOptions { IsUpsert = true }
+            );
         }
         #endregion
         /// <summary>
@@ -83,9 +84,7 @@ namespace BufferUserRequests.DBSaver
 
             UserInfo profile = await GetCurrentProfile(user);
             foreach (var saver in savable)
-            {
                 saver.Save(ref profile);
-            }
 
             await SetCurrentProfile(profile);
         }

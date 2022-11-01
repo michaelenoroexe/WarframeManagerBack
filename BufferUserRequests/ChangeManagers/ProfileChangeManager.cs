@@ -2,7 +2,7 @@
 
 namespace BufferUserRequests.ChangeManagers
 {
-    internal class ProfileChangeManager : ISavableChangeManager<UserInfo, UserInfo>
+    internal sealed class ProfileChangeManager : ISavableChangeManager<UserInfo, UserInfo>
     {
         /// <summary>
         /// Storage of user changes.

@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Text.Json.Serialization;
 
 namespace Shared
 {
@@ -14,7 +15,15 @@ namespace Shared
         public int Rank { get; }
         [BsonElement("img")]
         public int Image { get; }
-
+        [BsonConstructor]
+        [JsonConstructor]
+        public UserInfo(ObjectId? id, string? login, int rank, int image)
+        {
+            Id = id;
+            Login = login;
+            Rank = rank;
+            Image = image;
+        }
         public UserInfo(IUser? us, int rank = 0, int image = 0)
         {
             Id = us?.Id;

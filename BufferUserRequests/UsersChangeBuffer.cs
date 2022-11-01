@@ -8,10 +8,10 @@ namespace BufferUserRequests
 {
     public class UsersChangeBuffer
     {
-        private LinkedList<UserInfoChanges> _changeBuffer;
-        private Saver _saver;
-        private ManagersStorageBuilder _managersStorageBuilder;
-        private ILogger _logger;
+        private readonly LinkedList<UserInfoChanges> _changeBuffer;
+        private readonly Saver _saver;
+        private readonly ManagersStorageBuilder _managersStorageBuilder;
+        private readonly ILogger _logger;
         /// <summary>
         /// Instantiate UserChanges buffer.
         /// </summary>

@@ -2,19 +2,16 @@
 
 namespace BufferUserRequests.ChangeManagers
 {
-    internal class ItemChangeManager : ISavableChangeManager<KeyValuePair<string, int>, Dictionary<string, int>, UserResources>
+    internal sealed class ItemChangeManager : ISavableChangeManager<KeyValuePair<string, int>, Dictionary<string, int>, UserResources>
     {
         /// <summary>
         /// Storage of user changes.
         /// </summary>
-        private Dictionary<string, int> _storage;
+        private readonly Dictionary<string, int> _storage;
         /// <summary>
         /// Get instance of ItemChangeManager.
         /// </summary>
-        public ItemChangeManager()
-        {
-            _storage = new Dictionary<string, int>();
-        }
+        public ItemChangeManager() => _storage = new Dictionary<string, int>();
         /// <summary>
         /// Edit or add item in buffer.
         /// </summary>
@@ -30,9 +27,7 @@ namespace BufferUserRequests.ChangeManagers
         public void Save(ref UserResources save)
         {
             foreach (KeyValuePair<string, int> item in _storage)
-            {
                 save.Items[item.Key] = item.Value;
-            }
         }
     }
 }
