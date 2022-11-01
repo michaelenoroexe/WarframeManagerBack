@@ -12,7 +12,7 @@
             if (data.Length < 4 || data.Length > 32) return false;
             string datalower = data.ToLower();
             if (!char.IsLetter(datalower[0])) return false;
-            if (datalower.Except(validsymb).Any()) return false;          
+            if (datalower.Except(validsymb).Any()) return false;
             return true;
         }
     }

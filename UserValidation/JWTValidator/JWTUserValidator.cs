@@ -10,7 +10,7 @@ namespace UserValidation.JWTValidation
         private readonly DBUserSearcher _dbSearcher;
 
         public JWTUserValidator(IMongoCollection<FullUser> userCollection)
-            => _dbSearcher = new DBUserSearcher(userCollection);        
+            => _dbSearcher = new DBUserSearcher(userCollection);
         /// <summary>
         /// Creates converter that converts user intput data to type ready to validate.
         /// </summary>

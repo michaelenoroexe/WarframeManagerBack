@@ -10,15 +10,15 @@ namespace Shared
         private int _credits = 0;
 
         [BsonId]
-        [BsonElement("_id")]       
+        [BsonElement("_id")]
         public ObjectId? Id { get; }
         [BsonElement("user")]
         public ObjectId User { get; }
         [BsonElement("credits")]
-        public int Credits 
+        public int Credits
         {
             get => _credits;
-            set => _credits = (value > 0) ? value : _credits; 
+            set => _credits = (value > 0) ? value : _credits;
         }
         [BsonElement("resources")]
         public Dictionary<string, int> Resources { get; }

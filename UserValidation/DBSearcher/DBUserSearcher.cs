@@ -7,7 +7,7 @@ namespace UserValidation.DBSearcher
         private readonly IMongoCollection<FullUser> _userCollection;
 
         public DBUserSearcher(IMongoCollection<FullUser> userCollection)
-            => _userCollection = userCollection;   
+            => _userCollection = userCollection;
 
         public async Task<FullUser?> TryFindUserAsync(IClientUser clientUser)
         {

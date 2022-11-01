@@ -18,8 +18,8 @@ namespace API.Models.Service
             ValidAudience = "https://localhost:7132/";
         }
 
-        public static SymmetricSecurityKey SymmetricSecurityKey => new (Convert.FromBase64String(SecurityKey));
-        public static SigningCredentials SigningCredentials => new (SymmetricSecurityKey, SecurityAlgorithms.HmacSha256);
+        public static SymmetricSecurityKey SymmetricSecurityKey => new(Convert.FromBase64String(SecurityKey));
+        public static SigningCredentials SigningCredentials => new(SymmetricSecurityKey, SecurityAlgorithms.HmacSha256);
         public static string GenerateToken(IUser user)
         {
             var token = new JwtSecurityToken(
