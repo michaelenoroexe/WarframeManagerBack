@@ -2,6 +2,9 @@
 
 namespace BufferUserRequests.ChangeManagers
 {
+    /// <summary>
+    /// Manager of users credits.
+    /// </summary>
     internal sealed class CreditChangeManager : ISavableChangeManager<int, UserResources>
     {
         /// <summary>

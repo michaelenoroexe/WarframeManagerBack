@@ -1,5 +1,9 @@
 ﻿namespace BufferUserRequests
 {
+    /// <summary>
+    /// Represent object that can save its state.
+    /// </summary>
+    /// <typeparam name="S"></typeparam>
     public interface ISavable<S>
     {
         /// <summary>

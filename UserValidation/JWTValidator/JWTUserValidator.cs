@@ -5,6 +5,9 @@ using UserValidation.DBSearcher;
 
 namespace UserValidation.JWTValidation
 {
+    /// <summary>
+    /// Validate user authentication by JWT system.
+    /// </summary>
     public sealed class JWTUserValidator : IUserValidator<ClaimsPrincipal>
     {
         private readonly DBUserSearcher _dbSearcher;

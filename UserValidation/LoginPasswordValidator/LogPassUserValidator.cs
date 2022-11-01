@@ -4,6 +4,9 @@ using UserValidation.DBSearcher;
 
 namespace UserValidation.LoginPasswordValidator
 {
+    /// <summary>
+    /// Validate user by login password authentication system.
+    /// </summary>
     public sealed class LogPassUserValidator : IUserValidator<(string Login, string Password)>
     {
         private readonly DBUserSearcher _dbSearcher;
@@ -17,8 +20,24 @@ namespace UserValidation.LoginPasswordValidator
             _comparer = comparer;
             _dbSearcher = new DBUserSearcher(userCollection);
         }
+        /// <summary>
+        /// Get converter to transform inputed data to user info.
+        /// </summary>
+        /// <returns>Login password converter.</returns>
         public IUserConverter<(string Login, string Password)> GetConverter() => new LogPassUserConverter();
+        /// <summary>
+        /// Search user inputed string on unappropriate symbols.
+        /// </summary>
+        /// <param name="value">Inputed string.</param>
+        /// <returns>True if string is valid, otherwise false</returns>
         public bool ValidateCredential(string value) => StringValidator.GetStringValidator().Validate(value);
+        /// <summary>
+        /// Validate user information.
+        /// </summary>
+        /// <param name="user">User information.</param>
+        /// <returns>Application ready to work user information if user already exists in DB, otherwise null.</returns>
+        /// <exception cref="ArgumentNullException">If user dont have login or password.</exception>
+        /// <exception cref="ArgumentException">If users login or password contains unapropriate symbols.</exception>
         public IUser? ValidateUser(IClientUser user)
         {
             var inputValidator = StringValidator.GetStringValidator();

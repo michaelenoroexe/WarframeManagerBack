@@ -2,6 +2,9 @@
 
 namespace BufferUserRequests.ChangeManagers
 {
+    /// <summary>
+    /// Manager of users resources.
+    /// </summary>
     internal sealed class ResourceChangeManager : ISavableChangeManager<KeyValuePair<string, int>, Dictionary<string, int>, UserResources>
     {
         /// <summary>

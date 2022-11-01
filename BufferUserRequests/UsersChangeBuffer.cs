@@ -6,6 +6,9 @@ using Shared;
 
 namespace BufferUserRequests
 {
+    /// <summary>
+    /// Buffer of all users changes.
+    /// </summary>
     public class UsersChangeBuffer
     {
         private readonly LinkedList<UserInfoChanges> _changeBuffer;

@@ -2,6 +2,9 @@
 
 namespace BufferUserRequests
 {
+    /// <summary>
+    /// User changes manager user changes.
+    /// </summary>
     public sealed class UserInfoChanges : IDisposable
     {
         // Variables to make class auto time exposeble
