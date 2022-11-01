@@ -31,7 +31,7 @@ namespace API.Models.UserWork.Getter
             _dbGetter = dBGetter;
         }
         /// <summary>
-        /// Get user credit numner, 0 if user dont have credits.
+        /// Get user credits numner, 0 if user dont have credits.
         /// </summary>
         public async Task<int> GetCreditsAsync(IUser user)
             => _bufferChecker.GetCredits(user) ?? await _dbGetter.GetCredits(user) ?? 0;

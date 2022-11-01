@@ -3,6 +3,9 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace API.Models.Common
 {
+    /// <summary>
+    /// Projection class of resource type from db.
+    /// </summary>
     public sealed class Restype
     {
         [BsonId]

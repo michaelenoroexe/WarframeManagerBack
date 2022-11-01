@@ -4,15 +4,30 @@ using System.Text.Json.Serialization;
 
 namespace Shared
 {
+    /// <summary>
+    /// Projection class for users profile information.
+    /// </summary>
     public sealed class UserInfo
     {
-        [BsonElement("_id")]
+        /// <summary>
+        /// Users database id.
+        /// </summary>
         [BsonId]
+        [BsonElement("_id")]       
         public ObjectId? Id { get; }
+        /// <summary>
+        /// User unique login.
+        /// </summary>
         [BsonElement("login")]
         public string? Login { get; }
+        /// <summary>
+        /// User rank.
+        /// </summary>
         [BsonElement("rank")]
         public int Rank { get; }
+        /// <summary>
+        /// User profile image.
+        /// </summary>
         [BsonElement("img")]
         public int Image { get; }
         [BsonConstructor]

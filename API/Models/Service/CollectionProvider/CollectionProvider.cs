@@ -12,7 +12,6 @@ namespace API.Models.Service
         /// Return full list of items filtered by predicate.
         /// </summary>
         /// <param name="func">Predicate to filter resulte list.</param>
-        /// <returns></returns>
         private static async Task<IResource[]> GetFullList(IMongoCollection<Item> collection, Func<Item, bool> func)
         {
             // Get all items from db.
@@ -37,7 +36,6 @@ namespace API.Models.Service
         /// <summary>
         /// Get all items with own number 0.
         /// </summary>
-        /// <returns></returns>
         public IResource[] GetAllItems() => (IResource[])_items.Clone();
         /// <summary>
         /// Get all resources with own number 0.

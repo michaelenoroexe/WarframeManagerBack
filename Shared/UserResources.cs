@@ -4,24 +4,41 @@ using System.Text.Json.Serialization;
 
 namespace Shared
 {
+    /// <summary>
+    /// Projection class of user stored resources.
+    /// </summary>
     public sealed class UserResources
     {
         [BsonIgnore]
         private int _credits = 0;
-
+        /// <summary>
+        /// Record in DB id.
+        /// </summary>
         [BsonId]
         [BsonElement("_id")]
         public ObjectId? Id { get; }
+        /// <summary>
+        /// Owner of resources id.
+        /// </summary>
         [BsonElement("user")]
         public ObjectId User { get; }
+        /// <summary>
+        /// User credits number.
+        /// </summary>
         [BsonElement("credits")]
         public int Credits
         {
             get => _credits;
             set => _credits = (value > 0) ? value : _credits;
         }
+        /// <summary>
+        /// Users resource list.
+        /// </summary>
         [BsonElement("resources")]
         public Dictionary<string, int> Resources { get; }
+        /// <summary>
+        /// Users item list.
+        /// </summary>
         [BsonElement("items")]
         public Dictionary<string, int> Items { get; }
         [BsonConstructor]

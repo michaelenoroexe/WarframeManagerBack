@@ -19,6 +19,9 @@ using UserValidation.LoginPasswordValidator;
 
 namespace API
 {
+    /// <summary>
+    /// Configuration class for webhost.
+    /// </summary>
     internal sealed class Startup
     {
         public IConfiguration Configuration { get; }

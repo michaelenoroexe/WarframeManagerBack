@@ -3,6 +3,9 @@ using System.Security.Cryptography;
 
 namespace API.Models.Service
 {
+    /// <summary>
+    /// Class to work with hashed strings.
+    /// </summary>
     internal sealed class Hash : IPasswordEqualityComparer, IPasswordHasher
     {
         private const int SaltSize = 16;

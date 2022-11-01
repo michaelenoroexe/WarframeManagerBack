@@ -6,7 +6,7 @@ namespace API.Models.UserWork.Getter
     internal sealed class UserDBGetter : DBGetter
     {
         /// <summary>
-        /// Get full users items list.
+        /// Get full user item list.
         /// </summary>
         private async Task<UserResources?> GetUserResources(IUser user)
         {

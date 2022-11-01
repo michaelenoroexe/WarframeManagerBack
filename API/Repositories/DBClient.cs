@@ -2,7 +2,9 @@
 
 namespace API.Repositories
 {
-    // Static client to connect to DB
+    /// <summary>
+    /// Client with access to DB.
+    /// </summary>
     internal sealed class DBClient
     {
         private readonly IMongoClient _mongoClient;

@@ -3,6 +3,9 @@ using Shared;
 
 namespace API.Repositories
 {
+    /// <summary>
+    /// Repository to process user data changing requests.
+    /// </summary>
     internal sealed class ProfileUpdateRepository : IChangeData
     {
         private readonly IBufferChanger _userInfoSetter;

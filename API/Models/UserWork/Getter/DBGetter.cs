@@ -3,6 +3,9 @@ using Shared;
 
 namespace API.Models.UserWork.Getter
 {
+    /// <summary>
+    /// Class to get data from database.
+    /// </summary>
     internal abstract class DBGetter
     {
         protected readonly IMongoCollection<UserResources> _resourceCollection;

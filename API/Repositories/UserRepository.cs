@@ -7,6 +7,9 @@ using UserValidation;
 
 namespace API.Repositories
 {
+    /// <summary>
+    /// Repository to process user administration requests.
+    /// </summary>
     internal sealed class UserRepository : IUserManager
     {
         private readonly IMongoCollection<FullUser> _userCollection;

@@ -10,6 +10,9 @@ using System.Runtime.ExceptionServices;
 
 namespace API.Repositories
 {
+    /// <summary>
+    /// Repository to process user data getting requests.
+    /// </summary>
     internal sealed class GetDataRepository : IGetData
     {
         private readonly ICollectionProvider _provider;

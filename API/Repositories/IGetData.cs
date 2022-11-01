@@ -4,6 +4,9 @@ using Shared;
 
 namespace API.Models.Interfaces
 {
+    /// <summary>
+    /// Represent object processing data getting requests.
+    /// </summary>
     public interface IGetData
     {
         #region For all
@@ -24,7 +27,6 @@ namespace API.Models.Interfaces
         /// <summary>
         /// Get availible types of items. 
         /// </summary>
-        /// <returns></returns>
         public Task<List<Restype>> GetTypeListAsync();
         #endregion
 

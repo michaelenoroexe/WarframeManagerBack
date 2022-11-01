@@ -9,7 +9,14 @@ using UserValidation;
 
 namespace API.Controllers
 {
-    // Control users requests about accounts 
+    /// <summary>
+    /// <para>Route: api</para>
+    /// Contoller to handle user requests, such as:
+    ///  <para>- Create new user;</para>
+    ///  <para>- Sign user in;</para>
+    ///  <para>- Change user password;</para>
+    ///  <para>- Delete user.</para>
+    /// </summary>
     [Route("api")]
     [ApiController]
     public sealed class UserController : ControllerBase
@@ -18,7 +25,13 @@ namespace API.Controllers
         private readonly IUserValidator<(string, string)> _passValidator;
         private readonly IUserValidator<ClaimsPrincipal> _jwtValidator;
         private readonly ILogger<UserController> _logger;
-
+        /// <summary>
+        /// Initialize controller to handle user administration requests.
+        /// </summary>
+        /// <param name="userRepository">Repository to handle main part of requests logic.</param>
+        /// <param name="passValidator">Validator to validate user from Login/Password input.</param>
+        /// <param name="jwtValidator">Validator to validate user from JWT token.</param>
+        /// <param name="logger">Logger to save information about errors.</param>
         public UserController(IUserManager userRepository, IUserValidator<(string, string)> passValidator,
                               IUserValidator<ClaimsPrincipal> jwtValidator, ILogger<UserController> logger)
         {
@@ -27,8 +40,12 @@ namespace API.Controllers
             _jwtValidator = jwtValidator;
             _logger = logger;
         }
-
-        // POST api/registration
+        /// <summary>
+        /// POST api/registration
+        /// <param>Add new user to DB.</param>
+        /// </summary>
+        /// <param name="user">User information about new user.</param>
+        /// <returns>Status of request.</returns>
         [HttpPost("registration")]
         public async Task<ActionResult> RegisterUser([FromBody] FullUser user)
         {
@@ -45,7 +62,12 @@ namespace API.Controllers
             await _userRepository.AddUserAsync(user, user.Password);
             return Ok();
         }
-        // POST api/signin
+        /// <summary>
+        /// POST api/signin
+        /// <param>Create JWT token on valid user and send back to client.</param>
+        /// </summary>
+        /// <param name="us">User information about user to login.</param>
+        /// <returns>User JWT token.</returns>
         [HttpPost("signin")]
         public ActionResult SignInUser([FromBody] FullUser us)
         {
@@ -65,8 +87,13 @@ namespace API.Controllers
                 return BadRequest(ex.Message);
             }
             return Ok(new { Token = _userRepository.SignInUser(user) });
-        }
-        // POST api/passChange       
+        } 
+        /// <summary>
+        /// POST api/passChange
+        /// <param>Change user password stored in DB.</param>
+        /// </summary>
+        /// <param name="pasCh">User old and new password in additional to JWT token.</param>
+        /// <returns>Status of request.</returns>
         [HttpPost("passChange")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> ChangeUserPassword([FromBody] ReceivingChangePassword pasCh)
@@ -93,7 +120,12 @@ namespace API.Controllers
             await _userRepository.ChangeUserPasswordAsync(user, pasCh.NewPassword);
             return Accepted();
         }
-        // POST api/delUser          
+        /// <summary>
+        /// POST api/delUser
+        /// <param>Delete user from database.</param>
+        /// </summary>
+        /// <param name="pas">Password for the deleted account.</param>
+        /// <returns></returns>
         [HttpPost("delUser")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> DeleteUser([FromBody] ReceivingPassword pas)

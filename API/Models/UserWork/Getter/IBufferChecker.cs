@@ -2,6 +2,9 @@
 
 namespace API.Models.UserWork.Interfaces
 {
+    /// <summary>
+    /// Represent of object that gets data.
+    /// </summary>
     internal interface IBufferChecker
     {
         /// <summary>

@@ -5,7 +5,10 @@ using System.Security.Claims;
 
 namespace API.Models.Service
 {
-    public static class JwtAuthentication
+    /// <summary>
+    /// Represent JWT token generator.
+    /// </summary>
+    internal static class JwtAuthentication
     {
         public static string SecurityKey { get; }
         public static string ValidIssuer { get; }

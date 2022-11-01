@@ -10,7 +10,6 @@ namespace API.Models.UserWork.Getter
         /// <summary>
         /// Check curent values in buffer of user changes.
         /// </summary>
-        /// <param name="changesBuffer"></param>
         public UserBufferChecker(UsersChangeBuffer changesBuffer)
         {
             _changesBuffer = changesBuffer;
