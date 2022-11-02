@@ -5,13 +5,11 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{2C4358B8-D74D-4FF6-8CBD-AC41824C13E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APITests", "APITests\APITests.csproj", "{3D59675A-BE9E-4474-ACBA-359BDDCAE0AC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BufferUserRequests", "BufferUserRequests\BufferUserRequests.csproj", "{B7501C50-31AF-4406-94D5-2E14357DEBB3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{52990210-3398-45A1-836C-699B33EBCA42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserValidation", "UserValidation\UserValidation.csproj", "{B1D89220-264E-40CC-AD4F-2BD7E3E9B23A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserValidation", "UserValidation\UserValidation.csproj", "{B1D89220-264E-40CC-AD4F-2BD7E3E9B23A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{2C4358B8-D74D-4FF6-8CBD-AC41824C13E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C4358B8-D74D-4FF6-8CBD-AC41824C13E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C4358B8-D74D-4FF6-8CBD-AC41824C13E3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D59675A-BE9E-4474-ACBA-359BDDCAE0AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D59675A-BE9E-4474-ACBA-359BDDCAE0AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D59675A-BE9E-4474-ACBA-359BDDCAE0AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D59675A-BE9E-4474-ACBA-359BDDCAE0AC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7501C50-31AF-4406-94D5-2E14357DEBB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7501C50-31AF-4406-94D5-2E14357DEBB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7501C50-31AF-4406-94D5-2E14357DEBB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
