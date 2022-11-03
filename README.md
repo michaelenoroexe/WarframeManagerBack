@@ -67,16 +67,16 @@ The controller handles the following GET requests:
 ```
 
 **The structure of the returned item.**
-> "creationTime" - Time of creation of an item in seconds; (Item) <br>
-> "credits" - Item creation price in credits; (I) <br>
-> "neededResources" - Components needed to create the item; (I) <br>
-> "id" - Serialised id of the item in the database; (Item/Resource) <br>
-> "name" - The name of the item;	(I/R) <br>
-> "location" - Only available for resources and shows the planet where they are received; (I/R) <br>
-> "type" - List of item types; (I/R) <br>
-> "mastery" - Is it possible to gain profile experience for an item; (I/R) <br>
-> "owned" - The number of items the user has, the standard is 0 (I/R) <br>
-> "stringID" - String representation of item id from the database (I/R) <br>
+> **"creationTime"** - Time of creation of an item in seconds; (Item) <br>
+> **"credits"** - Item creation price in credits; (I) <br>
+> **"neededResources"** - Components needed to create the item; (I) <br>
+> **"id"** - Serialised id of the item in the database; (Item/Resource) <br>
+> **"name"** - The name of the item;	(I/R) <br>
+> **"location"** - Only available for resources and shows the planet where they are received; (I/R) <br>
+> **"type"** - List of item types; (I/R) <br>
+> **"mastery"** - Is it possible to gain profile experience for an item; (I/R) <br>
+> **"owned"** - The number of items the user has, the standard is 0 (I/R) <br>
+> **"stringID"** - String representation of item id from the database (I/R) <br>
 
 ### **Controller of data change api/ProfUp**
 > #### The main task is to edit user data.
@@ -92,6 +92,6 @@ The controller handles the following Post requests:
 The controller handles the following Post requests:
 - Registration request - accepts {Login: string, Password: string}; 
 - Signin request - takes {Login: string, Password: string} returns JWT token to user;
-- Request to change user's password(passChange) - accepts data in the form: {OldPassword: string, NewPassword: string};
+- Request to change user's password(passChange) - accepts data in the form: {OldPassword, NewPassword};
 - Request to delete user(delUser) - accepts account password as {Password: string}.
 
