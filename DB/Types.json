@@ -1,0 +1,561 @@
+[{
+  "_id": {
+    "$oid": "62d8682daeef469267d807ff"
+  },
+  "name": "resource"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80800"
+  },
+  "name": "untradable"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80801"
+  },
+  "name": "common"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80802"
+  },
+  "name": "uncommon"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80803"
+  },
+  "name": "rare"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80804"
+  },
+  "name": "special"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80805"
+  },
+  "name": "starchart"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80806"
+  },
+  "name": "research"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80807"
+  },
+  "name": "navigation"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80808"
+  },
+  "name": "empyrean"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80809"
+  },
+  "name": "miscellaneous"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8080a"
+  },
+  "name": "open space"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8080b"
+  },
+  "name": "weapon"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8080c"
+  },
+  "name": "auto"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8080d"
+  },
+  "name": "charge"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8080e"
+  },
+  "name": "semi"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8080f"
+  },
+  "name": "active"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80810"
+  },
+  "name": "semi-active"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80811"
+  },
+  "name": "auto-burst"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80812"
+  },
+  "name": "auto-spool"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80813"
+  },
+  "name": "burst"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80814"
+  },
+  "name": "held"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80815"
+  },
+  "name": "duplex"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80816"
+  },
+  "name": "auto-charge"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80817"
+  },
+  "name": "primary"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80818"
+  },
+  "name": "arm cannon"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80819"
+  },
+  "name": "bow"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8081a"
+  },
+  "name": "crossbow"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8081b"
+  },
+  "name": "exalted weapon"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8081c"
+  },
+  "name": "launcher"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8081d"
+  },
+  "name": "rifle"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8081e"
+  },
+  "name": "shotgun"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8081f"
+  },
+  "name": "sniper rifle"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80820"
+  },
+  "name": "speargun"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80821"
+  },
+  "name": "secondary"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80822"
+  },
+  "name": "dual pistols"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80823"
+  },
+  "name": "dual shotguns"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80824"
+  },
+  "name": "pistol"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80825"
+  },
+  "name": "shotgun sidearm"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80826"
+  },
+  "name": "thrown"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80827"
+  },
+  "name": "melee"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80828"
+  },
+  "name": "dagger"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80829"
+  },
+  "name": "dual daggers"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8082a"
+  },
+  "name": "dual swords"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8082b"
+  },
+  "name": "fist"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8082c"
+  },
+  "name": "glaive"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8082d"
+  },
+  "name": "gunblade"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8082e"
+  },
+  "name": "hammer"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8082f"
+  },
+  "name": "heavy blade"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80830"
+  },
+  "name": "heavy scythe"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80831"
+  },
+  "name": "machete"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80832"
+  },
+  "name": "nikana"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80833"
+  },
+  "name": "nunchaku"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80834"
+  },
+  "name": "polearm"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80835"
+  },
+  "name": "rapier"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80836"
+  },
+  "name": "scythe"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80837"
+  },
+  "name": "sparring"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80838"
+  },
+  "name": "staff"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80839"
+  },
+  "name": "sword and shield"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8083a"
+  },
+  "name": "sword"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8083b"
+  },
+  "name": "tonfa"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8083c"
+  },
+  "name": "two-handed nikana"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8083d"
+  },
+  "name": "warfan"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8083e"
+  },
+  "name": "whip"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8083f"
+  },
+  "name": "archwing"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80840"
+  },
+  "name": "arch-gun"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80841"
+  },
+  "name": "arch-melee"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80842"
+  },
+  "name": "robotic"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80843"
+  },
+  "name": "unique"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80844"
+  },
+  "name": "modular"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80845"
+  },
+  "name": "amp"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80846"
+  },
+  "name": "zaw"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80847"
+  },
+  "name": "zaw machete"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80848"
+  },
+  "name": "zaw nikana"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80849"
+  },
+  "name": "zaw rapier"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8084a"
+  },
+  "name": "zaw scythe"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8084b"
+  },
+  "name": "zaw sword"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8084c"
+  },
+  "name": "railjack"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8084d"
+  },
+  "name": "ordnance"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8084e"
+  },
+  "name": "turret"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8084f"
+  },
+  "name": "warframe"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80850"
+  },
+  "name": "archwing"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80851"
+  },
+  "name": "companion"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80852"
+  },
+  "name": "robotic"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80853"
+  },
+  "name": "sentinel"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80854"
+  },
+  "name": "moa"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80855"
+  },
+  "name": "hound"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80856"
+  },
+  "name": "beast"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80857"
+  },
+  "name": "kubrow"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80858"
+  },
+  "name": "predasite"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d80859"
+  },
+  "name": "kavat"
+},{
+  "_id": {
+    "$oid": "62d8682daeef469267d8085a"
+  },
+  "name": "vulpaphyla"
+},{
+  "_id": {
+    "$oid": "62d99e3fbf2d1fd28552bbe6"
+  },
+  "name": "semi-auto"
+},{
+  "_id": {
+    "$oid": "62d99e7abf2d1fd28552bbe7"
+  },
+  "name": "auto burst"
+},{
+  "_id": {
+    "$oid": "62d99ea1bf2d1fd28552bbe8"
+  },
+  "name": "auto charge"
+},{
+  "_id": {
+    "$oid": "62d99edfbf2d1fd28552bbe9"
+  },
+  "name": "assault saw"
+},{
+  "_id": {
+    "$oid": "62d99ef2bf2d1fd28552bbea"
+  },
+  "name": "blade and whip"
+},{
+  "_id": {
+    "$oid": "62d9a0b9bf2d1fd28552bbeb"
+  },
+  "name": "claws"
+},{
+  "_id": {
+    "$oid": "62d9a0d2bf2d1fd28552bbec"
+  },
+  "name": "zaw dagger"
+},{
+  "_id": {
+    "$oid": "62ec19a030c80bbc44011faa"
+  },
+  "name": "warframe part"
+},{
+  "_id": {
+    "$oid": "62eee58725a338ce7bc619dd"
+  },
+  "name": "weapon part"
+},{
+  "_id": {
+    "$oid": "62f26bf16f0c9aeda5a6a4f7"
+  },
+  "name": "companion part"
+},{
+  "_id": {
+    "$oid": "62f2d1286f0c9aeda5a6a4f8"
+  },
+  "name": "archwing part"
+},{
+  "_id": {
+    "$oid": "62fe86c62f3579299e390c35"
+  },
+  "name": "parts"
+},{
+  "_id": {
+    "$oid": "62fe86e02f3579299e390c36"
+  },
+  "name": "spoils"
+},{
+  "_id": {
+    "$oid": "62fe87092f3579299e390c37"
+  },
+  "name": "bonds"
+},{
+  "_id": {
+    "$oid": "62fe871e2f3579299e390c38"
+  },
+  "name": "junk"
+},{
+  "_id": {
+    "$oid": "62fe87322f3579299e390c39"
+  },
+  "name": "toroid"
+},{
+  "_id": {
+    "$oid": "62fe87822f3579299e390c3a"
+  },
+  "name": "necramech"
+},{
+  "_id": {
+    "$oid": "62fe87912f3579299e390c3b"
+  },
+  "name": "orokin matrix"
+},{
+  "_id": {
+    "$oid": "62fe87bc2f3579299e390c3c"
+  },
+  "name": "voidplume"
+},{
+  "_id": {
+    "$oid": "6317687b3d4b04d31a3ae673"
+  },
+  "name": "mining"
+}]
