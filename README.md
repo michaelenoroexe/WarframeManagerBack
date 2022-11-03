@@ -1,9 +1,10 @@
 # Warframe Manager API
-A web service keeps track of a user's resources for [Warframe MMOs](https://www.warframe.com/), allows user profile information and items in MongoDB and is an API service to interact with [Warframe Manager](https://github.com/michaelenoroexe/warframeManager).
+A web service keeps track of a user's resources for [Warframe MMOs](https://www.warframe.com/), allows store user profile information and items in MongoDB, and is a web service to interact with [Warframe Manager](https://github.com/michaelenoroexe/warframeManager).
+
 ## Getting Started
 
 Clone the repository
-Before using the web service it is necessary to deploy a Mongo database, for this in the root of the project there is a DB folder and Json dump files of basic collections from the database, they can be used to create your own Mongo database, or use the ready deployed in Mongo atlasian by a standard connection string.
+Before using the web service, it is necessary to deploy a Mongo database, for this in the root of the project there is a DB folder and Json dump files of basic collections from the database, they can be used to create your own Mongo database, or use the ready deployed in Mongo atlas by a standard connection string.
 
 -------------------------------------
 The structure of the database should look as follows
@@ -16,9 +17,9 @@ Collection names (Collection names can be changed in the Startup file):
  - UsersInfo collection: Contains information about the user's profile;
  - UsersResources collection: Contains a list of all items entered by the user.
 Next, you can use an environment variable named "MongoClientUrl" to connect to the new database, or in the appsettings.json file, replace the value of the MongoUri variable with its connection string.
---------------------------------------
-Knock down the API project.
-The service is up and running and ready to receive enquiries at http://localhost:5132 and https://localhost:7132
+-------------------------------------- 
+Build the API project.
+The service is up and running and ready to receive requests at http://localhost:5132 and https://localhost:7132
 Makes a simple request to the service for performance testing.
 
  ![2022-11-03_15-44-49](https://user-images.githubusercontent.com/86874761/199787459-1c9fbf2b-4741-4d8f-b660-bb41e102562f.png)
@@ -28,15 +29,15 @@ Makes a simple request to the service for performance testing.
 ### **Controller for receiving data api/GetData**
 > #### The main task is to provide the user with data
 The controller handles the following GET requests:
-- ResourcesList query - Retrieves a list of resources that are involved in the creation of other resources, but are not created themselves; 
+- ResourcesList query (ResourcesList) - Retrieves a list of resources that are involved in the creation of other resources, but are not created themselves; 
 - Request All Items List (ItemsList) - Retrieves a list of all items excluding resources;
-- TypesList query - Retrieves all possible types of items (Primary, Secondary, Melee, etc.);
+- TypesList query (TypesList) - Retrieves all possible types of items (Primary, Secondary, Melee, etc.);
 - Request a list of all planets in the game (Planets) - Retrieves all planets available in the game;
-- Query all user resources (UserResourcesList);
-- Query all user items (UserItemsList);
-- Query all user items (UserItemsList);
-- Query the number of user credits (UserCredits);
-- Query user profile information (UserInfo).
+- Request all user resources (UserResourcesList);
+- Request all user items (UserItemsList);
+- Request all user items (UserItemsList);
+- Request the number of user credits (UserCredits);
+- Request user profile information (UserInfo).
 
 ```json
 {
@@ -82,16 +83,15 @@ The controller handles the following GET requests:
 > #### The main task is to edit user data.
 
 The controller handles the following Post requests:
-- Request to change item quantity(api/ProfUp) - the request takes data in the form: {Resource: string (string id of item), Number: int(new owned number), Type: string(resource or item depends on user needed item)}; 
-- Request to change the number of credits (creds) - the request takes data in the form of {Number: int};
-- UserInfo query - the query takes data in the form of {Rank: int(User rank number)}: {Rank: int(User rank number), Image: int(User picture number)};
+- Request to change users item number (api/ProfUp) - the request takes data in the form: {Resource: string (string id of item), Number: int(new owned number), Type: string(resource or item depends on user needed item)}; 
+- Request to change the number of user credits (creds) - the request takes data in the form of {Number: int};
+- Request to change user profile info (userInfo) - the request takes data in the form of {Rank: int(User rank number)}: {Rank: int(User rank number), Image: int(User picture number)};
 
 ### **User administration controller api**
 > #### The main task is to administer users.
 
 The controller handles the following Post requests:
-- Registration request - accepts {Login: string, Password: string}; 
-- Signin request - takes {Login: string, Password: string} returns JWT token to user;
-- Request to change user's password(passChange) - accepts data in the form: {OldPassword, NewPassword};
-- Request to delete user(delUser) - accepts account password as {Password: string}.
-
+- Registration request (registration) - accepts {Login: string, Password: string}; 
+- Signin request (signin) - takes {Login: string, Password: string} returns JWT token to user;
+- Request to change user's password (passChange) - accepts data in the form: {OldPassword, NewPassword};
+- Request to delete user (delUser) - accepts account password as {Password: string}.
