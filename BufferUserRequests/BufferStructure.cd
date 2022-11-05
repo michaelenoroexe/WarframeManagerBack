@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BufferUserRequests.UsersChangeBuffer">
+    <Position X="11.25" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAIAAAAAAAAAAAIAAAAAEAQAAAAAAAAAA=</HashCode>
+      <FileName>UsersChangeBuffer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_managersStorageBuilder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BufferUserRequests.ManStorage.ManagersStorage">
+    <Position X="4.25" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABAIAAABAAEAAAAAAAAAAUIABCAKAAAIQhAAAACAA=</HashCode>
+      <FileName>ManStorage\ManagersStorage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_creditManager" />
+      <Field Name="_itemManager" />
+      <Field Name="_profileManager" />
+      <Field Name="_resManager" />
+      <Field Name="_saver" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BufferUserRequests.ManStorage.ManagersStorageBuilder">
+    <Position X="7.75" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAIAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ManStorage\ManagersStorageBuilder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_saver" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BufferUserRequests.DBSaver.Saver">
+    <Position X="5.5" Y="1.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAABIAAAgAAAAAAAAAAACAAAAIAAAAgAAAAAA=</HashCode>
+      <FileName>DBSaver\Saver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BufferUserRequests.ChangeManagers.CreditChangeManager" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAA=</HashCode>
+      <FileName>ChangeManagers\CreditChangeManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BufferUserRequests.ChangeManagers.ItemChangeManager" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAA=</HashCode>
+      <FileName>ChangeManagers\ItemChangeManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BufferUserRequests.ChangeManagers.ProfileChangeManager" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAA=</HashCode>
+      <FileName>ChangeManagers\ProfileChangeManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BufferUserRequests.ChangeManagers.ResourceChangeManager" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAA=</HashCode>
+      <FileName>ChangeManagers\ResourceChangeManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

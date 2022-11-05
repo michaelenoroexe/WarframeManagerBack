@@ -12,7 +12,6 @@ namespace BufferUserRequests
     public class UsersChangeBuffer
     {
         private readonly LinkedList<UserInfoChanges> _changeBuffer;
-        private readonly Saver _saver;
         private readonly ManagersStorageBuilder _managersStorageBuilder;
         private readonly ILogger _logger;
         /// <summary>
@@ -21,9 +20,9 @@ namespace BufferUserRequests
         public UsersChangeBuffer(IMongoCollection<UserResources> userResCollection,
                                  IMongoCollection<UserInfo> userProfCollection, ILogger<UsersChangeBuffer> loger)
         {
-            _saver = new Saver(userResCollection, userProfCollection);
+            var saver = new Saver(userResCollection, userProfCollection);
             _logger = loger;
-            _managersStorageBuilder = new ManagersStorageBuilder(_saver, _logger);
+            _managersStorageBuilder = new ManagersStorageBuilder(saver, _logger);
             _changeBuffer = new LinkedList<UserInfoChanges>();
         }
         /// <summary>
