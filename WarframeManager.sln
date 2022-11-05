@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{2C4358B8-D74D-4FF6-8CBD-AC41824C13E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APITests", "APITests\APITests.csproj", "{3D59675A-BE9E-4474-ACBA-359BDDCAE0AC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BufferUserRequests", "BufferUserRequests\BufferUserRequests.csproj", "{B7501C50-31AF-4406-94D5-2E14357DEBB3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{52990210-3398-45A1-836C-699B33EBCA42}"
