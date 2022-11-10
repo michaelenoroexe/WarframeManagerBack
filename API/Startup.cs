@@ -33,11 +33,13 @@ namespace API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore();
+            services.AddMvcCore()
+                    .AddApiExplorer();
             services.AddAuthorization();
             #region Dependency Injection.
             InstantiateDBServices(ref services);
             InstantiateApplicationServices(ref services);
+            services.AddSwaggerGen();
             // Adding CORS Secvices.
             services.AddCors();
             #endregion
@@ -65,7 +67,12 @@ namespace API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
+            {
                 app.UseDeveloperExceptionPage();
+
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
             else
                 app.UseHsts();
 
